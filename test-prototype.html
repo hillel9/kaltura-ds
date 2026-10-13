@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test prototype (DS v1.0)</title>
+
+  <!-- The three DS tags. This page links ONLY files from releases/v1.0/. -->
+  <link rel="stylesheet" href="releases/v1.0/styles.css" />
+  <script src="releases/v1.0/ds-icons.js"></script>
+  <script src="releases/v1.0/ds.js"></script>
+
+  <style>
+    body { margin: 0; padding: 32px; background: var(--ds-background); color: var(--ds-tone-1); }
+    .stack { display: flex; flex-direction: column; gap: 32px; max-width: 640px; }
+    .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    #status { font-size: 14px; color: var(--ds-tone-2); }
+  </style>
+</head>
+<body>
+  <div class="stack">
+    <h1>Test prototype</h1>
+
+    <!-- Button + icons -->
+    <div class="row">
+      <button class="ds-btn ds-btn-md ds-btn-primary" id="save">
+        <ds-icon name="check" size="16"></ds-icon> Save
+      </button>
+      <ds-icon name="settings"></ds-icon>
+      <ds-icon name="search"></ds-icon>
+      <span id="status">Nothing selected yet.</span>
+    </div>
+
+    <!-- Select -->
+    <div class="row">
+      <div class="ds-select-wrapper" id="fruit">
+        <button class="ds-select" aria-haspopup="listbox">
+          <span>Pick a fruit</span>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu" role="listbox">
+          <button class="ds-select-item" role="option"><span class="ds-select-item-label">Apple</span></button>
+          <button class="ds-select-item" role="option"><span class="ds-select-item-label">Banana</span></button>
+          <button class="ds-select-item" role="option"><span class="ds-select-item-label">Cherry</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="ds-tabs" role="tablist" id="tabs">
+      <button class="ds-tab" role="tab" aria-selected="true">Overview</button>
+      <button class="ds-tab" role="tab" aria-selected="false">Activity</button>
+      <button class="ds-tab" role="tab" aria-selected="false">Settings</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="row">
+      <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="confirm-modal">Open modal</button>
+    </div>
+
+    <div class="ds-modal ds-modal-sm" id="confirm-modal" hidden>
+      <div class="ds-modal-backdrop" data-ds-close></div>
+      <div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+        <div class="ds-modal-header">
+          <h2 class="ds-modal-title" id="confirm-modal-title">Delete item?</h2>
+          <button class="ds-modal-close" data-ds-close aria-label="Close"><ds-icon name="clear"></ds-icon></button>
+        </div>
+        <div class="ds-modal-body">This action cannot be undone.</div>
+        <div class="ds-modal-footer">
+          <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-close>Cancel</button>
+          <button class="ds-btn ds-btn-md ds-btn-danger" data-ds-close>Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

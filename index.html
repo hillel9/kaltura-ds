@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaltura DS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Preview-only styles (not part of the DS) ---- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--ds-background);
+      color: var(--ds-tone-1);
+      padding: 40px 24px;
+    }
+    .preview-wrap { max-width: 960px; margin: 0 auto; }
+    .preview-header { margin-bottom: 48px; }
+    .preview-header h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+    .preview-header p { font-size: 14px; color: var(--ds-tone-2); }
+
+    .section { margin-bottom: 56px; }
+    .section-title {
+      font-size: 22px; font-weight: 700; margin-bottom: 20px;
+      padding-bottom: 8px; border-bottom: 2px solid var(--ds-tone-5);
+    }
+    .row {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .row-label {
+      width: 100px; flex-shrink: 0;
+      font-size: 11px; font-weight: 700; color: var(--ds-tone-3);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    .swatch-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .swatch {
+      border-radius: var(--ds-roundness-2);
+      overflow: hidden; border: 1px solid var(--ds-tone-5);
+      background: var(--ds-tone-8);
+    }
+    .swatch-color { height: 56px; }
+    .swatch-info { padding: 8px 10px; }
+    .swatch-name { font-size: 12px; font-weight: 700; }
+    .swatch-val { font-size: 11px; color: var(--ds-tone-3); margin-top: 2px; }
+
+    .token-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 13px;
+    }
+    .token-table th {
+      text-align: left; font-size: 11px; font-weight: 700;
+      color: var(--ds-tone-3); text-transform: uppercase;
+      letter-spacing: 0.5px; padding: 8px 12px;
+      border-bottom: 2px solid var(--ds-tone-5);
+    }
+    .token-table td {
+      padding: 8px 12px; border-bottom: 1px solid var(--ds-tone-6);
+      vertical-align: middle;
+    }
+    .token-table code {
+      font-size: 12px; background: var(--ds-tone-7);
+      padding: 2px 6px; border-radius: 3px;
+    }
+    .radius-demo {
+      width: 48px; height: 48px; background: var(--ds-primary);
+    }
+    .typo-sample { line-height: 1.3; }
+
+    .icon-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+      gap: 12px;
+    }
+    .icon-tile {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 12px 4px; border: 1px solid var(--ds-tone-6);
+      border-radius: var(--ds-roundness-2);
+    }
+    .icon-name {
+      font-size: 11px; color: var(--ds-tone-2); text-align: center;
+      word-break: break-word; line-height: 1.3;
+    }
+    .space-bar { height: 16px; background: var(--ds-primary); border-radius: 2px; }
+    .shadow-demo {
+      width: 160px; height: 72px; border-radius: var(--ds-roundness-2);
+      background: var(--ds-elevated);
+    }
+
+    .upload-tile {
+      display: flex; align-items: center; justify-content: center;
+      width: 64px; height: 64px; padding: var(--ds-space-2); cursor: pointer;
+      color: var(--ds-tone-1); background: var(--ds-tone-8);
+      border: 1px dashed var(--ds-tone-4); border-radius: var(--ds-roundness-1);
+    }
+    .upload-tile:hover { background: var(--ds-tone-7); }
+    .upload-tile:focus-visible { outline: 2px solid var(--ds-primary); outline-offset: 2px; }
+
+    .form-demo { max-width: 400px; }
+    .theme-toggle {
+      position: fixed; top: 16px; right: 16px;
+      font-size: 12px; padding: 6px 14px;
+      background: var(--ds-tone-1); color: var(--ds-tone-8);
+      border: none; border-radius: var(--ds-roundness-1);
+      cursor: pointer; font-weight: 700; font-family: 'Lato', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<button class="theme-toggle" data-ds-theme-toggle>Toggle Dark</button>
+
+<div class="preview-wrap">
+  <div class="preview-header">
+    <h1>DS — Design System</h1>
+    <p>Plain HTML/CSS/JS design system. Link <code>styles.css</code>, <code>ds-icons.js</code> and <code>ds.js</code> and use the <code>ds-</code> prefixed classes.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Colors
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Colors</h2>
+
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Primary</h3>
+    <div class="swatch-grid" style="margin-bottom:24px;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-primary);"></div>
+        <div class="swatch-info"><div class="swatch-name">Primary</div><div class="swatch-val">#006EFA</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-primary-darker);"></div>
+        <div class="swatch-info"><div class="swatch-name">Primary Darker</div><div class="swatch-val">#004CAD</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-primary-brighter);"></div>
+        <div class="swatch-info"><div class="swatch-name">Primary Brighter</div><div class="swatch-val">#4798FF</div></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Danger</h3>
+    <div class="swatch-grid" style="margin-bottom:24px;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-danger);"></div>
+        <div class="swatch-info"><div class="swatch-name">Danger</div><div class="swatch-val">#CA1C2D</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-danger-darker);"></div>
+        <div class="swatch-info"><div class="swatch-name">Danger Darker</div><div class="swatch-val">#9D1523</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-danger-brighter);"></div>
+        <div class="swatch-info"><div class="swatch-name">Danger Brighter</div><div class="swatch-val">#E33547</div></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Brand &amp; Acknowledgement</h3>
+    <div class="swatch-grid" style="margin-bottom:24px;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-warning);"></div>
+        <div class="swatch-info"><div class="swatch-name">Warning</div><div class="swatch-val">#E86925</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-stream-blue);"></div>
+        <div class="swatch-info"><div class="swatch-name">Stream Blue</div><div class="swatch-val">#006EFA</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-screen-green);"></div>
+        <div class="swatch-info"><div class="swatch-name">Screen Green</div><div class="swatch-val">#00A078</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Surfaces
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Surfaces</h2>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-background); border-bottom: 1px solid #ddd;"></div>
+        <div class="swatch-info"><div class="swatch-name">Background</div><div class="swatch-val">#FFFFFF</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-paper);"></div>
+        <div class="swatch-info"><div class="swatch-name">Paper</div><div class="swatch-val">#F5F5F5</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-elevated); border-bottom: 1px solid #ddd;"></div>
+        <div class="swatch-info"><div class="swatch-name">Elevated</div><div class="swatch-val">#FFFFFF</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Tones
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Tones</h2>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-tone-1);"></div>
+        <div class="swatch-info"><div class="swatch-name">Tone 1</div><div class="swatch-val">#333333</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-tone-2);"></div>
+        <div class="swatch-info"><div class="swatch-name">Tone 2</div><div class="swatch-val">#707070</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-tone-3);"></div>
+        <div class="swatch-info"><div class="swatch-name">Tone 3</div><div class="swatch-val">#878787</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-tone-4);"></div>
+        <div class="swatch-info"><div class="swatch-name">Tone 4</div><div class="swatch-val">#BDBDBD</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-tone-5);"></div>
+        <div class="swatch-info"><div class="swatch-name">Tone 5</div><div class="swatch-val">#D9D9D9</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-tone-6);"></div>
+        <div class="swatch-info"><div class="swatch-name">Tone 6</div><div class="swatch-val">#EBEBEB</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-tone-7);"></div>
+        <div class="swatch-info"><div class="swatch-name">Tone 7</div><div class="swatch-val">#F5F5F5</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-tone-8); border: 1px solid #ddd;"></div>
+        <div class="swatch-info"><div class="swatch-name">Tone 8</div><div class="swatch-val">#FFFFFF</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Opacity
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Opacity</h2>
+    <div style="display:flex; gap:24px; flex-wrap:wrap;">
+      <div>
+        <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Black</h3>
+        <div style="display:flex; gap:8px;">
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-20);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-20</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-30);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-30</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-40);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-40</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-60);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-60</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-70);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-70</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-100);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-100</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">White</h3>
+        <div style="display:flex; gap:8px;">
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-20);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-20</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-40);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-40</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-60);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-60</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-70);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-70</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-80);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-80</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-100);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-100</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Radius
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Radius</h2>
+    <table class="token-table">
+      <thead><tr><th>Token</th><th>Value</th><th>Preview</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>--ds-roundness-1</code></td>
+          <td>4px</td>
+          <td><div class="radius-demo" style="border-radius: var(--ds-roundness-1);"></div></td>
+        </tr>
+        <tr>
+          <td><code>--ds-roundness-2</code></td>
+          <td>8px</td>
+          <td><div class="radius-demo" style="border-radius: var(--ds-roundness-2);"></div></td>
+        </tr>
+        <tr>
+          <td><code>--ds-roundness-3</code></td>
+          <td>12px</td>
+          <td><div class="radius-demo" style="border-radius: var(--ds-roundness-3);"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Typography
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Typography</h2>
+    <p style="font-size:13px; color:var(--ds-tone-2); margin-bottom:16px;">Font: Lato (400, 700)</p>
+    <table class="token-table">
+      <thead><tr><th>Style</th><th>Weight</th><th>Size / Line</th><th>Sample</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Button Label 1</td><td>700</td><td>14px / 100%</td>
+          <td class="typo-sample" style="font-weight:700; font-size:14px;">Button Text</td>
+        </tr>
+        <tr>
+          <td>Button Label 2</td><td>700</td><td>16px / 100%</td>
+          <td class="typo-sample" style="font-weight:700; font-size:16px;">Button Text</td>
+        </tr>
+        <tr>
+          <td>Body 1</td><td>400</td><td>16px / 21px</td>
+          <td class="typo-sample" style="font-weight:400; font-size:16px; line-height:21px;">Body text at 16px</td>
+        </tr>
+        <tr>
+          <td>Body 2</td><td>400</td><td>14px / 18px</td>
+          <td class="typo-sample" style="font-weight:400; font-size:14px; line-height:18px;">Body text at 14px</td>
+        </tr>
+        <tr>
+          <td>Form Label 1</td><td>700</td><td>14px / 16px</td>
+          <td class="typo-sample" style="font-weight:700; font-size:14px; line-height:16px;">Label Text</td>
+        </tr>
+        <tr>
+          <td>Form Label 2</td><td>700</td><td>16px / 100%</td>
+          <td class="typo-sample" style="font-weight:700; font-size:16px;">Label Text</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Spacing
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Spacing</h2>
+    <p style="font-size:var(--ds-font-size-3); color:var(--ds-tone-2); margin-bottom:var(--ds-space-4);">4px base. <code>--ds-space-N</code> = N &times; 4px. Half steps use a dash (<code>1-5</code> = 1.5 &times; 4 = 6px).</p>
+    <table class="token-table">
+      <thead><tr><th>Token</th><th>Value</th><th>Preview</th></tr></thead>
+      <tbody>
+        <tr><td><code>--ds-space-1</code></td><td>4px</td><td><div class="space-bar" style="width:var(--ds-space-1);"></div></td></tr>
+        <tr><td><code>--ds-space-2</code></td><td>8px</td><td><div class="space-bar" style="width:var(--ds-space-2);"></div></td></tr>
+        <tr><td><code>--ds-space-3</code></td><td>12px</td><td><div class="space-bar" style="width:var(--ds-space-3);"></div></td></tr>
+        <tr><td><code>--ds-space-4</code></td><td>16px</td><td><div class="space-bar" style="width:var(--ds-space-4);"></div></td></tr>
+        <tr><td><code>--ds-space-5</code></td><td>20px</td><td><div class="space-bar" style="width:var(--ds-space-5);"></div></td></tr>
+        <tr><td><code>--ds-space-6</code></td><td>24px</td><td><div class="space-bar" style="width:var(--ds-space-6);"></div></td></tr>
+        <tr><td><code>--ds-space-7</code></td><td>28px</td><td><div class="space-bar" style="width:var(--ds-space-7);"></div></td></tr>
+        <tr><td><code>--ds-space-8</code></td><td>32px</td><td><div class="space-bar" style="width:var(--ds-space-8);"></div></td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin:var(--ds-space-6) 0 var(--ds-space-3);">Half steps</h3>
+    <table class="token-table">
+      <thead><tr><th>Token</th><th>Value</th><th>Preview</th></tr></thead>
+      <tbody>
+        <tr><td><code>--ds-space-0-25</code></td><td>1px</td><td><div class="space-bar" style="width:var(--ds-space-0-25);"></div></td></tr>
+        <tr><td><code>--ds-space-0-5</code></td><td>2px</td><td><div class="space-bar" style="width:var(--ds-space-0-5);"></div></td></tr>
+        <tr><td><code>--ds-space-0-75</code></td><td>3px</td><td><div class="space-bar" style="width:var(--ds-space-0-75);"></div></td></tr>
+        <tr><td><code>--ds-space-1-5</code></td><td>6px</td><td><div class="space-bar" style="width:var(--ds-space-1-5);"></div></td></tr>
+        <tr><td><code>--ds-space-2-5</code></td><td>10px</td><td><div class="space-bar" style="width:var(--ds-space-2-5);"></div></td></tr>
+        <tr><td><code>--ds-space-3-5</code></td><td>14px</td><td><div class="space-bar" style="width:var(--ds-space-3-5);"></div></td></tr>
+        <tr><td><code>--ds-space-4-5</code></td><td>18px</td><td><div class="space-bar" style="width:var(--ds-space-4-5);"></div></td></tr>
+        <tr><td><code>--ds-space-5-5</code></td><td>22px</td><td><div class="space-bar" style="width:var(--ds-space-5-5);"></div></td></tr>
+        <tr><td><code>--ds-space-16</code></td><td>64px</td><td><div class="space-bar" style="width:var(--ds-space-16);"></div></td></tr>
+      </tbody>
+    </table>
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-4); margin-top:var(--ds-space-5); font-size:var(--ds-font-size-3);">&lt;div style="padding: var(--ds-space-4); gap: var(--ds-space-2);"&gt;…&lt;/div&gt;</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Font sizes, weights, line heights
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Font Scale</h2>
+    <table class="token-table">
+      <thead><tr><th>Token</th><th>Value</th><th>Sample</th></tr></thead>
+      <tbody>
+        <tr><td><code>--ds-font-size-1</code></td><td>11px</td><td style="font-size:var(--ds-font-size-1); line-height:var(--ds-line-height-solid);">The quick brown fox</td></tr>
+        <tr><td><code>--ds-font-size-2</code></td><td>12px</td><td style="font-size:var(--ds-font-size-2); line-height:var(--ds-line-height-solid);">The quick brown fox</td></tr>
+        <tr><td><code>--ds-font-size-3</code></td><td>13px</td><td style="font-size:var(--ds-font-size-3); line-height:var(--ds-line-height-solid);">The quick brown fox</td></tr>
+        <tr><td><code>--ds-font-size-4</code></td><td>14px</td><td style="font-size:var(--ds-font-size-4); line-height:var(--ds-line-height-solid);">The quick brown fox</td></tr>
+        <tr><td><code>--ds-font-size-5</code></td><td>16px</td><td style="font-size:var(--ds-font-size-5); line-height:var(--ds-line-height-solid);">The quick brown fox</td></tr>
+        <tr><td><code>--ds-font-size-6</code></td><td>18px</td><td style="font-size:var(--ds-font-size-6); line-height:var(--ds-line-height-solid);">The quick brown fox</td></tr>
+        <tr><td><code>--ds-font-size-7</code></td><td>48px</td><td style="font-size:var(--ds-font-size-7); line-height:var(--ds-line-height-solid);">The quick brown fox</td></tr>
+        <tr><td><code>--ds-font-weight-regular</code></td><td>400</td><td style="font-weight:var(--ds-font-weight-regular);">The quick brown fox</td></tr>
+        <tr><td><code>--ds-font-weight-bold</code></td><td>700</td><td style="font-weight:var(--ds-font-weight-bold);">The quick brown fox</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin:var(--ds-space-6) 0 var(--ds-space-3);">Line heights</h3>
+    <table class="token-table">
+      <thead><tr><th>Token</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td><code>--ds-line-height-solid</code></td><td>1 (unitless)</td></tr>
+        <tr><td><code>--ds-line-height-16</code></td><td>16px</td></tr>
+        <tr><td><code>--ds-line-height-18</code></td><td>18px</td></tr>
+        <tr><td><code>--ds-line-height-20</code></td><td>20px</td></tr>
+        <tr><td><code>--ds-line-height-21</code></td><td>21px</td></tr>
+        <tr><td><code>--ds-line-height-24</code></td><td>24px</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOKENS — Shadows, tints, accent
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tokens — Shadows &amp; Tints</h2>
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin-bottom:var(--ds-space-3);">Shadows</h3>
+    <div style="display:flex; gap:var(--ds-space-8); flex-wrap:wrap; padding:var(--ds-space-6); background:var(--ds-paper); border-radius:var(--ds-roundness-2); margin-bottom:var(--ds-space-6);">
+      <div><div class="shadow-demo" style="box-shadow:var(--ds-shadow-menu);"></div><div style="font-size:var(--ds-font-size-3); margin-top:var(--ds-space-3);"><code>--ds-shadow-menu</code><br><span style="color:var(--ds-tone-2);">Select menu</span></div></div>
+      <div><div class="shadow-demo" style="box-shadow:var(--ds-shadow-floating);"></div><div style="font-size:var(--ds-font-size-3); margin-top:var(--ds-space-3);"><code>--ds-shadow-floating</code><br><span style="color:var(--ds-tone-2);">Floating toast / modal</span></div></div>
+    </div>
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin-bottom:var(--ds-space-3);">Tints &amp; other colors</h3>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:var(--ds-primary-tint-6);"></div><div class="swatch-info"><div class="swatch-name">Primary 6%</div><div class="swatch-val">--ds-primary-tint-6</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--ds-primary-tint-10);"></div><div class="swatch-info"><div class="swatch-name">Primary 10%</div><div class="swatch-val">--ds-primary-tint-10</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--ds-danger-tint-10);"></div><div class="swatch-info"><div class="swatch-name">Danger 10%</div><div class="swatch-val">--ds-danger-tint-10</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--ds-accent);"></div><div class="swatch-info"><div class="swatch-name">Selected-tab indicator</div><div class="swatch-val">--ds-accent</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--ds-text-subtle);"></div><div class="swatch-info"><div class="swatch-name">Menu item description</div><div class="swatch-val">--ds-text-subtle</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--ds-text-subtle-disabled);"></div><div class="swatch-info"><div class="swatch-name">Disabled description</div><div class="swatch-val">--ds-text-subtle-disabled</div></div></div>
+    </div>
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin:var(--ds-space-6) 0 var(--ds-space-3);">Motion &amp; layering</h3>
+    <table class="token-table">
+      <thead><tr><th>Token</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td><code>--ds-duration-fast / -base / -slow</code></td><td>0.1s / 0.15s / 0.2s</td></tr>
+        <tr><td><code>--ds-z-dropdown / -tooltip / -modal / -toast</code></td><td>100 / 100 / 1000 / 9999</td></tr>
+        <tr><td><code>--ds-modal-width-sm / -md / -lg</code></td><td>400px / 560px / 800px</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Button
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Button</h2>
+
+    <div class="row">
+      <span class="row-label">Variants</span>
+      <button class="ds-btn ds-btn-md ds-btn-primary">Primary</button>
+      <button class="ds-btn ds-btn-md ds-btn-secondary">Secondary</button>
+      <button class="ds-btn ds-btn-md ds-btn-danger">Danger</button>
+      <button class="ds-btn ds-btn-md ds-btn-primary" disabled>Disabled</button>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Sizes</span>
+      <button class="ds-btn ds-btn-sm ds-btn-primary">Small</button>
+      <button class="ds-btn ds-btn-md ds-btn-primary">Medium</button>
+      <button class="ds-btn ds-btn-lg ds-btn-primary">Large</button>
+      <button class="ds-btn ds-btn-xl ds-btn-primary">XL</button>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Borderless</span>
+      <button class="ds-btn ds-btn-md ds-btn-primary ds-btn-borderless">Primary</button>
+      <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless">Secondary</button>
+      <button class="ds-btn ds-btn-md ds-btn-danger ds-btn-borderless">Danger</button>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Icon Only</span>
+      <button class="ds-btn ds-btn-sm ds-btn-primary ds-btn-icon">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="ds-btn ds-btn-md ds-btn-primary ds-btn-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="ds-btn ds-btn-lg ds-btn-secondary ds-btn-icon">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="ds-btn ds-btn-lg ds-btn-primary ds-btn-borderless ds-btn-icon">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Circular</span>
+      <button class="ds-btn-circular ds-btn-circular-sm">
+        <ds-icon name="play"></ds-icon>
+      </button>
+      <button class="ds-btn-circular ds-btn-circular-md">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M7 6.37629C7 5.31568 8.20725 4.65486 9.16856 5.18927L19.2846 10.813C20.2385 11.3433 20.2385 12.6567 19.2846 13.187L9.16855 18.8107C8.20725 19.3451 7 18.6843 7 17.6237L7 6.37629Z" fill="currentColor"/></svg>
+      </button>
+      <button class="ds-btn-circular ds-btn-circular-lg">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M7 6.37629C7 5.31568 8.20725 4.65486 9.16856 5.18927L19.2846 10.813C20.2385 11.3433 20.2385 12.6567 19.2846 13.187L9.16855 18.8107C8.20725 19.3451 7 18.6843 7 17.6237L7 6.37629Z" fill="currentColor"/></svg>
+      </button>
+      <button class="ds-btn-circular ds-btn-circular-sm" disabled>
+        <ds-icon name="play"></ds-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Input
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Input</h2>
+
+    <div class="row">
+      <span class="row-label">Sizes</span>
+      <input class="ds-input ds-input-md" placeholder="Medium" style="width:180px;" />
+      <input class="ds-input ds-input-lg" placeholder="Large" style="width:220px;" />
+      <input class="ds-input ds-input-xl" placeholder="XL" style="width:260px;" />
+    </div>
+
+    <div class="row">
+      <span class="row-label">States</span>
+      <input class="ds-input ds-input-md" value="Default" style="width:160px;" />
+      <input class="ds-input ds-input-md ds-input-error" value="Error" style="width:160px;" />
+      <input class="ds-input ds-input-md" disabled value="Disabled" style="width:160px;" />
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Textarea
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Textarea</h2>
+
+    <div class="row" style="align-items:start;">
+      <span class="row-label">Default</span>
+      <textarea class="ds-textarea" placeholder="Enter some text..." style="width:340px;"></textarea>
+    </div>
+    <div class="row" style="align-items:start;">
+      <span class="row-label">Error</span>
+      <textarea class="ds-textarea ds-textarea-error" style="width:340px;">Invalid content</textarea>
+    </div>
+    <div class="row" style="align-items:start;">
+      <span class="row-label">Disabled</span>
+      <textarea class="ds-textarea" disabled style="width:340px;">Cannot edit</textarea>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Checkbox
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Checkbox</h2>
+
+    <div class="row">
+      <span class="row-label">States</span>
+
+      <label class="ds-checkbox">
+        <input type="checkbox" class="ds-checkbox-input" />
+        <span class="ds-checkbox-indicator">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="ds-checkbox-label">Unchecked</span>
+      </label>
+
+      <label class="ds-checkbox">
+        <input type="checkbox" class="ds-checkbox-input" checked />
+        <span class="ds-checkbox-indicator">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="ds-checkbox-label">Checked</span>
+      </label>
+
+      <label class="ds-checkbox">
+        <input type="checkbox" class="ds-checkbox-input" disabled />
+        <span class="ds-checkbox-indicator">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="ds-checkbox-label">Disabled</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Radio
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Radio</h2>
+
+    <div class="row">
+      <span class="row-label">Group</span>
+
+      <label class="ds-radio">
+        <input type="radio" name="demo-plan" class="ds-radio-input" checked />
+        <span class="ds-radio-indicator"></span>
+        <span class="ds-radio-label">Option A</span>
+      </label>
+
+      <label class="ds-radio">
+        <input type="radio" name="demo-plan" class="ds-radio-input" />
+        <span class="ds-radio-indicator"></span>
+        <span class="ds-radio-label">Option B</span>
+      </label>
+
+      <label class="ds-radio">
+        <input type="radio" name="demo-plan" class="ds-radio-input" />
+        <span class="ds-radio-indicator"></span>
+        <span class="ds-radio-label">Option C</span>
+      </label>
+
+      <label class="ds-radio">
+        <input type="radio" name="disabled" class="ds-radio-input" disabled />
+        <span class="ds-radio-indicator"></span>
+        <span class="ds-radio-label">Disabled</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Switch
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Switch</h2>
+
+    <div class="row">
+      <span class="row-label">Large</span>
+      <div class="ds-switch">
+        <button class="ds-switch-track ds-switch-lg ds-switch-off" role="switch" aria-checked="false">
+          <span class="ds-switch-handle"></span>
+        </button>
+        <div class="ds-switch-content">
+          <span class="ds-switch-label">Notifications</span>
+          <span class="ds-switch-description">Receive email updates</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Small</span>
+      <div class="ds-switch">
+        <button class="ds-switch-track ds-switch-sm ds-switch-on" role="switch" aria-checked="true">
+          <span class="ds-switch-handle"></span>
+        </button>
+      </div>
+      <div class="ds-switch">
+        <button class="ds-switch-track ds-switch-sm ds-switch-off" role="switch" aria-checked="false" disabled>
+          <span class="ds-switch-handle"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — FormField
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">FormField</h2>
+
+    <div class="form-demo">
+      <div class="ds-form-field">
+        <label class="ds-form-label">Full Name</label>
+        <input class="ds-input ds-input-md" placeholder="Enter your name" />
+      </div>
+
+      <div class="ds-form-field">
+        <label class="ds-form-label">
+          Email
+          <span class="ds-form-counter">0/100</span>
+        </label>
+        <p class="ds-form-desc">We'll never share your email.</p>
+        <input class="ds-input ds-input-md" placeholder="you@example.com" />
+      </div>
+
+      <div class="ds-form-field">
+        <label class="ds-form-label">Password</label>
+        <input class="ds-input ds-input-md ds-input-error" type="password" value="short" />
+        <p class="ds-form-error">Password must be at least 8 characters.</p>
+      </div>
+
+      <div class="ds-form-field">
+        <label class="ds-form-label">Bio</label>
+        <textarea class="ds-textarea" placeholder="Tell us about yourself..."></textarea>
+      </div>
+
+      <div class="ds-form-field">
+        <label class="ds-form-label">Plan</label>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <label class="ds-radio">
+            <input type="radio" name="form-plan" class="ds-radio-input" checked />
+            <span class="ds-radio-indicator"></span>
+            <span class="ds-radio-label">Free</span>
+          </label>
+          <label class="ds-radio">
+            <input type="radio" name="form-plan" class="ds-radio-input" />
+            <span class="ds-radio-indicator"></span>
+            <span class="ds-radio-label">Pro</span>
+          </label>
+          <label class="ds-radio">
+            <input type="radio" name="form-plan" class="ds-radio-input" />
+            <span class="ds-radio-indicator"></span>
+            <span class="ds-radio-label">Enterprise</span>
+          </label>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <label class="ds-checkbox">
+          <input type="checkbox" class="ds-checkbox-input" />
+          <span class="ds-checkbox-indicator">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="ds-checkbox-label">I agree to the terms</span>
+        </label>
+      </div>
+
+      <button class="ds-btn ds-btn-lg ds-btn-primary" style="width:100%;">Submit</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Select
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Select</h2>
+
+    <!-- Functional select — basic -->
+    <div class="row">
+      <span class="row-label">Default</span>
+      <div class="ds-select-wrapper">
+        <button class="ds-select" aria-haspopup="listbox">
+          <span>Label</span>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu" role="listbox">
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Apple</span>
+            <ds-icon class="ds-select-item-trailing" name="check" size="16"></ds-icon>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Banana</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Cherry</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Dragonfruit</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Elderberry</span>
+          </button>
+        </div>
+      </div>
+
+      <button class="ds-select" disabled>
+        <span>Label</span>
+        <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+      </button>
+    </div>
+
+    <!-- With icon -->
+    <div class="row">
+      <span class="row-label">With Icon</span>
+      <div class="ds-select-wrapper">
+        <button class="ds-select" aria-haspopup="listbox">
+          <ds-icon class="ds-select-icon" name="playlist"></ds-icon>
+          <span>Label</span>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu" role="listbox">
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Option A</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Option B</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Option C</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="ds-select-wrapper">
+        <button class="ds-select ds-select-icon-only" aria-haspopup="listbox">
+          <ds-icon class="ds-select-icon" name="playlist"></ds-icon>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu" role="listbox">
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">View A</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">View B</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Borderless -->
+    <div class="row">
+      <span class="row-label">Borderless</span>
+      <div class="ds-select-wrapper">
+        <button class="ds-select ds-select-borderless" aria-haspopup="listbox">
+          <span>Label</span>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu" role="listbox">
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Item A</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Item B</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Item C</span>
+          </button>
+        </div>
+      </div>
+
+      <button class="ds-select ds-select-borderless" disabled>
+        <span>Label</span>
+        <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+      </button>
+    </div>
+
+    <!-- With sections / separators -->
+    <div class="row">
+      <span class="row-label">Sections</span>
+      <div class="ds-select-wrapper">
+        <button class="ds-select" aria-haspopup="listbox">
+          <span>Category</span>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu" role="listbox">
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Recent</span>
+            <ds-icon class="ds-select-item-trailing" name="check" size="16"></ds-icon>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Popular</span>
+          </button>
+          <div class="ds-select-separator">
+            <hr class="ds-select-separator-line" />
+            <span class="ds-select-separator-title">Title</span>
+          </div>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Archived</span>
+          </button>
+          <button class="ds-select-item" role="option">
+            <span class="ds-select-item-label">Drafts</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- With icons + secondary items -->
+    <div class="row">
+      <span class="row-label">Secondary</span>
+      <div class="ds-select-wrapper">
+        <button class="ds-select" aria-haspopup="listbox">
+          <ds-icon class="ds-select-icon" name="settings"></ds-icon>
+          <span>Settings</span>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu" role="listbox">
+          <button class="ds-select-item" role="option">
+            <ds-icon class="ds-select-icon" name="settings"></ds-icon>
+            <span class="ds-select-item-label">General</span>
+            <ds-icon class="ds-select-item-trailing" name="chevron-right" size="16"></ds-icon>
+          </button>
+          <button class="ds-select-item" role="option">
+            <ds-icon class="ds-select-icon" name="settings"></ds-icon>
+            <span class="ds-select-item-label">Advanced</span>
+            <ds-icon class="ds-select-item-trailing" name="chevron-right" size="16"></ds-icon>
+          </button>
+          <button class="ds-select-item" role="option" aria-disabled="true">
+            <ds-icon class="ds-select-icon" name="settings"></ds-icon>
+            <span class="ds-select-item-label">Locked</span>
+            <ds-icon class="ds-select-item-trailing" name="chevron-right" size="16"></ds-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Switch items -->
+    <div class="row">
+      <span class="row-label">Switch</span>
+      <div class="ds-select-wrapper">
+        <button class="ds-select" aria-haspopup="true">
+          <span>Preferences</span>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu">
+          <div class="ds-select-item" style="cursor:default;">
+            <span class="ds-select-item-label">Notifications</span>
+            <button class="ds-switch-track ds-switch-sm ds-switch-off" role="switch" aria-checked="false">
+              <span class="ds-switch-handle"></span>
+            </button>
+          </div>
+          <div class="ds-select-item" style="cursor:default;">
+            <span class="ds-select-item-label">Dark mode</span>
+            <button class="ds-switch-track ds-switch-sm ds-switch-on" role="switch" aria-checked="true">
+              <span class="ds-switch-handle"></span>
+            </button>
+          </div>
+          <div class="ds-select-item" aria-disabled="true" style="cursor:default;">
+            <span class="ds-select-item-label">Beta features</span>
+            <button class="ds-switch-track ds-switch-sm ds-switch-off" role="switch" aria-checked="false" disabled>
+              <span class="ds-switch-handle"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi-select -->
+    <div class="row">
+      <span class="row-label">Multi Select</span>
+      <div class="ds-select-wrapper">
+        <button class="ds-select" aria-haspopup="listbox">
+          <span>Assignees</span>
+          <ds-icon class="ds-select-chevron" name="chevron-down" size="16"></ds-icon>
+        </button>
+        <div class="ds-select-menu" role="listbox" aria-multiselectable="true">
+          <label class="ds-select-item" style="cursor:pointer;">
+            <label class="ds-checkbox" style="pointer-events:none;">
+              <input type="checkbox" class="ds-checkbox-input" checked />
+              <span class="ds-checkbox-indicator">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </label>
+            <span class="ds-select-item-label">Alice</span>
+            <span style="font-weight:400; font-size:14px; color:var(--ds-tone-2);">Lead</span>
+            <span style="font-weight:400; font-size:14px; color:var(--ds-danger);">Blocked</span>
+          </label>
+          <label class="ds-select-item" style="cursor:pointer;">
+            <label class="ds-checkbox" style="pointer-events:none;">
+              <input type="checkbox" class="ds-checkbox-input" />
+              <span class="ds-checkbox-indicator">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </label>
+            <span class="ds-select-item-label">Bob</span>
+            <span style="font-weight:400; font-size:14px; color:var(--ds-tone-2);">Dev</span>
+          </label>
+          <label class="ds-select-item" aria-disabled="true">
+            <label class="ds-checkbox" style="pointer-events:none;">
+              <input type="checkbox" class="ds-checkbox-input" disabled />
+              <span class="ds-checkbox-indicator">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </label>
+            <span class="ds-select-item-label">Charlie</span>
+            <span style="font-weight:400; font-size:14px; color:var(--ds-tone-4);">Away</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Tabs
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Tabs</h2>
+
+    <!-- Basic text tabs -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">Default</span>
+      <div class="ds-tabs" role="tablist">
+        <button class="ds-tab" role="tab" aria-selected="true">Item</button>
+        <button class="ds-tab" role="tab" aria-selected="false">Item</button>
+        <button class="ds-tab" role="tab" aria-selected="false">Item</button>
+      </div>
+    </div>
+
+    <!-- With icons -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">With Icon</span>
+      <div class="ds-tabs" role="tablist">
+        <button class="ds-tab" role="tab" aria-selected="true">
+          <ds-icon class="ds-tab-icon" name="star-hollow"></ds-icon>
+          <span>Item</span>
+        </button>
+        <button class="ds-tab" role="tab" aria-selected="false">
+          <ds-icon class="ds-tab-icon" name="star-hollow"></ds-icon>
+          <span>Item</span>
+        </button>
+        <button class="ds-tab" role="tab" aria-selected="false">
+          <ds-icon class="ds-tab-icon" name="star-hollow"></ds-icon>
+          <span>Item</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- With disabled -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">Disabled</span>
+      <div class="ds-tabs" role="tablist">
+        <button class="ds-tab" role="tab" aria-selected="true">
+          <ds-icon class="ds-tab-icon" name="star-hollow"></ds-icon>
+          <span>Active</span>
+        </button>
+        <button class="ds-tab" role="tab" aria-selected="false">
+          <ds-icon class="ds-tab-icon" name="star-hollow"></ds-icon>
+          <span>Normal</span>
+        </button>
+        <button class="ds-tab" role="tab" aria-selected="false" disabled>
+          <ds-icon class="ds-tab-icon" name="star-hollow"></ds-icon>
+          <span>Disabled</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Segmented Control
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Segmented Control</h2>
+
+    <!-- 3 items -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">3 Items</span>
+      <div class="ds-segmented" role="radiogroup" aria-label="View mode">
+        <button class="ds-segmented-item" role="radio" aria-checked="true">
+          <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span>Grid</span>
+        </button>
+        <button class="ds-segmented-item" role="radio" aria-checked="false">
+          <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>List</span>
+        </button>
+        <button class="ds-segmented-item" role="radio" aria-checked="false">
+          <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span>Board</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 2 items -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">2 Items</span>
+      <div class="ds-segmented" role="radiogroup" aria-label="Period">
+        <button class="ds-segmented-item" role="radio" aria-checked="true">
+          <span>Monthly</span>
+        </button>
+        <button class="ds-segmented-item" role="radio" aria-checked="false">
+          <span>Yearly</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Icon only -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">Icon Only</span>
+      <div class="ds-segmented" role="radiogroup" aria-label="Layout">
+        <button class="ds-segmented-item" role="radio" aria-checked="true" aria-label="Grid view">
+          <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <button class="ds-segmented-item" role="radio" aria-checked="false" aria-label="List view">
+          <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Disabled -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">Disabled</span>
+      <div class="ds-segmented" role="radiogroup" aria-label="Disabled example">
+        <button class="ds-segmented-item" role="radio" aria-checked="true" disabled>
+          <span>Active</span>
+        </button>
+        <button class="ds-segmented-item" role="radio" aria-checked="false" disabled>
+          <span>Inactive</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Data Table
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Data Table</h2>
+
+    <!-- Default table -->
+    <div class="row" style="flex-direction:column; align-items:stretch;">
+      <span class="row-label" style="width:auto; margin-bottom:12px;">Default</span>
+      <div class="ds-table" id="demo-table">
+        <div class="ds-table-action-bar">
+          <input class="ds-input ds-input-md" placeholder="Search" style="width:160px;">
+          <div class="ds-table-action-bar-spacer"></div>
+          <button class="ds-btn ds-btn-md ds-btn-primary">Create Document</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th class="ds-table-col-checkbox"><label class="ds-checkbox" style="margin:0;"><input type="checkbox" class="ds-checkbox-input"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></label></th>
+              <th class="ds-table-col-icon"></th>
+              <th style="width:auto;">Name</th>
+              <th>ID</th>
+              <th>Extension</th>
+              <th class="ds-table-sortable ds-table-sorted" data-sort="desc">Creation Date <ds-icon class="ds-table-sort-icon" name="chevron-down" size="16"></ds-icon></th>
+              <th class="ds-table-col-action"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="ds-table-col-checkbox"><label class="ds-checkbox" style="margin:0;"><input type="checkbox" class="ds-checkbox-input ds-table-row-cb"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></label></td>
+              <td class="ds-table-col-icon"><ds-icon class="ds-table-icon" name="file"></ds-icon></td>
+              <td class="ds-table-cell-highlight">Document 1</td>
+              <td>aa887441</td>
+              <td>doc1</td>
+              <td>10/09/21</td>
+              <td class="ds-table-col-action"><button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless ds-btn-icon" aria-label="More actions"><ds-icon name="more-horizontal" size="16"></ds-icon></button></td>
+            </tr>
+            <tr>
+              <td class="ds-table-col-checkbox"><label class="ds-checkbox" style="margin:0;"><input type="checkbox" class="ds-checkbox-input ds-table-row-cb"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></label></td>
+              <td class="ds-table-col-icon"><ds-icon class="ds-table-icon" name="file"></ds-icon></td>
+              <td class="ds-table-cell-highlight">Document 2</td>
+              <td>aa887441</td>
+              <td>doc</td>
+              <td>10/09/21</td>
+              <td class="ds-table-col-action"><button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless ds-btn-icon" aria-label="More actions"><ds-icon name="more-horizontal" size="16"></ds-icon></button></td>
+            </tr>
+            <tr>
+              <td class="ds-table-col-checkbox"><label class="ds-checkbox" style="margin:0;"><input type="checkbox" class="ds-checkbox-input ds-table-row-cb"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></label></td>
+              <td class="ds-table-col-icon"><ds-icon class="ds-table-icon" name="file"></ds-icon></td>
+              <td class="ds-table-cell-highlight">Document 3</td>
+              <td>aa887441</td>
+              <td>doc</td>
+              <td>05/09/21</td>
+              <td class="ds-table-col-action"><button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless ds-btn-icon" aria-label="More actions"><ds-icon name="more-horizontal" size="16"></ds-icon></button></td>
+            </tr>
+            <tr>
+              <td class="ds-table-col-checkbox"><label class="ds-checkbox" style="margin:0;"><input type="checkbox" class="ds-checkbox-input ds-table-row-cb"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></label></td>
+              <td class="ds-table-col-icon"><ds-icon class="ds-table-icon" name="file"></ds-icon></td>
+              <td class="ds-table-cell-highlight">Document 4</td>
+              <td>aa887441</td>
+              <td>doc</td>
+              <td>05/09/21</td>
+              <td class="ds-table-col-action"><button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless ds-btn-icon" aria-label="More actions"><ds-icon name="more-horizontal" size="16"></ds-icon></button></td>
+            </tr>
+            <tr>
+              <td class="ds-table-col-checkbox"><label class="ds-checkbox" style="margin:0;"><input type="checkbox" class="ds-checkbox-input ds-table-row-cb"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></label></td>
+              <td class="ds-table-col-icon"><ds-icon class="ds-table-icon" name="file"></ds-icon></td>
+              <td class="ds-table-cell-highlight">Document 5</td>
+              <td>aa887441</td>
+              <td>doc</td>
+              <td>05/09/21</td>
+              <td class="ds-table-col-action"><button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless ds-btn-icon" aria-label="More actions"><ds-icon name="more-horizontal" size="16"></ds-icon></button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ds-table-pagination">
+          <button class="ds-table-page" aria-label="Previous page">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2.5L4 6l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="ds-table-page" aria-current="page">1</button>
+          <button class="ds-table-page">2</button>
+          <button class="ds-table-page">3</button>
+          <button class="ds-table-page">4</button>
+          <button class="ds-table-page" aria-label="Next page">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5L8 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status badges -->
+    <div class="row" style="flex-direction:column; align-items:start; margin-top:32px;">
+      <span class="row-label" style="width:auto; margin-bottom:12px;">Status Badges</span>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <span class="ds-table-status ds-table-status-green">Confirmed</span>
+        <span class="ds-table-status ds-table-status-orange">Pending</span>
+        <span class="ds-table-status ds-table-status-red">Rejected</span>
+        <span class="ds-table-status ds-table-status-grey">Draft</span>
+      </div>
+    </div>
+
+    <!-- Pagination variants -->
+    <div class="row" style="flex-direction:column; align-items:start; margin-top:32px;">
+      <span class="row-label" style="width:auto; margin-bottom:12px;">Pagination — Truncated</span>
+      <div style="width:320px;">
+        <div class="ds-table-pagination">
+          <button class="ds-table-page" aria-label="Previous page">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2.5L4 6l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="ds-table-page" aria-current="page">1</button>
+          <button class="ds-table-page">2</button>
+          <button class="ds-table-page">3</button>
+          <button class="ds-table-page">4</button>
+          <button class="ds-table-page">5</button>
+          <span class="ds-table-page-ellipsis">...</span>
+          <button class="ds-table-page">14</button>
+          <button class="ds-table-page" aria-label="Next page">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5L8 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="row" style="flex-direction:column; align-items:stretch; margin-top:32px;">
+      <span class="row-label" style="width:auto; margin-bottom:12px;">Empty State</span>
+      <div class="ds-table">
+        <div class="ds-table-empty">
+          <p class="ds-table-empty-title">No documents found</p>
+          <p>Try adjusting your search or filters.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div class="row" style="flex-direction:column; align-items:stretch; margin-top:32px;">
+      <span class="row-label" style="width:auto; margin-bottom:12px;">Loading</span>
+      <div class="ds-table">
+        <div class="ds-table-loader">
+          <div class="ds-table-spinner"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div class="row" style="flex-direction:column; align-items:stretch; margin-top:32px;">
+      <span class="row-label" style="width:auto; margin-bottom:12px;">Error</span>
+      <div class="ds-table">
+        <div class="ds-table-error">
+          <p class="ds-table-error-title">Something went wrong</p>
+          <p>Unable to load data. Please try again.</p>
+          <button class="ds-btn ds-btn-md ds-btn-primary" style="margin-top:12px;">Retry</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       USER PICTURE
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">User Picture</h2>
+    <p style="font-size:14px; color:var(--ds-tone-2); margin-bottom:20px;">
+      Displays a user's profile image or their initials as a fallback. Always rendered as a square with rounded corners.
+    </p>
+
+    <!-- Sizes — with image -->
+    <div class="row">
+      <span class="row-label">With image</span>
+      <span class="ds-user-picture ds-user-picture-sm">
+        <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
+      </span>
+      <span class="ds-user-picture ds-user-picture-md">
+        <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
+      </span>
+      <span class="ds-user-picture ds-user-picture-lg">
+        <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
+      </span>
+      <span class="ds-user-picture ds-user-picture-xl">
+        <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
+      </span>
+    </div>
+
+    <!-- Sizes — initials fallback -->
+    <div class="row">
+      <span class="row-label">Initials</span>
+      <span class="ds-user-picture ds-user-picture-sm">HC</span>
+      <span class="ds-user-picture ds-user-picture-md">HC</span>
+      <span class="ds-user-picture ds-user-picture-lg">HC</span>
+      <span class="ds-user-picture ds-user-picture-xl">HC</span>
+    </div>
+
+    <!-- Round — with image -->
+    <div class="row">
+      <span class="row-label">Round image</span>
+      <span class="ds-user-picture ds-user-picture-sm ds-user-picture-round">
+        <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
+      </span>
+      <span class="ds-user-picture ds-user-picture-md ds-user-picture-round">
+        <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
+      </span>
+      <span class="ds-user-picture ds-user-picture-lg ds-user-picture-round">
+        <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
+      </span>
+      <span class="ds-user-picture ds-user-picture-xl ds-user-picture-round">
+        <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
+      </span>
+    </div>
+
+    <!-- Round — initials fallback -->
+    <div class="row">
+      <span class="row-label">Round initials</span>
+      <span class="ds-user-picture ds-user-picture-sm ds-user-picture-round">HC</span>
+      <span class="ds-user-picture ds-user-picture-md ds-user-picture-round">HC</span>
+      <span class="ds-user-picture ds-user-picture-lg ds-user-picture-round">HC</span>
+      <span class="ds-user-picture ds-user-picture-xl ds-user-picture-round">HC</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ACKNOWLEDGEMENT & HELP
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Acknowledgement & Help</h2>
+
+
+    <!-- ── Inline — Dismissible ── -->
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Inline — Dismissible</h3>
+
+    <div class="row">
+      <span class="row-label">Info</span>
+      <div class="ds-ack ds-ack-info">
+        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-ack-text">This is an information message!</span>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="row-label">Error</span>
+      <div class="ds-ack ds-ack-error">
+        <span class="ds-ack-icon"><ds-icon name="warning-circle"></ds-icon></span>
+        <span class="ds-ack-text">This is an error message!</span>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="row-label">Success</span>
+      <div class="ds-ack ds-ack-success">
+        <span class="ds-ack-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" fill="transparent"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM16.6402 8.23178C16.2159 7.87821 15.5853 7.93554 15.2318 8.35982L10.932 13.517L9.70711 12.2929L9.6129 12.2097C9.22061 11.9047 8.65338 11.9324 8.29289 12.2929C7.90237 12.6834 7.90237 13.3166 8.29289 13.7071L10.2929 15.7071L10.3859 15.7894C10.8047 16.1163 11.4187 16.0597 11.7682 15.6402L16.7682 9.64018L16.8425 9.53883C17.1108 9.12054 17.0318 8.55815 16.6402 8.23178Z" fill="currentColor"/></svg></span>
+        <span class="ds-ack-text">This is a success message!</span>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="row-label">Warning</span>
+      <div class="ds-ack ds-ack-warning">
+        <span class="ds-ack-icon"><ds-icon name="warning-triangle"></ds-icon></span>
+        <span class="ds-ack-text">This is a warning message!</span>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+
+    <!-- ── Inline — Non-Dismissible ── -->
+    <h3 style="font-size:14px; font-weight:700; margin:24px 0 12px;">Inline — Non-Dismissible</h3>
+
+    <div class="row">
+      <span class="row-label">Info</span>
+      <div class="ds-ack ds-ack-info">
+        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-ack-text">This is an information message!</span>
+      </div>
+    </div>
+
+    <!-- ── Inline — With Link ── -->
+    <h3 style="font-size:14px; font-weight:700; margin:24px 0 12px;">Inline — With Link</h3>
+
+    <div class="row">
+      <span class="row-label">Info + Link</span>
+      <div class="ds-ack ds-ack-info">
+        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-ack-text">This is an information message!</span>
+        <a class="ds-ack-link" href="#">Link</a>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+
+    <!-- ── Floating ── -->
+    <h3 style="font-size:14px; font-weight:700; margin:24px 0 12px;">Floating <span style="font-size:11px; font-weight:400; color:var(--ds-tone-3);">(click to preview toast behavior)</span></h3>
+
+    <div class="row">
+      <span class="row-label">Info</span>
+      <div class="ds-ack ds-ack-floating ds-ack-info" style="cursor:pointer" data-ds-toast>
+        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-ack-text">This is an information message!</span>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="row-label">Error</span>
+      <div class="ds-ack ds-ack-floating ds-ack-error" style="cursor:pointer" data-ds-toast>
+        <span class="ds-ack-icon"><ds-icon name="warning-circle"></ds-icon></span>
+        <span class="ds-ack-text">This is an error message!</span>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="row-label">Success</span>
+      <div class="ds-ack ds-ack-floating ds-ack-success" style="cursor:pointer" data-ds-toast>
+        <span class="ds-ack-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" fill="transparent"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM16.6402 8.23178C16.2159 7.87821 15.5853 7.93554 15.2318 8.35982L10.932 13.517L9.70711 12.2929L9.6129 12.2097C9.22061 11.9047 8.65338 11.9324 8.29289 12.2929C7.90237 12.6834 7.90237 13.3166 8.29289 13.7071L10.2929 15.7071L10.3859 15.7894C10.8047 16.1163 11.4187 16.0597 11.7682 15.6402L16.7682 9.64018L16.8425 9.53883C17.1108 9.12054 17.0318 8.55815 16.6402 8.23178Z" fill="currentColor"/></svg></span>
+        <span class="ds-ack-text">This is a success message!</span>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="row-label">Warning</span>
+      <div class="ds-ack ds-ack-floating ds-ack-warning" style="cursor:pointer" data-ds-toast>
+        <span class="ds-ack-icon"><ds-icon name="warning-triangle"></ds-icon></span>
+        <span class="ds-ack-text">This is a warning message!</span>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+
+    <!-- ── Floating — With Link ── -->
+    <h3 style="font-size:14px; font-weight:700; margin:24px 0 12px;">Floating — With Link</h3>
+
+    <div class="row">
+      <span class="row-label">Info + Link</span>
+      <div class="ds-ack ds-ack-floating ds-ack-info" style="cursor:pointer" data-ds-toast>
+        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-ack-text">This is an information message!</span>
+        <a class="ds-ack-link" href="#">Link</a>
+        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      </div>
+    </div>
+
+    <!-- ── Hint ── -->
+    <h3 style="font-size:16px; font-weight:700; margin-bottom:12px;">Hint</h3>
+
+    <div class="row" style="gap:24px;">
+      <span class="row-label">Directions</span>
+      <!-- Top (arrow points down) -->
+      <div class="ds-hint ds-hint-top">
+        <div class="ds-hint-body">Hint</div>
+        <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
+      </div>
+      <!-- Bottom (arrow points up) -->
+      <div class="ds-hint ds-hint-bottom">
+        <div class="ds-hint-body">Hint</div>
+        <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 9L5.4 2Q7 0 8.6 2L14 9Z" fill="currentColor"/></svg></div>
+      </div>
+      <!-- Left (arrow points left) -->
+      <div class="ds-hint ds-hint-left">
+        <div class="ds-hint-body">Hint</div>
+        <div class="ds-hint-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M9 0L2 5.4Q0 7 2 8.6L9 14Z" fill="currentColor"/></svg></div>
+      </div>
+      <!-- Right (arrow points right) -->
+      <div class="ds-hint ds-hint-right">
+        <div class="ds-hint-body">Hint</div>
+        <div class="ds-hint-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M0 0L7 5.4Q9 7 7 8.6L0 14Z" fill="currentColor"/></svg></div>
+      </div>
+    </div>
+
+    <!-- ── Hint Behavior ── -->
+    <h3 style="font-size:14px; font-weight:700; margin:24px 0 8px;">Behavior</h3>
+    <p style="font-family:var(--ds-font-family); font-size:14px; color:var(--ds-tone-2); margin-bottom:20px;">Hint are complementary info or label that appears while hovering UI elements. Hints support 4 directions.</p>
+
+    <!-- 4 directions with + icon triggers -->
+    <div style="display:flex; gap:24px; align-items:center; margin-bottom:16px;">
+      <!-- Top -->
+      <div class="ds-hint-trigger">
+        <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="ds-hint ds-hint-top">
+          <div class="ds-hint-body">Hint</div>
+          <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+      <!-- Bottom -->
+      <div class="ds-hint-trigger">
+        <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="ds-hint ds-hint-bottom">
+          <div class="ds-hint-body">Hint</div>
+          <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 9L5.4 2Q7 0 8.6 2L14 9Z" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+      <!-- Right (arrow points left, hint appears right) -->
+      <div class="ds-hint-trigger">
+        <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="ds-hint ds-hint-left" style="left:calc(100% + 4px); right:auto; top:50%; translate:0 -50%;">
+          <div class="ds-hint-body">Hint</div>
+          <div class="ds-hint-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M9 0L2 5.4Q0 7 2 8.6L9 14Z" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+      <!-- Left (hint on left, arrow points right toward button) -->
+      <div class="ds-hint-trigger">
+        <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="ds-hint ds-hint-right" style="right:calc(100% + 4px); left:auto; top:50%; translate:0 -50%;">
+          <div class="ds-hint-body">Hint</div>
+          <div class="ds-hint-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M0 0L7 5.4Q9 7 7 8.6L0 14Z" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Long text hint ── -->
+    <h3 style="font-size:14px; font-weight:700; margin:24px 0 12px;">Long Text</h3>
+
+    <div style="display:flex; gap:24px; align-items:center;">
+      <div class="ds-hint-trigger">
+        <span class="ds-text-truncate" style="font-family:var(--ds-font-family); font-size:14px; color:var(--ds-tone-2); cursor:default;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ...</span>
+        <div class="ds-hint ds-hint-top">
+          <div class="ds-hint-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+          <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Modal
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Modal</h2>
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin-bottom:var(--ds-space-5);">
+      For forms and other user tasks. It is <strong>static</strong>: clicking outside it or pressing Escape does <em>not</em> close it, so people don't lose what they typed. It closes only with a Cancel button (any <code>data-ds-close</code> element) or <code>DS.closeModal()</code>. The title and footer stay in place; the body scrolls when the content is tall. Open with <code>DS.openModal('id')</code> or a <code>data-ds-open="id"</code> button. Focus is trapped while open and returns to the opener.
+    </p>
+
+    <div class="row">
+      <span class="row-label">Sizes</span>
+      <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-sm">Small</button>
+      <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-md">Medium</button>
+      <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-lg">Large (scrolling)</button>
+      <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-xl">Extra large (form)</button>
+    </div>
+
+    <div class="ds-modal ds-modal-sm" id="demo-modal-sm" hidden>
+      <div class="ds-modal-backdrop"></div>
+      <div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-sm-title">
+        <div class="ds-modal-header">
+          <h2 class="ds-modal-title" id="demo-modal-sm-title">Delete item?</h2>
+        </div>
+        <div class="ds-modal-body">
+          <p>This action cannot be undone.</p>
+        </div>
+        <div class="ds-modal-footer">
+          <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless" data-ds-close>Cancel</button>
+          <button class="ds-btn ds-btn-md ds-btn-danger" data-ds-close>Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-modal ds-modal-md" id="demo-modal-md" hidden>
+      <div class="ds-modal-backdrop"></div>
+      <div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-md-title">
+        <div class="ds-modal-header">
+          <h2 class="ds-modal-title" id="demo-modal-md-title">Rename document</h2>
+        </div>
+        <div class="ds-modal-body">
+          <p>Give this document a new name.</p>
+          <div class="ds-form-field" style="margin:var(--ds-space-4) 0 0;">
+            <label class="ds-form-label" for="demo-rename">Name</label>
+            <input class="ds-input ds-input-md" id="demo-rename" placeholder="Enter a name" />
+          </div>
+        </div>
+        <div class="ds-modal-footer">
+          <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless" data-ds-close>Cancel</button>
+          <button class="ds-btn ds-btn-md ds-btn-primary" data-ds-close>Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-modal ds-modal-lg" id="demo-modal-lg" hidden>
+      <div class="ds-modal-backdrop"></div>
+      <div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-lg-title">
+        <div class="ds-modal-header">
+          <h2 class="ds-modal-title" id="demo-modal-lg-title">Terms of service</h2>
+        </div>
+        <div class="ds-modal-body">
+          <p>Read through the terms below.</p>
+          <p style="margin-top:var(--ds-space-4);">The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put.</p>
+          <p style="margin-top:var(--ds-space-4);">The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put.</p>
+          <p style="margin-top:var(--ds-space-4);">The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put.</p>
+          <p style="margin-top:var(--ds-space-4);">The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put.</p>
+          <p style="margin-top:var(--ds-space-4);">The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put.</p>
+          <p style="margin-top:var(--ds-space-4);">The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put. The body scrolls when the content is taller than the window; the title and the footer stay put.</p>
+        </div>
+        <div class="ds-modal-footer">
+          <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless" data-ds-close>Cancel</button>
+          <button class="ds-btn ds-btn-md ds-btn-primary" data-ds-close>Accept</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-modal ds-modal-xl" id="demo-modal-xl" hidden>
+      <div class="ds-modal-backdrop"></div>
+      <div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-xl-title">
+        <div class="ds-modal-header">
+          <h2 class="ds-modal-title" id="demo-modal-xl-title">Generate a video</h2>
+        </div>
+        <div class="ds-modal-body">
+          <div style="display:flex; flex-direction:column; gap:var(--ds-space-6);">
+            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:var(--ds-space-2);">
+              <label class="ds-form-label" for="demo-video-prompt" style="margin:0; font-size:var(--ds-font-size-5);">Describe your video</label>
+              <textarea class="ds-textarea" id="demo-video-prompt" placeholder="Describe the clip you want to create" style="min-height:240px;"></textarea>
+              <button class="ds-btn ds-btn-lg ds-btn-secondary"><ds-icon name="gen-ai"></ds-icon>Write a prompt from this scene script</button>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:var(--ds-space-2);">
+              <span class="ds-form-label" style="margin:0; line-height:var(--ds-line-height-16);">Reference images (optional)</span>
+              <p class="ds-form-desc" style="margin:0; line-height:var(--ds-line-height-16);">Add up to 3 images of a character, product, or brand asset to keep consistent in the generated video.</p>
+              <button class="upload-tile" aria-label="Upload an image"><ds-icon name="upload"></ds-icon></button>
+            </div>
+          </div>
+        </div>
+        <div class="ds-modal-footer">
+          <span class="ds-modal-footer-note">Powered by Google Veo 3.1</span>
+          <button class="ds-btn ds-btn-lg ds-btn-secondary ds-btn-borderless" data-ds-close>Cancel</button>
+          <button class="ds-btn ds-btn-lg ds-btn-primary" disabled>Generate</button>
+        </div>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin-top:var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;button class="ds-btn ds-btn-md ds-btn-primary" data-ds-open="my-modal"&gt;Open&lt;/button&gt;
+
+&lt;!-- size: ds-modal-sm | -md | -lg | -xl   (keep the hidden attribute) --&gt;
+&lt;div class="ds-modal ds-modal-md" id="my-modal" hidden&gt;
+  &lt;div class="ds-modal-backdrop"&gt;&lt;/div&gt;   &lt;!-- clicking it does NOT close the modal --&gt;
+  &lt;div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="my-modal-title"&gt;
+    &lt;div class="ds-modal-header"&gt;
+      &lt;h2 class="ds-modal-title" id="my-modal-title"&gt;Title&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class="ds-modal-body"&gt;Form or other content. Only this part scrolls.&lt;/div&gt;
+    &lt;div class="ds-modal-footer"&gt;
+      &lt;span class="ds-modal-footer-note"&gt;Optional note on the left&lt;/span&gt;
+      &lt;button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless" data-ds-close&gt;Cancel&lt;/button&gt;
+      &lt;button class="ds-btn ds-btn-md ds-btn-primary"&gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+// JS:  DS.openModal('my-modal');  DS.closeModal();
+// Closing: only a [data-ds-close] element (Cancel) or DS.closeModal(). Backdrop click and Escape do nothing.
+// Optional corner X: &lt;button class="ds-modal-close" data-ds-close aria-label="Close"&gt;&lt;ds-icon name="clear"&gt;&lt;/ds-icon&gt;&lt;/button&gt; inside .ds-modal-header
+// Event: document.addEventListener('ds-close', e =&gt; e.detail.reason)  // 'button' | 'api'</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       Icons
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Icons</h2>
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin-bottom:var(--ds-space-5);">
+      189 icons at 24px and 47 at 16px. Use them with <code>&lt;ds-icon name="settings" size="16"&gt;&lt;/ds-icon&gt;</code> &mdash; the icon takes the surrounding text color. Size is 16 or 24 (default 24).
+    </p>
+
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin-bottom:var(--ds-space-4);">24px</h3>
+    <div class="icon-grid" style="margin-bottom:var(--ds-space-6);">
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="add" size="24"></ds-icon></div><code class="icon-name">add</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="align-center" size="24"></ds-icon></div><code class="icon-name">align-center</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="align-left" size="24"></ds-icon></div><code class="icon-name">align-left</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="align-right" size="24"></ds-icon></div><code class="icon-name">align-right</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="analytics" size="24"></ds-icon></div><code class="icon-name">analytics</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="arrow-down" size="24"></ds-icon></div><code class="icon-name">arrow-down</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="arrow-left" size="24"></ds-icon></div><code class="icon-name">arrow-left</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="arrow-right" size="24"></ds-icon></div><code class="icon-name">arrow-right</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="arrow-up" size="24"></ds-icon></div><code class="icon-name">arrow-up</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="banner" size="24"></ds-icon></div><code class="icon-name">banner</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="blur" size="24"></ds-icon></div><code class="icon-name">blur</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="bolt" size="24"></ds-icon></div><code class="icon-name">bolt</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="breakout" size="24"></ds-icon></div><code class="icon-name">breakout</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="brush" size="24"></ds-icon></div><code class="icon-name">brush</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="bullet-list" size="24"></ds-icon></div><code class="icon-name">bullet-list</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="calendar" size="24"></ds-icon></div><code class="icon-name">calendar</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="camera" size="24"></ds-icon></div><code class="icon-name">camera</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="camera-off" size="24"></ds-icon></div><code class="icon-name">camera-off</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="captions" size="24"></ds-icon></div><code class="icon-name">captions</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="chat" size="24"></ds-icon></div><code class="icon-name">chat</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="check" size="24"></ds-icon></div><code class="icon-name">check</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="chevron-down" size="24"></ds-icon></div><code class="icon-name">chevron-down</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="chevron-left" size="24"></ds-icon></div><code class="icon-name">chevron-left</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="chevron-right" size="24"></ds-icon></div><code class="icon-name">chevron-right</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="chevron-up" size="24"></ds-icon></div><code class="icon-name">chevron-up</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="chrome" size="24"></ds-icon></div><code class="icon-name">chrome</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="clean" size="24"></ds-icon></div><code class="icon-name">clean</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="clear" size="24"></ds-icon></div><code class="icon-name">clear</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="clips" size="24"></ds-icon></div><code class="icon-name">clips</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="cloud" size="24"></ds-icon></div><code class="icon-name">cloud</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="collapse-menu" size="24"></ds-icon></div><code class="icon-name">collapse-menu</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="color-palette" size="24"></ds-icon></div><code class="icon-name">color-palette</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="contrast" size="24"></ds-icon></div><code class="icon-name">contrast</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="copy" size="24"></ds-icon></div><code class="icon-name">copy</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="create" size="24"></ds-icon></div><code class="icon-name">create</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="credit-card" size="24"></ds-icon></div><code class="icon-name">credit-card</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="customize" size="24"></ds-icon></div><code class="icon-name">customize</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="delete" size="24"></ds-icon></div><code class="icon-name">delete</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="desktop" size="24"></ds-icon></div><code class="icon-name">desktop</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="diamond" size="24"></ds-icon></div><code class="icon-name">diamond</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="dislike" size="24"></ds-icon></div><code class="icon-name">dislike</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="dislike-hollow" size="24"></ds-icon></div><code class="icon-name">dislike-hollow</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="document" size="24"></ds-icon></div><code class="icon-name">document</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="download" size="24"></ds-icon></div><code class="icon-name">download</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="drag" size="24"></ds-icon></div><code class="icon-name">drag</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="edge" size="24"></ds-icon></div><code class="icon-name">edge</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="edit" size="24"></ds-icon></div><code class="icon-name">edit</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="embed" size="24"></ds-icon></div><code class="icon-name">embed</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="emoji" size="24"></ds-icon></div><code class="icon-name">emoji</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="excel" size="24"></ds-icon></div><code class="icon-name">excel</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="executives" size="24"></ds-icon></div><code class="icon-name">executives</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="exit" size="24"></ds-icon></div><code class="icon-name">exit</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="exit-alt" size="24"></ds-icon></div><code class="icon-name">exit-alt</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="expand" size="24"></ds-icon></div><code class="icon-name">expand</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="expert" size="24"></ds-icon></div><code class="icon-name">expert</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="external-link" size="24"></ds-icon></div><code class="icon-name">external-link</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="facebook" size="24"></ds-icon></div><code class="icon-name">facebook</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="feedback" size="24"></ds-icon></div><code class="icon-name">feedback</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="file" size="24"></ds-icon></div><code class="icon-name">file</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="filter" size="24"></ds-icon></div><code class="icon-name">filter</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="firefox" size="24"></ds-icon></div><code class="icon-name">firefox</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="fit-frame" size="24"></ds-icon></div><code class="icon-name">fit-frame</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="folder" size="24"></ds-icon></div><code class="icon-name">folder</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="folder-item" size="24"></ds-icon></div><code class="icon-name">folder-item</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="folder-item-alt" size="24"></ds-icon></div><code class="icon-name">folder-item-alt</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="formal" size="24"></ds-icon></div><code class="icon-name">formal</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="gen-ai" size="24"></ds-icon></div><code class="icon-name">gen-ai</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="github" size="24"></ds-icon></div><code class="icon-name">github</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="globe" size="24"></ds-icon></div><code class="icon-name">globe</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="group" size="24"></ds-icon></div><code class="icon-name">group</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="hand" size="24"></ds-icon></div><code class="icon-name">hand</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="heart" size="24"></ds-icon></div><code class="icon-name">heart</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="help" size="24"></ds-icon></div><code class="icon-name">help</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="hidden" size="24"></ds-icon></div><code class="icon-name">hidden</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="home" size="24"></ds-icon></div><code class="icon-name">home</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="image" size="24"></ds-icon></div><code class="icon-name">image</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="import" size="24"></ds-icon></div><code class="icon-name">import</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="info" size="24"></ds-icon></div><code class="icon-name">info</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="informative-gallery" size="24"></ds-icon></div><code class="icon-name">informative-gallery</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="instagram" size="24"></ds-icon></div><code class="icon-name">instagram</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="instagram-2" size="24"></ds-icon></div><code class="icon-name">instagram-2</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="integrations" size="24"></ds-icon></div><code class="icon-name">integrations</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="interactive-room" size="24"></ds-icon></div><code class="icon-name">interactive-room</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="internet" size="24"></ds-icon></div><code class="icon-name">internet</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="invisible" size="24"></ds-icon></div><code class="icon-name">invisible</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="italic" size="24"></ds-icon></div><code class="icon-name">italic</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="key" size="24"></ds-icon></div><code class="icon-name">key</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="levels" size="24"></ds-icon></div><code class="icon-name">levels</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="light" size="24"></ds-icon></div><code class="icon-name">light</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="like" size="24"></ds-icon></div><code class="icon-name">like</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="like-hollow" size="24"></ds-icon></div><code class="icon-name">like-hollow</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="line" size="24"></ds-icon></div><code class="icon-name">line</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="link" size="24"></ds-icon></div><code class="icon-name">link</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="linkedin" size="24"></ds-icon></div><code class="icon-name">linkedin</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="live-broadcast" size="24"></ds-icon></div><code class="icon-name">live-broadcast</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="lock" size="24"></ds-icon></div><code class="icon-name">lock</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="mail" size="24"></ds-icon></div><code class="icon-name">mail</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="menu" size="24"></ds-icon></div><code class="icon-name">menu</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="metadata-enrichment" size="24"></ds-icon></div><code class="icon-name">metadata-enrichment</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="microphone" size="24"></ds-icon></div><code class="icon-name">microphone</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="microphone-muted" size="24"></ds-icon></div><code class="icon-name">microphone-muted</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="minimize" size="24"></ds-icon></div><code class="icon-name">minimize</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="minus" size="24"></ds-icon></div><code class="icon-name">minus</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="mobile" size="24"></ds-icon></div><code class="icon-name">mobile</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="more-horizontal" size="24"></ds-icon></div><code class="icon-name">more-horizontal</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="more-vertical" size="24"></ds-icon></div><code class="icon-name">more-vertical</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="multiple-video" size="24"></ds-icon></div><code class="icon-name">multiple-video</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="mute-notification" size="24"></ds-icon></div><code class="icon-name">mute-notification</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="neutral" size="24"></ds-icon></div><code class="icon-name">neutral</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="no-access" size="24"></ds-icon></div><code class="icon-name">no-access</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="notes" size="24"></ds-icon></div><code class="icon-name">notes</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="notification" size="24"></ds-icon></div><code class="icon-name">notification</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="online" size="24"></ds-icon></div><code class="icon-name">online</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="ordered-list" size="24"></ds-icon></div><code class="icon-name">ordered-list</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="pdf" size="24"></ds-icon></div><code class="icon-name">pdf</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="phone" size="24"></ds-icon></div><code class="icon-name">phone</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="pin" size="24"></ds-icon></div><code class="icon-name">pin</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="pinterest" size="24"></ds-icon></div><code class="icon-name">pinterest</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="play" size="24"></ds-icon></div><code class="icon-name">play</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="playlist" size="24"></ds-icon></div><code class="icon-name">playlist</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="poll" size="24"></ds-icon></div><code class="icon-name">poll</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="pop-out" size="24"></ds-icon></div><code class="icon-name">pop-out</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="post" size="24"></ds-icon></div><code class="icon-name">post</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="presenter" size="24"></ds-icon></div><code class="icon-name">presenter</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="privacy" size="24"></ds-icon></div><code class="icon-name">privacy</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="public" size="24"></ds-icon></div><code class="icon-name">public</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="question-mark" size="24"></ds-icon></div><code class="icon-name">question-mark</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="quiz" size="24"></ds-icon></div><code class="icon-name">quiz</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="redo" size="24"></ds-icon></div><code class="icon-name">redo</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="refresh" size="24"></ds-icon></div><code class="icon-name">refresh</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="remove" size="24"></ds-icon></div><code class="icon-name">remove</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="remove-alt" size="24"></ds-icon></div><code class="icon-name">remove-alt</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="remove-contact" size="24"></ds-icon></div><code class="icon-name">remove-contact</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="resolved" size="24"></ds-icon></div><code class="icon-name">resolved</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="sad" size="24"></ds-icon></div><code class="icon-name">sad</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="score" size="24"></ds-icon></div><code class="icon-name">score</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="search" size="24"></ds-icon></div><code class="icon-name">search</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="self-served-live" size="24"></ds-icon></div><code class="icon-name">self-served-live</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="settings" size="24"></ds-icon></div><code class="icon-name">settings</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="share" size="24"></ds-icon></div><code class="icon-name">share</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="share-screen" size="24"></ds-icon></div><code class="icon-name">share-screen</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="share-screen-close" size="24"></ds-icon></div><code class="icon-name">share-screen-close</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="shuffle" size="24"></ds-icon></div><code class="icon-name">shuffle</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="simulive" size="24"></ds-icon></div><code class="icon-name">simulive</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="slack" size="24"></ds-icon></div><code class="icon-name">slack</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="slide" size="24"></ds-icon></div><code class="icon-name">slide</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="sound" size="24"></ds-icon></div><code class="icon-name">sound</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="speaker" size="24"></ds-icon></div><code class="icon-name">speaker</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="speaker-muted" size="24"></ds-icon></div><code class="icon-name">speaker-muted</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="stack-overflow" size="24"></ds-icon></div><code class="icon-name">stack-overflow</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="star-full" size="24"></ds-icon></div><code class="icon-name">star-full</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="star-hollow" size="24"></ds-icon></div><code class="icon-name">star-hollow</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="style" size="24"></ds-icon></div><code class="icon-name">style</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="subscribe" size="24"></ds-icon></div><code class="icon-name">subscribe</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="subscribed" size="24"></ds-icon></div><code class="icon-name">subscribed</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="switch" size="24"></ds-icon></div><code class="icon-name">switch</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="switch-camera" size="24"></ds-icon></div><code class="icon-name">switch-camera</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="tablet" size="24"></ds-icon></div><code class="icon-name">tablet</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="target" size="24"></ds-icon></div><code class="icon-name">target</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="text" size="24"></ds-icon></div><code class="icon-name">text</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="text-color" size="24"></ds-icon></div><code class="icon-name">text-color</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="text-highlight" size="24"></ds-icon></div><code class="icon-name">text-highlight</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="time" size="24"></ds-icon></div><code class="icon-name">time</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="time-hollow" size="24"></ds-icon></div><code class="icon-name">time-hollow</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="timeline" size="24"></ds-icon></div><code class="icon-name">timeline</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="trim" size="24"></ds-icon></div><code class="icon-name">trim</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="twitch" size="24"></ds-icon></div><code class="icon-name">twitch</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="twitter" size="24"></ds-icon></div><code class="icon-name">twitter</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="twitter-new" size="24"></ds-icon></div><code class="icon-name">twitter-new</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="underline" size="24"></ds-icon></div><code class="icon-name">underline</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="undo" size="24"></ds-icon></div><code class="icon-name">undo</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="unlock" size="24"></ds-icon></div><code class="icon-name">unlock</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="unpin" size="24"></ds-icon></div><code class="icon-name">unpin</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="upload" size="24"></ds-icon></div><code class="icon-name">upload</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="user" size="24"></ds-icon></div><code class="icon-name">user</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="verified" size="24"></ds-icon></div><code class="icon-name">verified</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="video" size="24"></ds-icon></div><code class="icon-name">video</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="visible" size="24"></ds-icon></div><code class="icon-name">visible</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="volume-mute" size="24"></ds-icon></div><code class="icon-name">volume-mute</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="volume-on" size="24"></ds-icon></div><code class="icon-name">volume-on</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="warning-circle" size="24"></ds-icon></div><code class="icon-name">warning-circle</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="warning-triangle" size="24"></ds-icon></div><code class="icon-name">warning-triangle</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="wave" size="24"></ds-icon></div><code class="icon-name">wave</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="webcast" size="24"></ds-icon></div><code class="icon-name">webcast</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="webhook" size="24"></ds-icon></div><code class="icon-name">webhook</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="youtube" size="24"></ds-icon></div><code class="icon-name">youtube</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="zip-file" size="24"></ds-icon></div><code class="icon-name">zip-file</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="zoom-in" size="24"></ds-icon></div><code class="icon-name">zoom-in</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-24"><ds-icon name="zoom-out" size="24"></ds-icon></div><code class="icon-name">zoom-out</code></div>
+    </div>
+
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin-bottom:var(--ds-space-4);">16px</h3>
+    <div class="icon-grid">
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="arrow-right" size="16"></ds-icon></div><code class="icon-name">arrow-right</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="bookmark" size="16"></ds-icon></div><code class="icon-name">bookmark</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="bullet" size="16"></ds-icon></div><code class="icon-name">bullet</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="business-card" size="16"></ds-icon></div><code class="icon-name">business-card</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="chat" size="16"></ds-icon></div><code class="icon-name">chat</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="check" size="16"></ds-icon></div><code class="icon-name">check</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="chevron-down" size="16"></ds-icon></div><code class="icon-name">chevron-down</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="chevron-left" size="16"></ds-icon></div><code class="icon-name">chevron-left</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="chevron-right" size="16"></ds-icon></div><code class="icon-name">chevron-right</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="chevron-up" size="16"></ds-icon></div><code class="icon-name">chevron-up</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="close" size="16"></ds-icon></div><code class="icon-name">close</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="double-chevron-down" size="16"></ds-icon></div><code class="icon-name">double-chevron-down</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="download" size="16"></ds-icon></div><code class="icon-name">download</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="edit" size="16"></ds-icon></div><code class="icon-name">edit</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="expand" size="16"></ds-icon></div><code class="icon-name">expand</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="external-link" size="16"></ds-icon></div><code class="icon-name">external-link</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="file" size="16"></ds-icon></div><code class="icon-name">file</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="folder" size="16"></ds-icon></div><code class="icon-name">folder</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="general-spinner" size="16"></ds-icon></div><code class="icon-name">general-spinner</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="globe" size="16"></ds-icon></div><code class="icon-name">globe</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="grip" size="16"></ds-icon></div><code class="icon-name">grip</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="info-circle" size="16"></ds-icon></div><code class="icon-name">info-circle</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="link" size="16"></ds-icon></div><code class="icon-name">link</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="microphone" size="16"></ds-icon></div><code class="icon-name">microphone</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="microphone-muted" size="16"></ds-icon></div><code class="icon-name">microphone-muted</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="more" size="16"></ds-icon></div><code class="icon-name">more</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="more-horizontal" size="16"></ds-icon></div><code class="icon-name">more-horizontal</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="partial" size="16"></ds-icon></div><code class="icon-name">partial</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="plus" size="16"></ds-icon></div><code class="icon-name">plus</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="pop-out" size="16"></ds-icon></div><code class="icon-name">pop-out</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="progression" size="16"></ds-icon></div><code class="icon-name">progression</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="question-mark" size="16"></ds-icon></div><code class="icon-name">question-mark</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="redo" size="16"></ds-icon></div><code class="icon-name">redo</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="regression" size="16"></ds-icon></div><code class="icon-name">regression</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="score" size="16"></ds-icon></div><code class="icon-name">score</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="settings" size="16"></ds-icon></div><code class="icon-name">settings</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="silent" size="16"></ds-icon></div><code class="icon-name">silent</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="sound-wave" size="16"></ds-icon></div><code class="icon-name">sound-wave</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="speaker" size="16"></ds-icon></div><code class="icon-name">speaker</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="speaker-muted" size="16"></ds-icon></div><code class="icon-name">speaker-muted</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="tag" size="16"></ds-icon></div><code class="icon-name">tag</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="verified" size="16"></ds-icon></div><code class="icon-name">verified</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="voice" size="16"></ds-icon></div><code class="icon-name">voice</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="warning" size="16"></ds-icon></div><code class="icon-name">warning</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="warning-circle" size="16"></ds-icon></div><code class="icon-name">warning-circle</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="warning-triangle" size="16"></ds-icon></div><code class="icon-name">warning-triangle</code></div>
+      <div class="icon-tile"><div class="ds-icon ds-icon-16"><ds-icon name="wave" size="16"></ds-icon></div><code class="icon-name">wave</code></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       Badges
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Badges</h2>
+
+    <div class="row">
+      <span class="row-label">Badge</span>
+      <span class="ds-badge ds-badge-sm">Label</span>
+      <span class="ds-badge ds-badge-lg">Label</span>
+    </div>
+    <div class="row">
+      <span class="row-label">Live</span>
+      <span class="ds-badge-live">Live</span>
+      <span class="ds-badge-live ds-badge-lg">Live</span>
+    </div>
+    <div class="row">
+      <span class="row-label">Duration</span>
+      <span class="ds-badge-duration">02:34</span>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Tags</span>
+      <span class="ds-tag">Label <button class="ds-tag-close"><ds-icon name="close" size="16"></ds-icon></button></span>
+      <span class="ds-tag">Label</span>
+      <span class="ds-tag ds-tag-disabled">Label <button class="ds-tag-close" disabled><ds-icon name="close" size="16"></ds-icon></button></span>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Chips</span>
+      <span class="ds-chip"><img class="ds-chip-picture" src="Images/Ava_Taylor-600w.png" alt="" /><span class="ds-chip-content">Label <button class="ds-chip-close"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+      <span class="ds-chip"><span class="ds-chip-content">Label <button class="ds-chip-close"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+      <span class="ds-chip"><img class="ds-chip-picture" src="Images/Ava_Taylor-600w.png" alt="" /><span class="ds-chip-content">Label <span class="ds-chip-status">Blocked</span> <button class="ds-chip-close"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+      <span class="ds-chip ds-chip-disabled"><img class="ds-chip-picture" src="Images/Ava_Taylor-600w.png" alt="" /><span class="ds-chip-content">Label <span class="ds-chip-status">Blocked</span> <button class="ds-chip-close"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       USAGE REFERENCE
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title">Quick Reference</h2>
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:20px; font-size:13px; line-height:1.6; overflow-x:auto;">&lt;!-- 1. Include the DS (three tags) --&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;script src="ds-icons.js"&gt;&lt;/script&gt;
+&lt;script src="ds.js"&gt;&lt;/script&gt;
+
+&lt;!-- 2. Use ds- prefixed classes --&gt;
+&lt;button class="ds-btn ds-btn-md ds-btn-primary"&gt;Save&lt;/button&gt;
+&lt;button class="ds-btn ds-btn-md ds-btn-danger ds-btn-borderless"&gt;Delete&lt;/button&gt;
+
+&lt;input class="ds-input ds-input-md" placeholder="Email"&gt;
+&lt;textarea class="ds-textarea" placeholder="Message..."&gt;&lt;/textarea&gt;
+
+&lt;!-- Checkbox --&gt;
+&lt;label class="ds-checkbox"&gt;
+  &lt;input type="checkbox" class="ds-checkbox-input"&gt;
+  &lt;span class="ds-checkbox-indicator"&gt;
+    &lt;svg width="12" height="12" viewBox="0 0 12 12" fill="none"&gt;
+      &lt;path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5"
+        stroke-linecap="round" stroke-linejoin="round"/&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;span class="ds-checkbox-label"&gt;Remember me&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Radio --&gt;
+&lt;label class="ds-radio"&gt;
+  &lt;input type="radio" name="group" class="ds-radio-input"&gt;
+  &lt;span class="ds-radio-indicator"&gt;&lt;/span&gt;
+  &lt;span class="ds-radio-label"&gt;Option A&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Switch --&gt;
+&lt;button class="ds-switch-track ds-switch-lg ds-switch-off"
+        role="switch" aria-checked="false"&gt;
+  &lt;span class="ds-switch-handle"&gt;&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Tabs --&gt;
+&lt;div class="ds-tabs" role="tablist"&gt;
+  &lt;button class="ds-tab" role="tab" aria-selected="true"&gt;Tab 1&lt;/button&gt;
+  &lt;button class="ds-tab" role="tab" aria-selected="false"&gt;Tab 2&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Segmented Control --&gt;
+&lt;div class="ds-segmented" role="radiogroup" aria-label="View"&gt;
+  &lt;button class="ds-segmented-item" role="radio" aria-checked="true"&gt;Label&lt;/button&gt;
+  &lt;button class="ds-segmented-item" role="radio" aria-checked="false"&gt;Label&lt;/button&gt;
+  &lt;button class="ds-segmented-item" role="radio" aria-checked="false"&gt;Label&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Select (functional dropdown) --&gt;
+&lt;div class="ds-select-wrapper"&gt;
+  &lt;button class="ds-select" aria-haspopup="listbox"&gt;
+    &lt;span&gt;Label&lt;/span&gt;
+    &lt;ds-icon class="ds-select-chevron" name="chevron-down" size="16"&gt;&lt;/ds-icon&gt;
+  &lt;/button&gt;
+  &lt;div class="ds-select-menu" role="listbox"&gt;
+    &lt;button class="ds-select-item" role="option"&gt;
+      &lt;span class="ds-select-item-label"&gt;Item&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Data Table --&gt;
+&lt;div class="ds-table"&gt;
+  &lt;div class="ds-table-action-bar"&gt;
+    &lt;input class="ds-input ds-input-md" placeholder="Search" style="width:160px"&gt;
+    &lt;div class="ds-table-action-bar-spacer"&gt;&lt;/div&gt;
+    &lt;button class="ds-btn ds-btn-md ds-btn-primary"&gt;Create&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th class="ds-table-col-checkbox"&gt;&lt;!-- checkbox --&gt;&lt;/th&gt;
+        &lt;th class="ds-table-col-icon"&gt;&lt;/th&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th class="ds-table-sortable ds-table-sorted"&gt;Date ↓&lt;/th&gt;
+        &lt;th class="ds-table-col-action"&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td class="ds-table-col-checkbox"&gt;&lt;!-- checkbox --&gt;&lt;/td&gt;
+        &lt;td class="ds-table-col-icon"&gt;&lt;!-- icon --&gt;&lt;/td&gt;
+        &lt;td class="ds-table-cell-highlight"&gt;Document 1&lt;/td&gt;
+        &lt;td&gt;10/09/21&lt;/td&gt;
+        &lt;td class="ds-table-col-action"&gt;&lt;!-- action btn --&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;div class="ds-table-pagination"&gt;
+    &lt;button class="ds-table-page"&gt;&amp;lt;&lt;/button&gt;
+    &lt;button class="ds-table-page" aria-current="page"&gt;1&lt;/button&gt;
+    &lt;button class="ds-table-page"&gt;2&lt;/button&gt;
+    &lt;button class="ds-table-page"&gt;&amp;gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Status badges --&gt;
+&lt;span class="ds-table-status ds-table-status-green"&gt;Confirmed&lt;/span&gt;
+&lt;span class="ds-table-status ds-table-status-red"&gt;Rejected&lt;/span&gt;
+
+&lt;!-- Icons (name = file name in Icons/, size 16 or 24) --&gt;
+&lt;ds-icon name="settings" size="16"&gt;&lt;/ds-icon&gt;
+
+&lt;!-- Modal: see the Modal section for the full markup --&gt;
+&lt;button class="ds-btn ds-btn-md ds-btn-primary" data-ds-open="my-modal"&gt;Open&lt;/button&gt;
+
+&lt;!-- Toast: click a floating ack, or from JS --&gt;
+&lt;div class="ds-ack ds-ack-floating ds-ack-info" data-ds-toast&gt;…&lt;/div&gt;
+&lt;script&gt; DS.showToast({ type: 'success', message: 'Saved' }); &lt;/script&gt;
+
+&lt;!-- Events (bubble): select, tabs, segmented, switch, pagination --&gt;
+&lt;script&gt;
+  document.addEventListener('ds-change', e =&gt; console.log(e.target, e.detail.value, e.detail.label));
+&lt;/script&gt;
+
+&lt;!-- Dark mode --&gt;
+&lt;script&gt; DS.setTheme('dark');  // or 'light' &lt;/script&gt;
+&lt;html data-theme="dark"&gt;  &lt;!-- same thing, in markup --&gt;</pre>
+  </div>
+
+</div>
+
+<script src="ds-icons.js"></script>
+<script src="ds.js"></script>
+
+</body>
+</html>
