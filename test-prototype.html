@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test prototype (DS v1.0)</title>
+  <title>Test prototype (DS v1.1)</title>
 
-  <!-- The three DS tags. This page links ONLY files from releases/v1.0/. -->
-  <link rel="stylesheet" href="releases/v1.0/styles.css" />
-  <script src="releases/v1.0/ds-icons.js"></script>
-  <script src="releases/v1.0/ds.js"></script>
+  <!-- The three DS tags. This page links ONLY files from releases/v1.1/. -->
+  <link rel="stylesheet" href="releases/v1.1/styles.css" />
+  <script src="releases/v1.1/ds-icons.js"></script>
+  <script src="releases/v1.1/ds.js"></script>
 
   <style>
     body { margin: 0; padding: 32px; background: var(--ds-background); color: var(--ds-tone-1); }
@@ -28,6 +28,7 @@
       </button>
       <ds-icon name="settings"></ds-icon>
       <ds-icon name="search"></ds-icon>
+      <button class="ds-btn ds-btn-md ds-btn-primary" id="locked" disabled>Disabled</button>
       <span id="status">Nothing selected yet.</span>
     </div>
 
@@ -59,15 +60,12 @@
     </div>
 
     <div class="ds-modal ds-modal-sm" id="confirm-modal" hidden>
-      <div class="ds-modal-backdrop" data-ds-close></div>
+      <div class="ds-modal-backdrop"></div>
       <div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
-        <div class="ds-modal-header">
-          <h2 class="ds-modal-title" id="confirm-modal-title">Delete item?</h2>
-          <button class="ds-modal-close" data-ds-close aria-label="Close"><ds-icon name="clear"></ds-icon></button>
-        </div>
+        <div class="ds-modal-header"><h2 class="ds-modal-title" id="confirm-modal-title">Delete item?</h2></div>
         <div class="ds-modal-body">This action cannot be undone.</div>
         <div class="ds-modal-footer">
-          <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-close>Cancel</button>
+          <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless" data-ds-close>Cancel</button>
           <button class="ds-btn ds-btn-md ds-btn-danger" data-ds-close>Delete</button>
         </div>
       </div>

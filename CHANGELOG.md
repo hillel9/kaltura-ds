@@ -3,7 +3,9 @@
 Released folders under `releases/` are frozen and never edited. A change ships as a new version folder
 (copy `styles.css`, `ds.js`, `ds-icons.js` to `releases/vX.Y/`) plus an entry here.
 
-## Unreleased (will be v1.1)
+## Unreleased
+
+## v1.1 (2026-11-18)
 
 ### Changed (behavior - read before upgrading from v1.0)
 - **Modals are static.** Clicking the backdrop and pressing Escape no longer close a modal, so people don't lose what they typed in a form. A modal closes only through a `[data-ds-close]` element inside the dialog (a Cancel button) or `DS.closeModal()`. An open select inside a modal still closes on Escape.
