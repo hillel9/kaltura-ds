@@ -11,6 +11,9 @@ Released folders under `releases/` are frozen and never edited. A change ships a
 - Modal layout follows the Figma "Generate a video" design: centered 24px title with no divider, body that scrolls on its own, 65px footer with a top border, actions on the right and an optional note on the left (`.ds-modal-footer-note`). The corner X is no longer in the default markup; `.ds-modal-close` is still available as an option.
 - Markup: drop `data-ds-close` from `.ds-modal-backdrop` (it is ignored if left), and use a borderless secondary Cancel button.
 
+### Fixed
+- **Disabled button** (`.ds-btn` with `disabled` / `aria-disabled="true"`) is now an outline: empty background, `--ds-tone-4` border and text (was a `--ds-tone-6` fill). Borderless disabled buttons stay borderless and now show `--ds-tone-4` text instead of the variant color. Markup unchanged.
+
 ### Added
 - Modal size `.ds-modal-xl` (960px), `--ds-modal-width-xl`.
 - Tokens `--ds-space-10` (40px), `--ds-font-size-h3` (24px), `--ds-line-height-h3`.

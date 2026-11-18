@@ -199,7 +199,7 @@ arrow-right, bookmark, bullet, business-card, chat, check, chevron-down, chevron
 Sizes and variants are modifier classes on the base class. Disabled = the `disabled` attribute (or `aria-disabled="true"` where noted). Every example below is the exact markup to copy.
 
 ### Button
-Base `ds-btn` + size (`ds-btn-sm` 24px | `-md` 32px | `-lg` 40px | `-xl` 48px) + variant (`ds-btn-primary` | `-secondary` | `-danger`). Optional `ds-btn-borderless` (transparent bg, colored text, tint on hover). Icon-only: add `ds-btn-icon` (square) and give it `aria-label`. States: hover, focus-visible ring, `disabled` / `aria-disabled="true"` (grey, not clickable).
+Base `ds-btn` + size (`ds-btn-sm` 24px | `-md` 32px | `-lg` 40px | `-xl` 48px) + variant (`ds-btn-primary` | `-secondary` | `-danger`). Optional `ds-btn-borderless` (transparent bg, colored text, tint on hover). Icon-only: add `ds-btn-icon` (square) and give it `aria-label`. States: hover, focus-visible ring, `disabled` / `aria-disabled="true"` (outline: empty background, `tone-4` border and text; borderless keeps no border; not clickable).
 ```html
 <button class="ds-btn ds-btn-md ds-btn-primary">Save</button>
 <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless">Cancel</button>

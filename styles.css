@@ -219,12 +219,13 @@ html, body {
 .ds-btn-danger { background: var(--ds-danger); color: var(--ds-danger-text-contrast); }
 .ds-btn-danger:hover { background: var(--ds-danger-darker); }
 
-/* Disabled — applied via :disabled pseudo-class for real buttons */
+/* Disabled — applied via :disabled pseudo-class for real buttons.
+   Outline style: empty background, tone-4 border and text. */
 .ds-btn:disabled,
 .ds-btn[aria-disabled="true"] {
-  background: var(--ds-tone-6);
+  background: transparent;
   color: var(--ds-tone-4);
-  border: none;
+  border: 1px solid var(--ds-tone-4);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -237,6 +238,13 @@ html, body {
 .ds-btn-borderless.ds-btn-secondary:hover { background: var(--ds-tone-5); }
 .ds-btn-borderless.ds-btn-danger { background: transparent; color: var(--ds-danger); }
 .ds-btn-borderless.ds-btn-danger:hover { background: var(--ds-danger-tint-10); }
+/* Borderless disabled: no border, tone-4 text */
+.ds-btn.ds-btn-borderless:disabled,
+.ds-btn.ds-btn-borderless[aria-disabled="true"] {
+  background: transparent;
+  color: var(--ds-tone-4);
+  border: none;
+}
 
 /* Icon-only */
 .ds-btn-icon { min-width: unset; padding: 0; }
