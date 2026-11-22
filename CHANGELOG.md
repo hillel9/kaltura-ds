@@ -5,6 +5,9 @@ Released folders under `releases/` are frozen and never edited. A change ships a
 
 ## Unreleased
 
+### Fixed
+- **Select trigger border** (`.ds-select`) is now `--ds-tone-3`, like the other fields (input, textarea, search). It was `--ds-tone-4`. Markup unchanged.
+
 ## v1.1 (2026-11-18)
 
 ### Changed (behavior - read before upgrading from v1.0)

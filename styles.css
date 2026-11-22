@@ -640,7 +640,7 @@ html, body {
   font-size: var(--ds-font-size-4);
   color: var(--ds-tone-1);
   background: var(--ds-background);
-  border: 1px solid var(--ds-tone-4);
+  border: 1px solid var(--ds-tone-3);
   border-radius: var(--ds-roundness-1);
   cursor: pointer;
   outline: none;
