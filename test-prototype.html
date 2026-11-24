@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test prototype (DS v1.1)</title>
+  <title>Test prototype (DS v1.2)</title>
 
-  <!-- The three DS tags. This page links ONLY files from releases/v1.1/. -->
-  <link rel="stylesheet" href="releases/v1.1/styles.css" />
-  <script src="releases/v1.1/ds-icons.js"></script>
-  <script src="releases/v1.1/ds.js"></script>
+  <!-- The three DS tags. This page links ONLY files from releases/v1.2/. -->
+  <link rel="stylesheet" href="releases/v1.2/styles.css" />
+  <script src="releases/v1.2/ds-icons.js"></script>
+  <script src="releases/v1.2/ds.js"></script>
 
   <style>
     body { margin: 0; padding: 32px; background: var(--ds-background); color: var(--ds-tone-1); }
@@ -29,6 +29,8 @@
       <ds-icon name="settings"></ds-icon>
       <ds-icon name="search"></ds-icon>
       <button class="ds-btn ds-btn-md ds-btn-primary" id="locked" disabled>Disabled</button>
+      <button class="ds-btn ds-btn-md ds-btn-primary ds-btn-processing" id="busy" aria-busy="true">Saving</button>
+      <span class="ds-spinner" role="status" aria-label="Loading"></span>
       <span id="status">Nothing selected yet.</span>
     </div>
 
