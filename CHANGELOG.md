@@ -5,7 +5,13 @@ Released folders under `releases/` are frozen and never edited. A change ships a
 
 ## Unreleased
 
+### Added
+- **Autocomplete** (`.ds-autocomplete`): text input with a filtered menu of suggestions, from the Figma Platform DS. Single value, or multiple values as chips (`.ds-autocomplete-multiple`) with a `+N` counter and hint when they don't fit; no-results message (`.ds-autocomplete-empty`); `data-filter="none"` for suggestions the page provides; disabled. Keyboard: arrows, Home/End, Enter, Escape, Backspace removes the last chip. Fires `ds-change` on the wrapper.
+- **Spinner** (`.ds-spinner`): 20px loading ring with a turning quarter arc, from the Figma Platform DS. Primary by default, `.ds-spinner-white` for dark or colored surfaces, `.ds-spinner-black` for light images. CSS only. New token `--ds-primary-tint-20` for its track.
+- **Button processing state** (`.ds-btn-processing` or `aria-busy="true"`), from the Figma Platform DS: the label is hidden, the button keeps its width and color, and a spinner sized to the button turns in its place. Clicks and Enter/Space are ignored while it is set. New `DS.setProcessing(btn, on)` toggles it. New token `--ds-danger-tint-20` (borderless danger spinner track).
+
 ### Fixed
+- **Disabled circular button** (`.ds-btn-circular:disabled`) is now an outline, like other disabled buttons: transparent background, `--ds-tone-4` border and icon, in light and dark. It was a `--ds-tone-5` fill (and the normal translucent fill in dark theme). Markup unchanged.
 - **Select trigger border** (`.ds-select`) is now `--ds-tone-3`, like the other fields (input, textarea, search). It was `--ds-tone-4`. Markup unchanged.
 
 ## v1.1 (2026-11-18)

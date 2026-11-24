@@ -107,14 +107,80 @@
       border: none; border-radius: var(--ds-roundness-1);
       cursor: pointer; font-weight: 700; font-family: 'Lato', sans-serif;
     }
+    /* Section menu: fixed sidebar on wide screens, list above the page on narrow ones */
+    html { scroll-behavior: smooth; }
+    .section-title, #top { scroll-margin-top: 24px; }
+    .preview-nav {
+      display: flex; flex-direction: column; gap: 16px;
+      max-width: 960px; margin: 0 auto 32px;
+      font-size: 13px;
+    }
+    .preview-nav-group { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+    .preview-nav-heading {
+      width: 100%; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--ds-tone-3);
+    }
+    .preview-nav a { color: var(--ds-tone-2); text-decoration: none; border-radius: var(--ds-roundness-1); }
+    .preview-nav a:hover { color: var(--ds-primary); }
+    .preview-nav a:focus-visible { outline: 2px solid var(--ds-primary); outline-offset: 2px; }
+    .preview-nav-top { font-size: 16px; font-weight: 700; color: var(--ds-tone-1) !important; }
+    @media (min-width: 1280px) {
+      .preview-nav {
+        position: fixed; top: 0; left: 0; bottom: 0; width: 200px;
+        margin: 0; padding: 40px 16px 40px 24px; overflow-y: auto; gap: 20px;
+        border-right: 1px solid var(--ds-tone-5); background: var(--ds-background);
+      }
+      .preview-nav-group { flex-direction: column; flex-wrap: nowrap; gap: 6px; }
+      body { padding-left: 224px; }
+    }
   </style>
 </head>
 <body>
 
 <button class="theme-toggle" data-ds-theme-toggle>Toggle Dark</button>
 
+<nav class="preview-nav" aria-label="Sections">
+  <a class="preview-nav-top" href="#top">DS</a>
+  <div class="preview-nav-group">
+    <span class="preview-nav-heading">Tokens</span>
+      <a href="#tokens-colors">Colors</a>
+      <a href="#tokens-surfaces">Surfaces</a>
+      <a href="#tokens-tones">Tones</a>
+      <a href="#tokens-opacity">Opacity</a>
+      <a href="#tokens-radius">Radius</a>
+      <a href="#tokens-typography">Typography</a>
+      <a href="#tokens-spacing">Spacing</a>
+      <a href="#tokens-font-scale">Font Scale</a>
+      <a href="#tokens-shadows-tints">Shadows &amp; Tints</a>
+  </div>
+  <div class="preview-nav-group">
+    <span class="preview-nav-heading">Components</span>
+      <a href="#button">Button</a>
+      <a href="#input">Input</a>
+      <a href="#textarea">Textarea</a>
+      <a href="#checkbox">Checkbox</a>
+      <a href="#radio">Radio</a>
+      <a href="#switch">Switch</a>
+      <a href="#formfield">FormField</a>
+      <a href="#select">Select</a>
+      <a href="#autocomplete">Autocomplete</a>
+      <a href="#tabs">Tabs</a>
+      <a href="#segmented-control">Segmented Control</a>
+      <a href="#data-table">Data Table</a>
+      <a href="#user-picture">User Picture</a>
+      <a href="#acknowledgement-help">Acknowledgement & Help</a>
+      <a href="#modal">Modal</a>
+      <a href="#spinner">Spinner</a>
+      <a href="#icons">Icons</a>
+      <a href="#badges">Badges</a>
+  </div>
+  <div class="preview-nav-group">
+    <a href="#quick-reference">Quick Reference</a>
+  </div>
+</nav>
+
 <div class="preview-wrap">
-  <div class="preview-header">
+  <div class="preview-header" id="top">
     <h1>DS — Design System</h1>
     <p>Plain HTML/CSS/JS design system. Link <code>styles.css</code>, <code>ds-icons.js</code> and <code>ds.js</code> and use the <code>ds-</code> prefixed classes.</p>
   </div>
@@ -123,7 +189,7 @@
        TOKENS — Colors
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Colors</h2>
+    <h2 class="section-title" id="tokens-colors">Tokens — Colors</h2>
 
     <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Primary</h3>
     <div class="swatch-grid" style="margin-bottom:24px;">
@@ -178,7 +244,7 @@
        TOKENS — Surfaces
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Surfaces</h2>
+    <h2 class="section-title" id="tokens-surfaces">Tokens — Surfaces</h2>
     <div class="swatch-grid">
       <div class="swatch">
         <div class="swatch-color" style="background: var(--ds-background); border-bottom: 1px solid #ddd;"></div>
@@ -199,7 +265,7 @@
        TOKENS — Tones
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Tones</h2>
+    <h2 class="section-title" id="tokens-tones">Tokens — Tones</h2>
     <div class="swatch-grid">
       <div class="swatch">
         <div class="swatch-color" style="background: var(--ds-tone-1);"></div>
@@ -240,7 +306,7 @@
        TOKENS — Opacity
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Opacity</h2>
+    <h2 class="section-title" id="tokens-opacity">Tokens — Opacity</h2>
     <div style="display:flex; gap:24px; flex-wrap:wrap;">
       <div>
         <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Black</h3>
@@ -307,7 +373,7 @@
        TOKENS — Radius
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Radius</h2>
+    <h2 class="section-title" id="tokens-radius">Tokens — Radius</h2>
     <table class="token-table">
       <thead><tr><th>Token</th><th>Value</th><th>Preview</th></tr></thead>
       <tbody>
@@ -334,7 +400,7 @@
        TOKENS — Typography
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Typography</h2>
+    <h2 class="section-title" id="tokens-typography">Tokens — Typography</h2>
     <p style="font-size:13px; color:var(--ds-tone-2); margin-bottom:16px;">Font: Lato (400, 700)</p>
     <table class="token-table">
       <thead><tr><th>Style</th><th>Weight</th><th>Size / Line</th><th>Sample</th></tr></thead>
@@ -371,7 +437,7 @@
        TOKENS — Spacing
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Spacing</h2>
+    <h2 class="section-title" id="tokens-spacing">Tokens — Spacing</h2>
     <p style="font-size:var(--ds-font-size-3); color:var(--ds-tone-2); margin-bottom:var(--ds-space-4);">4px base. <code>--ds-space-N</code> = N &times; 4px. Half steps use a dash (<code>1-5</code> = 1.5 &times; 4 = 6px).</p>
     <table class="token-table">
       <thead><tr><th>Token</th><th>Value</th><th>Preview</th></tr></thead>
@@ -408,7 +474,7 @@
        TOKENS — Font sizes, weights, line heights
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Font Scale</h2>
+    <h2 class="section-title" id="tokens-font-scale">Tokens — Font Scale</h2>
     <table class="token-table">
       <thead><tr><th>Token</th><th>Value</th><th>Sample</th></tr></thead>
       <tbody>
@@ -441,7 +507,7 @@
        TOKENS — Shadows, tints, accent
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tokens — Shadows &amp; Tints</h2>
+    <h2 class="section-title" id="tokens-shadows-tints">Tokens — Shadows &amp; Tints</h2>
     <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin-bottom:var(--ds-space-3);">Shadows</h3>
     <div style="display:flex; gap:var(--ds-space-8); flex-wrap:wrap; padding:var(--ds-space-6); background:var(--ds-paper); border-radius:var(--ds-roundness-2); margin-bottom:var(--ds-space-6);">
       <div><div class="shadow-demo" style="box-shadow:var(--ds-shadow-menu);"></div><div style="font-size:var(--ds-font-size-3); margin-top:var(--ds-space-3);"><code>--ds-shadow-menu</code><br><span style="color:var(--ds-tone-2);">Select menu</span></div></div>
@@ -471,7 +537,7 @@
        COMPONENT — Button
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Button</h2>
+    <h2 class="section-title" id="button">Button</h2>
 
     <div class="row">
       <span class="row-label">Variants</span>
@@ -513,6 +579,39 @@
     </div>
 
     <div class="row">
+      <span class="row-label">Processing</span>
+      <button class="ds-btn ds-btn-md ds-btn-primary ds-btn-processing" aria-busy="true">Save</button>
+      <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-processing" aria-busy="true">Save</button>
+      <button class="ds-btn ds-btn-md ds-btn-danger ds-btn-processing" aria-busy="true">Delete</button>
+      <button class="ds-btn ds-btn-md ds-btn-primary ds-btn-icon ds-btn-processing" aria-busy="true" aria-label="Add"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Processing sizes</span>
+      <button class="ds-btn ds-btn-sm ds-btn-primary ds-btn-processing" aria-busy="true">Small</button>
+      <button class="ds-btn ds-btn-md ds-btn-primary ds-btn-processing" aria-busy="true">Medium</button>
+      <button class="ds-btn ds-btn-lg ds-btn-primary ds-btn-processing" aria-busy="true">Large</button>
+      <button class="ds-btn ds-btn-xl ds-btn-primary ds-btn-processing" aria-busy="true">XL</button>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Processing borderless</span>
+      <button class="ds-btn ds-btn-md ds-btn-primary ds-btn-borderless ds-btn-processing" aria-busy="true">Primary</button>
+      <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless ds-btn-processing" aria-busy="true">Secondary</button>
+      <button class="ds-btn ds-btn-md ds-btn-danger ds-btn-borderless ds-btn-processing" aria-busy="true">Danger</button>
+    </div>
+
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin:var(--ds-space-2) 0 0;">
+      <strong>Processing:</strong> add <code>ds-btn-processing</code> and <code>aria-busy="true"</code> while an action runs, or call <code>DS.setProcessing(button, true)</code> and <code>DS.setProcessing(button, false)</code>. The label is hidden but the button keeps its width and color, a spinner sized to the button replaces it, and clicks (mouse, Enter, Space) are ignored until it is removed. Don't add <code>disabled</code> at the same time.
+    </p>
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;button class="ds-btn ds-btn-md ds-btn-primary ds-btn-processing" aria-busy="true"&gt;Save&lt;/button&gt;
+
+// JS
+DS.setProcessing(saveBtn, true);   // or DS.setProcessing('save-id')
+await save();
+DS.setProcessing(saveBtn, false);</pre>
+
+    <div class="row">
       <span class="row-label">Circular</span>
       <button class="ds-btn-circular ds-btn-circular-sm">
         <ds-icon name="play"></ds-icon>
@@ -533,7 +632,7 @@
        COMPONENT — Input
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Input</h2>
+    <h2 class="section-title" id="input">Input</h2>
 
     <div class="row">
       <span class="row-label">Sizes</span>
@@ -554,7 +653,7 @@
        COMPONENT — Textarea
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Textarea</h2>
+    <h2 class="section-title" id="textarea">Textarea</h2>
 
     <div class="row" style="align-items:start;">
       <span class="row-label">Default</span>
@@ -574,7 +673,7 @@
        COMPONENT — Checkbox
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Checkbox</h2>
+    <h2 class="section-title" id="checkbox">Checkbox</h2>
 
     <div class="row">
       <span class="row-label">States</span>
@@ -609,7 +708,7 @@
        COMPONENT — Radio
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Radio</h2>
+    <h2 class="section-title" id="radio">Radio</h2>
 
     <div class="row">
       <span class="row-label">Group</span>
@@ -644,7 +743,7 @@
        COMPONENT — Switch
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Switch</h2>
+    <h2 class="section-title" id="switch">Switch</h2>
 
     <div class="row">
       <span class="row-label">Large</span>
@@ -678,7 +777,7 @@
        COMPONENT — FormField
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">FormField</h2>
+    <h2 class="section-title" id="formfield">FormField</h2>
 
     <div class="form-demo">
       <div class="ds-form-field">
@@ -745,7 +844,7 @@
        COMPONENT — Select
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Select</h2>
+    <h2 class="section-title" id="select">Select</h2>
 
     <!-- Functional select — basic -->
     <div class="row">
@@ -981,10 +1080,211 @@
     </div>
   </div>
   <!-- ═══════════════════════════════════════════
+       COMPONENT — Autocomplete
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="autocomplete">Autocomplete</h2>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">A text input with a menu of suggested options. Type to filter, arrows to move, Enter to pick, Escape to close. Multiple values show as chips; when the field is not in use, chips that don't fit become a "+N" counter (hover it for the names).</p>
+
+    <div class="row">
+      <span class="row-label">Single value</span>
+      <div class="ds-autocomplete" style="width:300px">
+        <div class="ds-autocomplete-field">
+          <input class="ds-autocomplete-input" placeholder="Placeholder" aria-label="Fruit">
+          <button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden><ds-icon name="close" size="16"></ds-icon></button>
+          <ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"></ds-icon>
+        </div>
+        <div class="ds-autocomplete-menu ds-select-menu">
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Apple</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Apricot</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Banana</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Blackberry</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Blueberry</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Cherry</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Grape</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Lemon</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Mango</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Orange</span></button>
+          <div class="ds-autocomplete-empty">
+            <ds-icon class="ds-autocomplete-empty-icon" name="warning-triangle"></ds-icon>
+            We couldn't find results
+            <button type="button" class="ds-autocomplete-retry">Try again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Multiple values</span>
+      <div class="ds-autocomplete ds-autocomplete-multiple" style="width:500px">
+        <div class="ds-autocomplete-field">
+          <span class="ds-chip" data-value="Celine Garnier"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=44" alt=""><span class="ds-chip-content">Celine Garnier<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Celine Garnier"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Brian Dennis"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=12" alt=""><span class="ds-chip-content">Brian Dennis<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Brian Dennis"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <input class="ds-autocomplete-input" placeholder="Enter value" aria-label="People">
+          <button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden><ds-icon name="close" size="16"></ds-icon></button>
+          <ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"></ds-icon>
+        </div>
+        <div class="ds-autocomplete-menu ds-select-menu">
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=44" alt=""><span class="ds-select-item-label">Celine Garnier</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=12" alt=""><span class="ds-select-item-label">Brian Dennis</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=47" alt=""><span class="ds-select-item-label">Ella Gartner</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=45" alt=""><span class="ds-select-item-label">Elisabeth Brace</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=49" alt=""><span class="ds-select-item-label">Laura Steven</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=32" alt=""><span class="ds-select-item-label">Alona Cohen</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=15" alt=""><span class="ds-select-item-label">Bobby Brown</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=53" alt=""><span class="ds-select-item-label">Anthony Christ</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=59" alt=""><span class="ds-select-item-label">Charlie Moner</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=26" alt=""><span class="ds-select-item-label">Beth Cutter</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=68" alt=""><span class="ds-select-item-label">Carl James</span></button>
+          <div class="ds-autocomplete-empty">
+            <ds-icon class="ds-autocomplete-empty-icon" name="warning-triangle"></ds-icon>
+            We couldn't find results
+            <button type="button" class="ds-autocomplete-retry">Try again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Overflow</span>
+      <div class="ds-autocomplete ds-autocomplete-multiple" style="width:500px">
+        <div class="ds-autocomplete-field">
+          <span class="ds-chip" data-value="Celine Garnier"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=44" alt=""><span class="ds-chip-content">Celine Garnier<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Celine Garnier"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Brian Dennis"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=12" alt=""><span class="ds-chip-content">Brian Dennis<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Brian Dennis"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Ella Gartner"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=47" alt=""><span class="ds-chip-content">Ella Gartner<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Ella Gartner"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Elisabeth Brace"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=45" alt=""><span class="ds-chip-content">Elisabeth Brace<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Elisabeth Brace"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Laura Steven"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=49" alt=""><span class="ds-chip-content">Laura Steven<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Laura Steven"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Alona Cohen"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=32" alt=""><span class="ds-chip-content">Alona Cohen<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Alona Cohen"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Bobby Brown"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=15" alt=""><span class="ds-chip-content">Bobby Brown<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Bobby Brown"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Anthony Christ"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=53" alt=""><span class="ds-chip-content">Anthony Christ<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Anthony Christ"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Charlie Moner"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=59" alt=""><span class="ds-chip-content">Charlie Moner<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Charlie Moner"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Beth Cutter"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=26" alt=""><span class="ds-chip-content">Beth Cutter<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Beth Cutter"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Carl James"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=68" alt=""><span class="ds-chip-content">Carl James<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Carl James"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <input class="ds-autocomplete-input" placeholder="Enter value" aria-label="Team">
+          <button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden><ds-icon name="close" size="16"></ds-icon></button>
+          <ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"></ds-icon>
+        </div>
+        <div class="ds-autocomplete-menu ds-select-menu">
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=44" alt=""><span class="ds-select-item-label">Celine Garnier</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=12" alt=""><span class="ds-select-item-label">Brian Dennis</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=47" alt=""><span class="ds-select-item-label">Ella Gartner</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=45" alt=""><span class="ds-select-item-label">Elisabeth Brace</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=49" alt=""><span class="ds-select-item-label">Laura Steven</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=32" alt=""><span class="ds-select-item-label">Alona Cohen</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=15" alt=""><span class="ds-select-item-label">Bobby Brown</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=53" alt=""><span class="ds-select-item-label">Anthony Christ</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=59" alt=""><span class="ds-select-item-label">Charlie Moner</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=26" alt=""><span class="ds-select-item-label">Beth Cutter</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=68" alt=""><span class="ds-select-item-label">Carl James</span></button>
+          <div class="ds-autocomplete-empty">
+            <ds-icon class="ds-autocomplete-empty-icon" name="warning-triangle"></ds-icon>
+            We couldn't find results
+            <button type="button" class="ds-autocomplete-retry">Try again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Disabled</span>
+      <div class="ds-autocomplete" style="width:300px">
+        <div class="ds-autocomplete-field">
+          <input class="ds-autocomplete-input" placeholder="Value" aria-label="Fruit" disabled>
+          <button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden><ds-icon name="close" size="16"></ds-icon></button>
+          <ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"></ds-icon>
+        </div>
+        <div class="ds-autocomplete-menu ds-select-menu">
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Apple</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Apricot</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Banana</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Blackberry</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Blueberry</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Cherry</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Grape</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Lemon</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Mango</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Orange</span></button>
+          <div class="ds-autocomplete-empty">
+            <ds-icon class="ds-autocomplete-empty-icon" name="warning-triangle"></ds-icon>
+            We couldn't find results
+            <button type="button" class="ds-autocomplete-retry">Try again</button>
+          </div>
+        </div>
+      </div>
+      <div class="ds-autocomplete ds-autocomplete-multiple" style="width:400px">
+        <div class="ds-autocomplete-field">
+          <span class="ds-chip" data-value="Celine Garnier"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=44" alt=""><span class="ds-chip-content">Celine Garnier<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Celine Garnier"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <span class="ds-chip" data-value="Brian Dennis"><img class="ds-chip-picture" src="https://i.pravatar.cc/48?img=12" alt=""><span class="ds-chip-content">Brian Dennis<button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Brian Dennis"><ds-icon name="close" size="16"></ds-icon></button></span></span>
+          <input class="ds-autocomplete-input" placeholder="Enter value" aria-label="Disabled people" disabled>
+          <button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden><ds-icon name="close" size="16"></ds-icon></button>
+          <ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"></ds-icon>
+        </div>
+        <div class="ds-autocomplete-menu ds-select-menu">
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=44" alt=""><span class="ds-select-item-label">Celine Garnier</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=12" alt=""><span class="ds-select-item-label">Brian Dennis</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=47" alt=""><span class="ds-select-item-label">Ella Gartner</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=45" alt=""><span class="ds-select-item-label">Elisabeth Brace</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=49" alt=""><span class="ds-select-item-label">Laura Steven</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=32" alt=""><span class="ds-select-item-label">Alona Cohen</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=15" alt=""><span class="ds-select-item-label">Bobby Brown</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=53" alt=""><span class="ds-select-item-label">Anthony Christ</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=59" alt=""><span class="ds-select-item-label">Charlie Moner</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=26" alt=""><span class="ds-select-item-label">Beth Cutter</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><img class="ds-autocomplete-picture" src="https://i.pravatar.cc/48?img=68" alt=""><span class="ds-select-item-label">Carl James</span></button>
+          <div class="ds-autocomplete-empty">
+            <ds-icon class="ds-autocomplete-empty-icon" name="warning-triangle"></ds-icon>
+            We couldn't find results
+            <button type="button" class="ds-autocomplete-retry">Try again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin-top:var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;div class="ds-autocomplete" style="width:300px"&gt;
+  &lt;div class="ds-autocomplete-field"&gt;
+    &lt;input class="ds-autocomplete-input" placeholder="Pick a fruit" aria-label="Fruit"&gt;
+    &lt;button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden&gt;&lt;ds-icon name="close" size="16"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+    &lt;ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"&gt;&lt;/ds-icon&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-autocomplete-menu ds-select-menu"&gt;
+    &lt;button type="button" class="ds-select-item" role="option" tabindex="-1" data-value="apple"&gt;&lt;span class="ds-select-item-label"&gt;Apple&lt;/span&gt;&lt;/button&gt;
+    &lt;button type="button" class="ds-select-item" role="option" tabindex="-1" data-value="banana"&gt;&lt;span class="ds-select-item-label"&gt;Banana&lt;/span&gt;&lt;/button&gt;
+    &lt;div class="ds-autocomplete-empty"&gt;
+      &lt;ds-icon class="ds-autocomplete-empty-icon" name="warning-triangle"&gt;&lt;/ds-icon&gt;
+      We couldn't find results
+      &lt;button type="button" class="ds-autocomplete-retry"&gt;Try again&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Multiple: add ds-autocomplete-multiple; chips go before the input; options get a checkbox --&gt;
+&lt;div class="ds-autocomplete ds-autocomplete-multiple" style="width:500px"&gt;
+  &lt;div class="ds-autocomplete-field"&gt;
+    &lt;span class="ds-chip" data-value="celine"&gt;&lt;img class="ds-chip-picture" src="celine.jpg" alt=""&gt;&lt;span class="ds-chip-content"&gt;Celine Garnier&lt;button type="button" class="ds-chip-close" tabindex="-1" aria-label="Remove Celine Garnier"&gt;&lt;ds-icon name="close" size="16"&gt;&lt;/ds-icon&gt;&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;input class="ds-autocomplete-input" placeholder="Enter value" aria-label="People"&gt;
+    &lt;button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden&gt;&lt;ds-icon name="close" size="16"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+    &lt;ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"&gt;&lt;/ds-icon&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-autocomplete-menu ds-select-menu"&gt;
+    &lt;button type="button" class="ds-select-item" role="option" tabindex="-1" data-value="celine"&gt;
+      &lt;span class="ds-checkbox-indicator"&gt;&lt;svg width="12" height="12" viewBox="0 0 12 12" fill="none"&gt;&lt;path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/&gt;&lt;/svg&gt;&lt;/span&gt;
+      &lt;img class="ds-autocomplete-picture" src="celine.jpg" alt=""&gt;
+      &lt;span class="ds-select-item-label"&gt;Celine Garnier&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  document.addEventListener('ds-change', function (e) {
+    if (e.target.matches('.ds-autocomplete')) console.log(e.detail); // { value, label }
+  });
+&lt;/script&gt;</pre>
+  </div>
+  <!-- ═══════════════════════════════════════════
        COMPONENT — Tabs
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Tabs</h2>
+    <h2 class="section-title" id="tabs">Tabs</h2>
 
     <!-- Basic text tabs -->
     <div class="row" style="flex-direction:column; align-items:start;">
@@ -1039,7 +1339,7 @@
        COMPONENT — Segmented Control
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Segmented Control</h2>
+    <h2 class="section-title" id="segmented-control">Segmented Control</h2>
 
     <!-- 3 items -->
     <div class="row" style="flex-direction:column; align-items:start;">
@@ -1104,7 +1404,7 @@
        COMPONENT — Data Table
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Data Table</h2>
+    <h2 class="section-title" id="data-table">Data Table</h2>
 
     <!-- Default table -->
     <div class="row" style="flex-direction:column; align-items:stretch;">
@@ -1261,7 +1561,7 @@
        USER PICTURE
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">User Picture</h2>
+    <h2 class="section-title" id="user-picture">User Picture</h2>
     <p style="font-size:14px; color:var(--ds-tone-2); margin-bottom:20px;">
       Displays a user's profile image or their initials as a fallback. Always rendered as a square with rounded corners.
     </p>
@@ -1323,7 +1623,7 @@
        ACKNOWLEDGEMENT & HELP
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Acknowledgement & Help</h2>
+    <h2 class="section-title" id="acknowledgement-help">Acknowledgement & Help</h2>
 
 
     <!-- ── Inline — Dismissible ── -->
@@ -1521,7 +1821,7 @@
        COMPONENT — Modal
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Modal</h2>
+    <h2 class="section-title" id="modal">Modal</h2>
     <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin-bottom:var(--ds-space-5);">
       For forms and other user tasks. It is <strong>static</strong>: clicking outside it or pressing Escape does <em>not</em> close it, so people don't lose what they typed. It closes only with a Cancel button (any <code>data-ds-close</code> element) or <code>DS.closeModal()</code>. The title and footer stay in place; the body scrolls when the content is tall. Open with <code>DS.openModal('id')</code> or a <code>data-ds-open="id"</code> button. Focus is trapped while open and returns to the opener.
     </p>
@@ -1645,10 +1945,45 @@
   </div>
 
   <!-- ═══════════════════════════════════════════
+       COMPONENT — Spinner
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="spinner">Spinner</h2>
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin-bottom:var(--ds-space-5);">
+      Shows that something is loading. A 20px ring whose quarter arc turns. Use the primary spinner on page surfaces, <code>ds-spinner-white</code> on dark or colored surfaces and <code>ds-spinner-black</code> on light images. Add <code>role="status"</code> and an <code>aria-label</code> so screen readers announce it.
+    </p>
+
+    <div class="row">
+      <span class="row-label">Primary</span>
+      <span class="ds-spinner" role="status" aria-label="Loading"></span>
+    </div>
+    <div class="row">
+      <span class="row-label">White</span>
+      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-primary); border-radius:var(--ds-roundness-1);"><span class="ds-spinner ds-spinner-white" role="status" aria-label="Loading"></span></span>
+      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-b-70); border-radius:var(--ds-roundness-1);"><span class="ds-spinner ds-spinner-white" role="status" aria-label="Loading"></span></span>
+    </div>
+    <div class="row">
+      <span class="row-label">Black</span>
+      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-w-100); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-1);"><span class="ds-spinner ds-spinner-black" role="status" aria-label="Loading"></span></span>
+    </div>
+    <div class="row">
+      <span class="row-label">With text</span>
+      <span style="display:inline-flex; align-items:center; gap:var(--ds-space-2); font-size:var(--ds-font-size-4); color:var(--ds-tone-2);"><span class="ds-spinner" aria-hidden="true"></span>Loading results…</span>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin-top:var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;span class="ds-spinner" role="status" aria-label="Loading"&gt;&lt;/span&gt;
+&lt;span class="ds-spinner ds-spinner-white" role="status" aria-label="Loading"&gt;&lt;/span&gt;  &lt;!-- on dark / colored surfaces --&gt;
+&lt;span class="ds-spinner ds-spinner-black" role="status" aria-label="Loading"&gt;&lt;/span&gt;  &lt;!-- on light images --&gt;
+
+&lt;!-- Next to text: hide the spinner from screen readers, the text says it --&gt;
+&lt;span class="ds-spinner" aria-hidden="true"&gt;&lt;/span&gt; Loading results…</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
        Icons
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Icons</h2>
+    <h2 class="section-title" id="icons">Icons</h2>
     <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin-bottom:var(--ds-space-5);">
       189 icons at 24px and 47 at 16px. Use them with <code>&lt;ds-icon name="settings" size="16"&gt;&lt;/ds-icon&gt;</code> &mdash; the icon takes the surrounding text color. Size is 16 or 24 (default 24).
     </p>
@@ -1902,7 +2237,7 @@
        Badges
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Badges</h2>
+    <h2 class="section-title" id="badges">Badges</h2>
 
     <div class="row">
       <span class="row-label">Badge</span>
@@ -1939,7 +2274,7 @@
        USAGE REFERENCE
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title">Quick Reference</h2>
+    <h2 class="section-title" id="quick-reference">Quick Reference</h2>
     <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:20px; font-size:13px; line-height:1.6; overflow-x:auto;">&lt;!-- 1. Include the DS (three tags) --&gt;
 &lt;link rel="stylesheet" href="styles.css"&gt;
 &lt;script src="ds-icons.js"&gt;&lt;/script&gt;
@@ -2003,6 +2338,20 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;!-- Autocomplete (type to filter; add ds-autocomplete-multiple for chips) --&gt;
+&lt;div class="ds-autocomplete"&gt;
+  &lt;div class="ds-autocomplete-field"&gt;
+    &lt;input class="ds-autocomplete-input" placeholder="Search" aria-label="Fruit"&gt;
+    &lt;button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden&gt;&lt;ds-icon name="close" size="16"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+    &lt;ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"&gt;&lt;/ds-icon&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-autocomplete-menu ds-select-menu"&gt;
+    &lt;button type="button" class="ds-select-item" role="option" tabindex="-1"&gt;
+      &lt;span class="ds-select-item-label"&gt;Apple&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
 &lt;!-- Data Table --&gt;
 &lt;div class="ds-table"&gt;
   &lt;div class="ds-table-action-bar"&gt;
@@ -2047,6 +2396,12 @@
 
 &lt;!-- Modal: see the Modal section for the full markup --&gt;
 &lt;button class="ds-btn ds-btn-md ds-btn-primary" data-ds-open="my-modal"&gt;Open&lt;/button&gt;
+
+&lt;!-- Button processing state (or DS.setProcessing(btn, true|false)) --&gt;
+&lt;button class="ds-btn ds-btn-md ds-btn-primary ds-btn-processing" aria-busy="true"&gt;Save&lt;/button&gt;
+
+&lt;!-- Spinner (add ds-spinner-white on dark surfaces, ds-spinner-black on light images) --&gt;
+&lt;span class="ds-spinner" role="status" aria-label="Loading"&gt;&lt;/span&gt;
 
 &lt;!-- Toast: click a floating ack, or from JS --&gt;
 &lt;div class="ds-ack ds-ack-floating ds-ack-info" data-ds-toast&gt;…&lt;/div&gt;
