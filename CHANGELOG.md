@@ -5,6 +5,10 @@ Released folders under `releases/` are frozen and never edited. A change ships a
 
 ## Unreleased
 
+## v1.3 (2026-11-26)
+
+Nothing was removed or renamed: every class, token, event and function from v1.2 still works. Could change how a prototype looks after upgrading: `--ds-roundness-3` (12px to 16px) in a prototype's own CSS, danger/warning/success colors in dark theme, the warning color, checkbox/radio hover and disabled states, disabled switches, the modal backdrop and floating alert text color in dark theme. Could affect a prototype's own code: toasts built by `DS.showToast({...})` now carry `ds-alert…` classes (find them with `.ds-toast-active`), and a switch's state is read from `aria-checked`. Upgrading from v1.0 also brings v1.1's static modals.
+
 ### Added
 - **SplitButton** (`.ds-split-button`), from the Figma Platform DS, with KEP UI's names: action button (`.ds-split-button-action`), menu toggle button (`.ds-split-button-menu-toggle`) and menu (`.ds-split-button-menu`, items `.ds-select-item[role=menuitem]`). Sizes md/lg/xl, optional 24px start icon, primary (plus secondary and danger like KEP), hover and focus per half, open, disabled and processing states. `ds.js` opens and closes the menu with mouse and keyboard (ArrowDown/Up, Home/End, Escape, Tab out). No new tokens, no change to existing components.
 - **Breadcrumbs** (`.ds-breadcrumbs`): look from the Figma Platform DS "Breadcrumb Item" states, names from KEP UI's `Breadcrumbs`: breadcrumb item (`.ds-breadcrumb-item`, as a link, button or text), separator (`.ds-breadcrumbs-separator`, 16px chevron), active (`aria-current="page"`, primary-brighter), disabled (`aria-disabled="true"`, tone-4), hover (primary) and truncated (`...`, tone-3). `ds.js` collapses the middle items into "..." when the trail is too wide, like KEP, and shows them all on click; `data-collapse="none"` turns it off. No new tokens.
