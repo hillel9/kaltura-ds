@@ -1,0 +1,387 @@
+{
+  "_about": "Terminology index: one row per component or property. name = the kaltura-ds name (KEP UI's component name written as words, the same as the preview page section titles); anchor = its section id on index.html. figma = Figma Platform DS (layer and component-set names); kep = KEP UI @kaltura/ds-react-components (React); ds = kaltura-ds classes; was = old kaltura-ds names that still work. Edit this file whenever a component is added, renamed or fixed, then run: python3 tools/build-terminology.py",
+  "components": [
+    {
+      "name": "Button",
+      "anchor": "button",
+      "figma": "Buttons > Pill, Borderless",
+      "kep": "Button (variant=\"pill\" | \"borderless\"), IconButton",
+      "ds": "ds-btn + ds-btn-primary | -secondary | -danger, ds-btn-borderless, ds-btn-icon",
+      "notes": "Figma \"Pill\" = KEP variant=\"pill\" = the default filled button here. The grey button is \"secondary\" in KEP and here."
+    },
+    {
+      "name": "Circular Button",
+      "anchor": "button",
+      "figma": "Buttons > Circular",
+      "kep": "no exact match",
+      "ds": "ds-btn-circular",
+      "notes": "Dark translucent media-overlay button."
+    },
+    {
+      "name": "Split Button",
+      "anchor": "split-button",
+      "figma": "Split Button",
+      "kep": "SplitButton (action button, menu toggle button, menu)",
+      "ds": "ds-split-button, ds-split-button-action, ds-split-button-menu-toggle, ds-split-button-menu",
+      "notes": ""
+    },
+    {
+      "name": "Input",
+      "anchor": "input",
+      "figma": "Input Fields > Text Single Line",
+      "kep": "BaseInput",
+      "ds": "ds-input",
+      "notes": ""
+    },
+    {
+      "name": "Textarea",
+      "anchor": "textarea",
+      "figma": "Input Fields > Textarea",
+      "kep": "BaseInput (multiline)",
+      "ds": "ds-textarea",
+      "notes": ""
+    },
+    {
+      "name": "Composed Input",
+      "anchor": "composed-input",
+      "figma": "Form Inputs > Form Input Template",
+      "kep": "ComposedInput (FormLabel, inputAdditionalInfo, FormHelperText, input counter)",
+      "ds": "ds-composed-input, ds-form-label, ds-form-additional-info, ds-form-helper-text-error, ds-input-counter",
+      "was": "ds-form-field, ds-form-desc, ds-form-error, ds-form-counter",
+      "notes": ""
+    },
+    {
+      "name": "Checkbox",
+      "anchor": "checkbox",
+      "figma": "Checkers > Checkbox",
+      "kep": "Checkbox",
+      "ds": "ds-checkbox",
+      "notes": ""
+    },
+    {
+      "name": "Radio",
+      "anchor": "radio",
+      "figma": "Checkers > Radio",
+      "kep": "Radio",
+      "ds": "ds-radio",
+      "notes": ""
+    },
+    {
+      "name": "Switch",
+      "anchor": "switch",
+      "figma": "Checkers > Switch (Status, State, Size, Mode)",
+      "kep": "Switch (checked, disabled, size; thumb, track)",
+      "ds": "ds-switch-track (track), ds-switch-thumb (thumb), aria-checked (checked), ds-switch-sm | -lg, ds-switch-translucent",
+      "notes": "Figma calls the thumb \"Handle\". State lives in aria-checked; ds.js also sets the old on/off classes.",
+      "was": "ds-switch-handle, ds-switch-on / ds-switch-off"
+    },
+    {
+      "name": "Select",
+      "anchor": "select",
+      "figma": "Select Menu > Select, Select borderless, Select Menu Item, Seperator",
+      "kep": "Select, SelectMenu, MenuItem",
+      "ds": "ds-select, ds-select-borderless, ds-select-menu, ds-select-item, ds-select-separator",
+      "notes": "KEP's other library (bits) calls it Dropdown."
+    },
+    {
+      "name": "Autocomplete",
+      "anchor": "autocomplete",
+      "figma": "Autocomplete",
+      "kep": "AutoComplete",
+      "ds": "ds-autocomplete",
+      "notes": ""
+    },
+    {
+      "name": "Tabs",
+      "anchor": "tabs",
+      "figma": "Navigation > Tabs, Tab Item",
+      "kep": "Tabs, Tab",
+      "ds": "ds-tabs, ds-tab",
+      "notes": ""
+    },
+    {
+      "name": "Segmented Buttons",
+      "anchor": "segmented-buttons",
+      "figma": "Segmented control, Segmented control cells",
+      "kep": "SegmentedContainer, SegmentedButton",
+      "ds": "ds-segmented-container, ds-segmented-button",
+      "was": "ds-segmented, ds-segmented-item",
+      "notes": ""
+    },
+    {
+      "name": "Breadcrumbs",
+      "anchor": "breadcrumbs",
+      "figma": "Navigation > Breadcrumb, Breadcrumb Item",
+      "kep": "Breadcrumbs, BreadcrumbItem",
+      "ds": "ds-breadcrumbs, ds-breadcrumb-item, ds-breadcrumbs-separator, ds-breadcrumbs-truncated",
+      "notes": ""
+    },
+    {
+      "name": "Data Table",
+      "anchor": "data-table",
+      "figma": "Data Table",
+      "kep": "Table, TableContainer, TableActionBar, TableSortLabel",
+      "ds": "ds-table, ds-table-action-bar, ds-table-sortable",
+      "notes": ""
+    },
+    {
+      "name": "Pagination",
+      "anchor": "data-table",
+      "figma": "Pagination, Pagination Page",
+      "kep": "Pagination",
+      "ds": "ds-table-pagination, ds-table-page",
+      "notes": ""
+    },
+    {
+      "name": "Status",
+      "anchor": "data-table",
+      "figma": "Status",
+      "kep": "Status (variant, color)",
+      "ds": "ds-table-status + -green | -orange | -red | -grey",
+      "notes": "Only the table dot-and-text version exists here."
+    },
+    {
+      "name": "Initials",
+      "anchor": "initials",
+      "figma": "User Picture > Picture",
+      "kep": "Initials",
+      "ds": "ds-initials + -sm | -md | -lg | -xl, ds-initials-round",
+      "was": "ds-user-picture",
+      "notes": "KEP bits calls it Avatar. Sizes differ: ds-initials-lg is 48px, KEP size=\"large\" is 96px."
+    },
+    {
+      "name": "Alert",
+      "anchor": "alert-tooltip",
+      "figma": "Acknowledgement & Help > Acknowledgement",
+      "kep": "Alert (severity)",
+      "ds": "ds-alert + -info | -error | -success | -warning",
+      "was": "ds-ack",
+      "notes": ""
+    },
+    {
+      "name": "Toast",
+      "anchor": "alert-tooltip",
+      "figma": "Acknowledgement (floating)",
+      "kep": "Toast, Snackbar",
+      "ds": "ds-alert-floating, DS.showToast(); ds.js adds ds-toast-active to the showing toast",
+      "was": "ds-ack-floating",
+      "notes": ""
+    },
+    {
+      "name": "Tooltip",
+      "anchor": "alert-tooltip",
+      "figma": "Acknowledgement & Help > Hint",
+      "kep": "Tooltip",
+      "ds": "ds-tooltip, ds-tooltip-trigger",
+      "was": "ds-hint",
+      "notes": ""
+    },
+    {
+      "name": "Loader",
+      "anchor": "loader",
+      "figma": "Spinner",
+      "kep": "Loader",
+      "ds": "ds-loader + -white | -black",
+      "was": "ds-spinner",
+      "notes": "KEP bits calls it Spinner."
+    },
+    {
+      "name": "Modal",
+      "anchor": "modal",
+      "figma": "(not on the Components page)",
+      "kep": "Modal, ModalTitle, ModalContent, ModalActions, ModalCloseButton",
+      "ds": "ds-modal, ds-modal-title, ds-modal-body, ds-modal-footer, ds-modal-close",
+      "notes": "KEP ModalContent = ds-modal-body, ModalActions = ds-modal-footer."
+    },
+    {
+      "name": "Badge",
+      "anchor": "badges",
+      "figma": "Badges",
+      "kep": "Badge",
+      "ds": "ds-badge",
+      "notes": ""
+    },
+    {
+      "name": "Tag & Chip",
+      "anchor": "badges",
+      "figma": "Tags, Tag Delete Button, Chips",
+      "kep": "Tag",
+      "ds": "ds-tag, ds-chip",
+      "notes": ""
+    },
+    {
+      "name": "Icon",
+      "anchor": "icons",
+      "figma": "Icons (16/..., 24/...)",
+      "kep": "@kaltura/ds-react-icons (ChevronDown16Icon)",
+      "ds": "<ds-icon name=\"chevron-down\" size=\"16\">",
+      "notes": "Same icon set; file names are kebab-case here."
+    }
+  ],
+  "missing": [
+    {
+      "name": "Slider",
+      "figma": "Slider",
+      "kep": "Slider"
+    },
+    {
+      "name": "Date and time",
+      "figma": "Date and Time, Time Picker",
+      "kep": "DatePicker, TimePicker, ComposedDatePicker"
+    },
+    {
+      "name": "Card",
+      "figma": "Cards",
+      "kep": "Card"
+    },
+    {
+      "name": "Color picker",
+      "figma": "Color Picker",
+      "kep": "ColorPicker (bits)"
+    },
+    {
+      "name": "Tree view",
+      "figma": "Tree View",
+      "kep": "@kaltura/ds-react-tree"
+    },
+    {
+      "name": "Sidebar, navigation",
+      "figma": "Main Navigation, Sidebar, Sidebar Navigation",
+      "kep": "@kaltura/ds-react-layouts"
+    },
+    {
+      "name": "Upload",
+      "figma": "Upload",
+      "kep": "no match"
+    },
+    {
+      "name": "Reactions",
+      "figma": "Reactions",
+      "kep": "no match"
+    },
+    {
+      "name": "Toggle button",
+      "figma": "no match",
+      "kep": "ToggleButton"
+    },
+    {
+      "name": "Popover, menu",
+      "figma": "no match",
+      "kep": "Popover, Menu"
+    },
+    {
+      "name": "Link",
+      "figma": "Custom Links",
+      "kep": "Link"
+    },
+    {
+      "name": "Typography",
+      "figma": "text styles",
+      "kep": "Typography"
+    }
+  ],
+  "properties": [
+    {
+      "name": "Disabled",
+      "figma": "State=Disable",
+      "kep": "disabled",
+      "ds": "disabled attribute, or aria-disabled=\"true\""
+    },
+    {
+      "name": "On / checked",
+      "figma": "Status=True",
+      "kep": "checked, selected",
+      "ds": "aria-checked=\"true\" (switch, segmented), aria-selected=\"true\" (tabs)"
+    },
+    {
+      "name": "Current item",
+      "figma": "State=Active (Breadcrumb Item)",
+      "kep": "active",
+      "ds": "aria-current=\"page\""
+    },
+    {
+      "name": "Busy",
+      "figma": "State=Processing",
+      "kep": "loading",
+      "ds": "ds-btn-processing + aria-busy=\"true\", DS.setProcessing()"
+    },
+    {
+      "name": "Over media",
+      "figma": "Mode=Translucent",
+      "kep": "color=\"translucent\"",
+      "ds": "ds-switch-translucent"
+    },
+    {
+      "name": "Hover, focus",
+      "figma": "State=Hover, Focus",
+      "kep": ":hover, focusVisible",
+      "ds": ":hover, :focus-visible"
+    },
+    {
+      "name": "Sizes",
+      "figma": "Small, Medium, Large, XL",
+      "kep": "small, medium, large",
+      "ds": "-sm, -md, -lg, -xl",
+      "notes": "Same words, not always the same pixels: compare px, not names."
+    },
+    {
+      "name": "Color shades",
+      "figma": "Darker, Brighter, Text Contrast",
+      "kep": "palette.x.dark, .light, .contrastText",
+      "ds": "--ds-x-darker, --ds-x-brighter, --ds-x-text-contrast"
+    },
+    {
+      "name": "Yellow-orange accent",
+      "figma": "Secondary",
+      "kep": "palette.secondary",
+      "ds": "--ds-secondary",
+      "notes": "Not the grey secondary button. Old name --ds-accent still works."
+    },
+    {
+      "name": "Messages",
+      "figma": "Acknowledgment colors (Success, Danger, Warning)",
+      "kep": "palette.success, .danger, .warning; Alert severity",
+      "ds": "--ds-success, --ds-danger, --ds-warning"
+    },
+    {
+      "name": "Spacing",
+      "figma": "px values",
+      "kep": "theme.spacing(n) = n x 8px",
+      "ds": "--ds-space-N = N x 4px, so spacing(n) = --ds-space-{2n}"
+    },
+    {
+      "name": "Corner radius",
+      "figma": "Roundness 1, 2, 3",
+      "kep": "roundness1, roundness2, roundness3",
+      "ds": "--ds-roundness-1, -2, -3"
+    },
+    {
+      "name": "Font",
+      "figma": "Lato (text styles, e.g. Body 2 Highlight)",
+      "kep": "defaultFontFamily: Lato, Helvetica Neue, Segoe UI, sans-serif; loaded from fonts.kaltura.com",
+      "ds": "--ds-font-family (same stack), loaded from fonts.kaltura.com",
+      "notes": "Kaltura's font proxy hides the user's IP from Google (GDPR)."
+    },
+    {
+      "name": "Field border",
+      "figma": "Tone 3; Hover Tone 2; Focus Primary; Error Danger; Disable Tone 4 (Text Single Line, Textarea; Checkbox and Radio rest on Tone 3)",
+      "kep": "tone4 resting, tone3 hover, primary.main focus",
+      "ds": "--ds-tone-3 resting, --ds-tone-2 hover, --ds-primary focus (follows Figma)",
+      "notes": "KEP UI differs from Figma here: its resting border is one step lighter."
+    },
+    {
+      "name": "Surfaces",
+      "figma": "Neutrals: Background, Paper, Elevated, Protection",
+      "kep": "palette.surfaces.background, .paper, .elevated, .protection",
+      "ds": "--ds-background, --ds-paper, --ds-elevated, --ds-protection",
+      "notes": "Protection (#3D3D3D, both themes) is for text over media. KEP's code calls it possibly added by mistake; Figma defines it."
+    },
+    {
+      "name": "Translucent",
+      "figma": "Translucent: B 10-100, W 10-100, Backdrop",
+      "kep": "palette.translucent, palette.backdrop",
+      "ds": "--ds-b-10 ... --ds-b-100, --ds-w-10 ... --ds-w-100, --ds-backdrop",
+      "notes": "Backdrop = #222222 at 60%, behind modals."
+    }
+  ]
+}

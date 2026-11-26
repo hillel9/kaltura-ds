@@ -5,6 +5,37 @@ Released folders under `releases/` are frozen and never edited. A change ships a
 
 ## Unreleased
 
+### Added
+- **SplitButton** (`.ds-split-button`), from the Figma Platform DS, with KEP UI's names: action button (`.ds-split-button-action`), menu toggle button (`.ds-split-button-menu-toggle`) and menu (`.ds-split-button-menu`, items `.ds-select-item[role=menuitem]`). Sizes md/lg/xl, optional 24px start icon, primary (plus secondary and danger like KEP), hover and focus per half, open, disabled and processing states. `ds.js` opens and closes the menu with mouse and keyboard (ArrowDown/Up, Home/End, Escape, Tab out). No new tokens, no change to existing components.
+- **Breadcrumbs** (`.ds-breadcrumbs`): look from the Figma Platform DS "Breadcrumb Item" states, names from KEP UI's `Breadcrumbs`: breadcrumb item (`.ds-breadcrumb-item`, as a link, button or text), separator (`.ds-breadcrumbs-separator`, 16px chevron), active (`aria-current="page"`, primary-brighter), disabled (`aria-disabled="true"`, tone-4), hover (primary) and truncated (`...`, tone-3). `ds.js` collapses the middle items into "..." when the trail is too wide, like KEP, and shows them all on click; `data-collapse="none"` turns it off. No new tokens.
+- **Switch translucent mode** (`.ds-switch-translucent`), from the Figma Platform DS Switch (Mode=Translucent, KEP `color="translucent"`): for switches over images or video. `aria-disabled="true"` now also disables a switch.
+- **KEP UI names** for seven components, so prototypes use the dev team's words (`@kaltura/ds-react-components`). New classes, same look and behavior; the old ones keep working:
+  - Alert `ds-alert…` (was Acknowledgement `ds-ack…`)
+  - Tooltip `ds-tooltip…` (was Hint `ds-hint…`)
+  - Initials `ds-initials…` (was User picture `ds-user-picture…`; sizes keep this DS's px, so `-lg` is 48px, not KEP's 96px)
+  - Loader `ds-loader…` (was Spinner `ds-spinner…`)
+  - SegmentedContainer / SegmentedButton `ds-segmented-container`, `ds-segmented-button` (was `ds-segmented`, `ds-segmented-item`)
+  - ComposedInput `ds-composed-input`, `ds-form-additional-info`, `ds-form-helper-text-error`, `ds-input-counter` (was `ds-form-field`, `ds-form-desc`, `ds-form-error`, `ds-form-counter`; `ds-form-label` unchanged)
+  - Select / SelectMenu already matched.
+  `DS-GUIDE.md` and the demo page now use the KEP names, with a mapping table. Not breaking: nothing was removed.
+- **One name per thing for agents:** `DS-GUIDE.md` rule 8 says old names are read-only (never written, and a component written with old names is converted whole, never mixed), and `styles.css` and `ds.js` comments mark the old selectors as kept for older prototypes. Elements `ds.js` builds now use the current names: toasts from `DS.showToast({...})` are `ds-alert…` (were `ds-ack…`), the autocomplete "+N" tooltip is `ds-tooltip…` (was `ds-hint…`), and a click only sets `aria-checked` on a switch, touching `ds-switch-on` / `-off` only if the markup already had them. Same look. Could affect a prototype only if its own code finds a toast by `.ds-ack…` instead of `.ds-toast-active`.
+- **Switch parts in KEP UI's names:** `ds-switch-thumb` (was `ds-switch-handle`) and the checked state read from `aria-checked` alone, so `ds-switch-on` / `ds-switch-off` are no longer needed in new markup. Old markup works unchanged; the aliases have the same specificity (`:where()`), and `ds.js` still sets the old classes.
+- **Color shades** from the Figma "Acknowledgment" collection (same as KEP UI): `--ds-warning-darker` / `-brighter`, `--ds-success-darker` / `-brighter`.
+- **`--ds-secondary`** (+ `-darker`, `-brighter`, `-text-contrast`): the yellow-orange that Figma and KEP call Secondary. `--ds-accent` is now an alias of it and still works.
+- **Dark-theme semantic colors:** danger, warning and success (with their shades, text-contrast and danger tints) switch to KEP's and Figma's dark values, with black contrast text. Affects the danger button, error fields, alerts and toasts, and the red and orange table status dots in dark theme.
+- **Spacing and shade-name mapping to KEP UI** documented on the Spacing tokens section and in `DS-GUIDE.md` (`spacing(n)` = `--ds-space-{2n}`; `-darker` = `.dark`, `-brighter` = `.light`).
+- **Terminology index**: a table of Figma Platform DS name, KEP UI name and kaltura-ds classes for every component, property and token family, plus what Figma or KEP has that this DS doesn't. It appears on the preview page (Terminology Index) and in `DS-GUIDE.md`, generated from `tools/terminology.json` by `tools/build-terminology.py`. The preview page now uses the KEP names everywhere: headings, labels, demo markup and the Quick Reference. Its section anchors changed accordingly (`#composed-input`, `#segmented-buttons`, `#initials`, `#alert-tooltip`, `#loader`).
+- **Surface and translucent tokens** from Figma: `--ds-protection` (#3d3d3d, light and dark, for text over media; KEP `surfaces.protection`), the missing black and white steps `--ds-b-10|50|80|90` and `--ds-w-10|30|50|90`, and `--ds-backdrop`.
+
+### Fixed
+- **Modal backdrop** is now `--ds-backdrop`, #222222 at 60% (Figma "Backdrop", KEP `palette.backdrop`). It was pure black at 60%, so it is a touch lighter.
+- **Font source:** Lato now loads from `fonts.kaltura.com` (Kaltura's GDPR font proxy, same URL as KEP UI) instead of Google Fonts, and `--ds-font-family` uses KEP's fallback stack `Lato, Helvetica Neue, Segoe UI, sans-serif`.
+- **Checkbox and radio states** now match Figma. Checkbox: hover unchecked gets a `tone-6` fill and `tone-4` border, hover checked or partial goes `primary-darker`, and the disabled check mark is `tone-4` (was white). Radio: hover unchecked gets a `primary` border, hover checked goes `primary-darker`, the dot is 6px (was 8px), disabled unchecked has a `tone-6` fill, and disabled checked is a `tone-4` ring with a light dot (was a white dot on `tone-7`, almost invisible). Markup unchanged.
+- **Disabled switch** now matches the Figma Switch: solid `--ds-tone-4` track when off and `--ds-tone-3` when on, with a white handle. It was the normal colors at 50% opacity. Markup unchanged.
+- **Warning color** is now `#c2570a` (Figma and KEP), was `#E86925`. Darker orange in warning alerts and toasts, the autocomplete "no results" icon and orange table status.
+- **`--ds-roundness-3`** is now 16px (Figma and KEP), was 12px. No component changes visibly (the switch, its only user, stays a pill).
+- **Floating alerts / toasts** take their text, link and dismiss color from the matching `-text-contrast` token instead of fixed white. Same in light theme; black on the brighter dark-theme colors.
+
 ## v1.2 (2026-11-24)
 
 ### Added

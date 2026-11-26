@@ -21,6 +21,14 @@ Behavior conventions in `ds.js`:
 - Components added to the page later must work with no extra call.
 - Expose public functions on `window.DS` only; keep everything else inside the IIFE.
 
+## Names: look from Figma, words from KEP UI
+- The look (colors, sizes, states) comes from the Figma Platform DS (file `N6TKIVkT1X1phPIIyBYht2`). Component, part and state names come from KEP UI (`../kep-ui-kit`, package `@kaltura/ds-react-components`; where its `ds-react-bits` library disagrees, `ds-react-components` wins). Never change code in kep-ui-kit.
+- When Figma and KEP disagree on a value, read the Figma variables: they are the reference for the look.
+- **Every time a component or token is added, renamed or fixed, update the terminology index in the same change:** edit its row in `tools/terminology.json` (Figma name, KEP name, kaltura-ds classes, old names under `was`), then run `python3 tools/build-terminology.py`. It rewrites the generated tables in `index.html` (Terminology Index section) and `DS-GUIDE.md`; never hand-edit between the `terminology` markers.
+- Component display names (preview page section titles and nav, `DS-GUIDE.md` headings, the index's first column) are KEP UI's component name written as Title Case words: `SplitButton` -> "Split Button", `ComposedInput` -> "Composed Input". The index row's `anchor` is the section id on `index.html`, so all three stay the same name.
+- Renaming a class to the KEP name is done by adding the new class next to the old one (both selectors on the same rule, both accepted in `ds.js`), never by removing the old one in a minor release.
+- Only the current names may appear in new markup, docs, demos and in elements `ds.js` creates. Old names live only on the CSS rules and `ds.js` selectors that keep older prototypes working, and in the index's `was` column. `DS-GUIDE.md` rule 8 tells prototype agents to read old names but never write them.
+
 ## Every component must appear on `index.html`
 Add a section with live examples (all variants and states) **and a usage snippet**. Update the Quick Reference too. `index.html` holds no component logic: it only links `styles.css`, `ds-icons.js` and `ds.js`. The `<style>` block in its `<head>` is preview-only (swatches, tables) and is not part of the DS.
 
@@ -34,7 +42,7 @@ Add a section with live examples (all variants and states) **and a usage snippet
 - `index.html` - the demo and documentation page
 - `test-prototype.html` - links ONLY the newest folder in `releases/` (the one named in `releases/latest.txt`); proves a prototype works against a frozen release
 - `releases/` - frozen releases `vX.Y/`, each containing `styles.css`, `ds.js`, `ds-icons.js` and `DS-GUIDE.md`; `releases/latest.txt` holds the newest version name (e.g. `v1.0`)
-- `tools/` - maintainer scripts (`bundle-icons.py`, `build-guide.py`)
+- `tools/` - maintainer scripts (`bundle-icons.py`, `build-guide.py`, `build-terminology.py`) and `terminology.json`, the Figma / KEP UI / kaltura-ds name index
 - `.claude/skills/release/` - the release skill (see Releasing)
 - `CHANGELOG.md`, `README.md`
 
@@ -49,7 +57,7 @@ Add a section with live examples (all variants and states) **and a usage snippet
 - Every release must, **in one commit**:
   1. run `python3 tools/bundle-icons.py` (so `ds-icons.js` matches `Icons/`);
   2. bump `version` in `ds.js`;
-  3. regenerate `DS-GUIDE.md`: run `python3 tools/build-guide.py`, and update its hand-written sections if anything in the DS changed (it must describe the code being released, nothing more);
+  3. regenerate `DS-GUIDE.md`: run `python3 tools/build-terminology.py` and `python3 tools/build-guide.py`, and update its hand-written sections if anything in the DS changed (it must describe the code being released, nothing more);
   4. copy `styles.css`, `ds.js`, `ds-icons.js` and `DS-GUIDE.md` into the new `releases/vX.Y/`, unchanged;
   5. turn the `Unreleased` section of `CHANGELOG.md` into a `vX.Y (date)` entry (note anything that could break a prototype) and leave a new empty `## Unreleased` heading above it;
   6. write the new version name into `releases/latest.txt`.

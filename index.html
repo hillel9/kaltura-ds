@@ -64,7 +64,7 @@
     }
     .token-table code {
       font-size: 12px; background: var(--ds-tone-7);
-      padding: 2px 6px; border-radius: 3px;
+      padding: 2px 6px; border-radius: 3px; white-space: nowrap;
     }
     .radius-demo {
       width: 48px; height: 48px; background: var(--ds-primary);
@@ -156,25 +156,28 @@
   <div class="preview-nav-group">
     <span class="preview-nav-heading">Components</span>
       <a href="#button">Button</a>
+      <a href="#split-button">Split Button</a>
       <a href="#input">Input</a>
       <a href="#textarea">Textarea</a>
       <a href="#checkbox">Checkbox</a>
       <a href="#radio">Radio</a>
       <a href="#switch">Switch</a>
-      <a href="#formfield">FormField</a>
+      <a href="#composed-input">Composed Input</a>
       <a href="#select">Select</a>
       <a href="#autocomplete">Autocomplete</a>
       <a href="#tabs">Tabs</a>
-      <a href="#segmented-control">Segmented Control</a>
+      <a href="#segmented-buttons">Segmented Buttons</a>
+      <a href="#breadcrumbs">Breadcrumbs</a>
       <a href="#data-table">Data Table</a>
-      <a href="#user-picture">User Picture</a>
-      <a href="#acknowledgement-help">Acknowledgement & Help</a>
+      <a href="#initials">Initials</a>
+      <a href="#alert-tooltip">Alert &amp; Tooltip</a>
       <a href="#modal">Modal</a>
-      <a href="#spinner">Spinner</a>
+      <a href="#loader">Loader</a>
       <a href="#icons">Icons</a>
-      <a href="#badges">Badges</a>
+      <a href="#badges">Badges, Tags &amp; Chips</a>
   </div>
   <div class="preview-nav-group">
+    <a href="#terminology">Terminology Index</a>
     <a href="#quick-reference">Quick Reference</a>
   </div>
 </nav>
@@ -207,28 +210,74 @@
       </div>
     </div>
 
-    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Danger</h3>
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Secondary</h3>
+    <p style="font-size:var(--ds-font-size-3); color:var(--ds-tone-2); margin:0 0 var(--ds-space-3);">The yellow-orange accent (selected-tab indicator). Figma and KEP UI call it Secondary; it is not the grey <code>ds-btn-secondary</code> button. <code>--ds-accent</code> still works as its old name.</p>
     <div class="swatch-grid" style="margin-bottom:24px;">
       <div class="swatch">
-        <div class="swatch-color" style="background: var(--ds-danger);"></div>
-        <div class="swatch-info"><div class="swatch-name">Danger</div><div class="swatch-val">#CA1C2D</div></div>
+        <div class="swatch-color" style="background: var(--ds-secondary);"></div>
+        <div class="swatch-info"><div class="swatch-name">Secondary</div><div class="swatch-val">#FFAA00</div></div>
       </div>
       <div class="swatch">
-        <div class="swatch-color" style="background: var(--ds-danger-darker);"></div>
-        <div class="swatch-info"><div class="swatch-name">Danger Darker</div><div class="swatch-val">#9D1523</div></div>
+        <div class="swatch-color" style="background: var(--ds-secondary-darker);"></div>
+        <div class="swatch-info"><div class="swatch-name">Secondary Darker</div><div class="swatch-val">#B37700</div></div>
       </div>
       <div class="swatch">
-        <div class="swatch-color" style="background: var(--ds-danger-brighter);"></div>
-        <div class="swatch-info"><div class="swatch-name">Danger Brighter</div><div class="swatch-val">#E33547</div></div>
+        <div class="swatch-color" style="background: var(--ds-secondary-brighter);"></div>
+        <div class="swatch-info"><div class="swatch-name">Secondary Brighter</div><div class="swatch-val">#FFBB33</div></div>
       </div>
     </div>
 
-    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Brand &amp; Acknowledgement</h3>
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Danger</h3>
+    <p style="font-size:var(--ds-font-size-3); color:var(--ds-tone-2); margin:0 0 var(--ds-space-3);">Danger, warning and success swap to brighter values in dark theme, with black text on them (<code>--ds-*-text-contrast</code>). Toggle the theme to see them.</p>
+    <div class="swatch-grid" style="margin-bottom:24px;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-danger);"></div>
+        <div class="swatch-info"><div class="swatch-name">Danger</div><div class="swatch-val">#CA1C2D <span style="color:var(--ds-tone-3);">· dark #E95E6C</span></div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-danger-darker);"></div>
+        <div class="swatch-info"><div class="swatch-name">Danger Darker</div><div class="swatch-val">#9D1523 <span style="color:var(--ds-tone-3);">· dark #DB1E32</span></div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-danger-brighter);"></div>
+        <div class="swatch-info"><div class="swatch-name">Danger Brighter</div><div class="swatch-val">#E33547 <span style="color:var(--ds-tone-3);">· dark #F2A1A9</span></div></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Warning</h3>
     <div class="swatch-grid" style="margin-bottom:24px;">
       <div class="swatch">
         <div class="swatch-color" style="background: var(--ds-warning);"></div>
-        <div class="swatch-info"><div class="swatch-name">Warning</div><div class="swatch-val">#E86925</div></div>
+        <div class="swatch-info"><div class="swatch-name">Warning</div><div class="swatch-val">#C2570A <span style="color:var(--ds-tone-3);">· dark #F26C0D</span></div></div>
       </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-warning-darker);"></div>
+        <div class="swatch-info"><div class="swatch-name">Warning Darker</div><div class="swatch-val">#914108 <span style="color:var(--ds-tone-3);">· dark #C2570A</span></div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-warning-brighter);"></div>
+        <div class="swatch-info"><div class="swatch-name">Warning Brighter</div><div class="swatch-val">#F26C0D <span style="color:var(--ds-tone-3);">· dark #F58A3D</span></div></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Success</h3>
+    <div class="swatch-grid" style="margin-bottom:24px;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-success);"></div>
+        <div class="swatch-info"><div class="swatch-name">Success</div><div class="swatch-val">#23803A <span style="color:var(--ds-tone-3);">· dark #31B551</span></div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-success-darker);"></div>
+        <div class="swatch-info"><div class="swatch-name">Success Darker</div><div class="swatch-val">#13441F <span style="color:var(--ds-tone-3);">· dark #268C3F</span></div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-success-brighter);"></div>
+        <div class="swatch-info"><div class="swatch-name">Success Brighter</div><div class="swatch-val">#33BC55 <span style="color:var(--ds-tone-3);">· dark #4ACE6B</span></div></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Brand</h3>
+    <div class="swatch-grid" style="margin-bottom:24px;">
       <div class="swatch">
         <div class="swatch-color" style="background: var(--ds-stream-blue);"></div>
         <div class="swatch-info"><div class="swatch-name">Stream Blue</div><div class="swatch-val">#006EFA</div></div>
@@ -257,6 +306,10 @@
       <div class="swatch">
         <div class="swatch-color" style="background: var(--ds-elevated); border-bottom: 1px solid #ddd;"></div>
         <div class="swatch-info"><div class="swatch-name">Elevated</div><div class="swatch-val">#FFFFFF</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--ds-protection);"></div>
+        <div class="swatch-info"><div class="swatch-name">Protection</div><div class="swatch-val">#3D3D3D · light and dark</div></div>
       </div>
     </div>
   </div>
@@ -307,10 +360,15 @@
        ═══════════════════════════════════════════ -->
   <div class="section">
     <h2 class="section-title" id="tokens-opacity">Tokens — Opacity</h2>
-    <div style="display:flex; gap:24px; flex-wrap:wrap;">
+    <p style="font-size:var(--ds-font-size-3); color:var(--ds-tone-2); margin-bottom:var(--ds-space-4);">Figma "Translucent" collection: <code>--ds-b-N</code> / <code>--ds-w-N</code> = black / white at N%. <code>--ds-backdrop</code> (#222222 at 60%) is the modal backdrop.</p>
+    <div style="display:flex; flex-direction:column; gap:24px;">
       <div>
         <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Black</h3>
-        <div style="display:flex; gap:8px;">
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-10);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-10</div>
+          </div>
           <div style="text-align:center;">
             <div style="width:48px;height:48px;background:var(--ds-b-20);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-20</div>
@@ -324,6 +382,10 @@
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-40</div>
           </div>
           <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-50);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-50</div>
+          </div>
+          <div style="text-align:center;">
             <div style="width:48px;height:48px;background:var(--ds-b-60);border-radius:var(--ds-roundness-1);"></div>
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-60</div>
           </div>
@@ -332,21 +394,41 @@
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-70</div>
           </div>
           <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-80);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-80</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-b-90);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-90</div>
+          </div>
+          <div style="text-align:center;">
             <div style="width:48px;height:48px;background:var(--ds-b-100);border-radius:var(--ds-roundness-1);"></div>
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">b-100</div>
           </div>
         </div>
       </div>
       <div>
-        <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">White</h3>
-        <div style="display:flex; gap:8px;">
+        <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">White <span style="font-weight:400; color:var(--ds-tone-3);">(shown on --ds-protection)</span></h3>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; background:var(--ds-protection); padding:var(--ds-space-3); border-radius:var(--ds-roundness-2); width:max-content; max-width:100%;">
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-10);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-10</div>
+          </div>
           <div style="text-align:center;">
             <div style="width:48px;height:48px;background:var(--ds-w-20);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-20</div>
           </div>
           <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-30);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-30</div>
+          </div>
+          <div style="text-align:center;">
             <div style="width:48px;height:48px;background:var(--ds-w-40);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-40</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-50);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-50</div>
           </div>
           <div style="text-align:center;">
             <div style="width:48px;height:48px;background:var(--ds-w-60);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
@@ -361,8 +443,21 @@
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-80</div>
           </div>
           <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-w-90);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-90</div>
+          </div>
+          <div style="text-align:center;">
             <div style="width:48px;height:48px;background:var(--ds-w-100);border-radius:var(--ds-roundness-1);border:1px solid var(--ds-tone-5);"></div>
             <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">w-100</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Backdrop</h3>
+        <div style="display:flex; gap:8px;">
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:var(--ds-backdrop);border-radius:var(--ds-roundness-1);"></div>
+            <div style="font-size:11px;margin-top:4px;color:var(--ds-tone-3);">backdrop</div>
           </div>
         </div>
       </div>
@@ -389,7 +484,7 @@
         </tr>
         <tr>
           <td><code>--ds-roundness-3</code></td>
-          <td>12px</td>
+          <td>16px</td>
           <td><div class="radius-demo" style="border-radius: var(--ds-roundness-3);"></div></td>
         </tr>
       </tbody>
@@ -438,7 +533,7 @@
        ═══════════════════════════════════════════ -->
   <div class="section">
     <h2 class="section-title" id="tokens-spacing">Tokens — Spacing</h2>
-    <p style="font-size:var(--ds-font-size-3); color:var(--ds-tone-2); margin-bottom:var(--ds-space-4);">4px base. <code>--ds-space-N</code> = N &times; 4px. Half steps use a dash (<code>1-5</code> = 1.5 &times; 4 = 6px).</p>
+    <p style="font-size:var(--ds-font-size-3); color:var(--ds-tone-2); margin-bottom:var(--ds-space-4);">4px base. <code>--ds-space-N</code> = N &times; 4px. Half steps use a dash (<code>1-5</code> = 1.5 &times; 4 = 6px).<br><strong>KEP UI (MUI) counts in 8px units:</strong> <code>theme.spacing(n)</code> = <code>--ds-space-{2n}</code>. So <code>spacing(0.5)</code> = <code>--ds-space-1</code> (4px), <code>spacing(1)</code> = <code>--ds-space-2</code> (8px), <code>spacing(1.5)</code> = <code>--ds-space-3</code>, <code>spacing(2)</code> = <code>--ds-space-4</code>, <code>spacing(3)</code> = <code>--ds-space-6</code>, <code>spacing(4)</code> = <code>--ds-space-8</code>. Same pixels, different counting.</p>
     <table class="token-table">
       <thead><tr><th>Token</th><th>Value</th><th>Preview</th></tr></thead>
       <tbody>
@@ -518,7 +613,7 @@
       <div class="swatch"><div class="swatch-color" style="background:var(--ds-primary-tint-6);"></div><div class="swatch-info"><div class="swatch-name">Primary 6%</div><div class="swatch-val">--ds-primary-tint-6</div></div></div>
       <div class="swatch"><div class="swatch-color" style="background:var(--ds-primary-tint-10);"></div><div class="swatch-info"><div class="swatch-name">Primary 10%</div><div class="swatch-val">--ds-primary-tint-10</div></div></div>
       <div class="swatch"><div class="swatch-color" style="background:var(--ds-danger-tint-10);"></div><div class="swatch-info"><div class="swatch-name">Danger 10%</div><div class="swatch-val">--ds-danger-tint-10</div></div></div>
-      <div class="swatch"><div class="swatch-color" style="background:var(--ds-accent);"></div><div class="swatch-info"><div class="swatch-name">Selected-tab indicator</div><div class="swatch-val">--ds-accent</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--ds-danger-tint-20);"></div><div class="swatch-info"><div class="swatch-name">Danger 20%</div><div class="swatch-val">--ds-danger-tint-20</div></div></div>
       <div class="swatch"><div class="swatch-color" style="background:var(--ds-text-subtle);"></div><div class="swatch-info"><div class="swatch-name">Menu item description</div><div class="swatch-val">--ds-text-subtle</div></div></div>
       <div class="swatch"><div class="swatch-color" style="background:var(--ds-text-subtle-disabled);"></div><div class="swatch-info"><div class="swatch-name">Disabled description</div><div class="swatch-val">--ds-text-subtle-disabled</div></div></div>
     </div>
@@ -602,7 +697,7 @@
     </div>
 
     <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin:var(--ds-space-2) 0 0;">
-      <strong>Processing:</strong> add <code>ds-btn-processing</code> and <code>aria-busy="true"</code> while an action runs, or call <code>DS.setProcessing(button, true)</code> and <code>DS.setProcessing(button, false)</code>. The label is hidden but the button keeps its width and color, a spinner sized to the button replaces it, and clicks (mouse, Enter, Space) are ignored until it is removed. Don't add <code>disabled</code> at the same time.
+      <strong>Processing:</strong> add <code>ds-btn-processing</code> and <code>aria-busy="true"</code> while an action runs, or call <code>DS.setProcessing(button, true)</code> and <code>DS.setProcessing(button, false)</code>. The label is hidden but the button keeps its width and color, a loader sized to the button replaces it, and clicks (mouse, Enter, Space) are ignored until it is removed. Don't add <code>disabled</code> at the same time.
     </p>
     <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;button class="ds-btn ds-btn-md ds-btn-primary ds-btn-processing" aria-busy="true"&gt;Save&lt;/button&gt;
 
@@ -626,6 +721,136 @@ DS.setProcessing(saveBtn, false);</pre>
         <ds-icon name="play"></ds-icon>
       </button>
     </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — SplitButton
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="split-button">Split Button</h2>
+
+    <div class="row">
+      <span class="row-label">Sizes</span>
+      <div class="ds-split-button" role="group" aria-label="Publish">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-action">Publish</button>
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Publish actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Publish and share</span></button>
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Schedule</span></button>
+          <button type="button" class="ds-select-item" role="menuitem" aria-disabled="true"><span class="ds-select-item-label">Publish to channel</span></button>
+        </div>
+      </div>
+      <div class="ds-split-button" role="group" aria-label="Publish">
+        <button type="button" class="ds-btn ds-btn-lg ds-btn-primary ds-split-button-action">Publish</button>
+        <button type="button" class="ds-btn ds-btn-lg ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Publish actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Publish and share</span></button>
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Schedule</span></button>
+        </div>
+      </div>
+      <div class="ds-split-button" role="group" aria-label="Publish">
+        <button type="button" class="ds-btn ds-btn-xl ds-btn-primary ds-split-button-action">Publish</button>
+        <button type="button" class="ds-btn ds-btn-xl ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Publish actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Publish and share</span></button>
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Schedule</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Start icon</span>
+      <div class="ds-split-button" role="group" aria-label="Add to playlist">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-action"><ds-icon name="playlist" size="24"></ds-icon>Add to playlist</button>
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Add to playlist actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">New playlist</span></button>
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Watch later</span></button>
+        </div>
+      </div>
+      <div class="ds-split-button" role="group" aria-label="Add to playlist">
+        <button type="button" class="ds-btn ds-btn-lg ds-btn-primary ds-split-button-action"><ds-icon name="playlist" size="24"></ds-icon>Add to playlist</button>
+        <button type="button" class="ds-btn ds-btn-lg ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Add to playlist actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">New playlist</span></button>
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Watch later</span></button>
+        </div>
+      </div>
+      <div class="ds-split-button" role="group" aria-label="Add to playlist">
+        <button type="button" class="ds-btn ds-btn-xl ds-btn-primary ds-split-button-action"><ds-icon name="playlist" size="24"></ds-icon>Add to playlist</button>
+        <button type="button" class="ds-btn ds-btn-xl ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Add to playlist actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">New playlist</span></button>
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Watch later</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Processing</span>
+      <div class="ds-split-button" role="group" aria-label="Publish">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-action ds-btn-processing" aria-busy="true">Publish</button>
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Publish actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Schedule</span></button>
+        </div>
+      </div>
+      <div class="ds-split-button" role="group" aria-label="Add to playlist">
+        <button type="button" class="ds-btn ds-btn-lg ds-btn-primary ds-split-button-action ds-btn-processing" aria-busy="true"><ds-icon name="playlist" size="24"></ds-icon>Add to playlist</button>
+        <button type="button" class="ds-btn ds-btn-lg ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Add to playlist actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">New playlist</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Disabled</span>
+      <div class="ds-split-button" role="group" aria-label="Publish">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-action" disabled>Publish</button>
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Publish actions" disabled><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu"></div>
+      </div>
+      <div class="ds-split-button" role="group" aria-label="Add to playlist">
+        <button type="button" class="ds-btn ds-btn-lg ds-btn-primary ds-split-button-action" disabled><ds-icon name="playlist" size="24"></ds-icon>Add to playlist</button>
+        <button type="button" class="ds-btn ds-btn-lg ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Add to playlist actions" disabled><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Colors</span>
+      <div class="ds-split-button" role="group" aria-label="Save">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-secondary ds-split-button-action">Save</button>
+        <button type="button" class="ds-btn ds-btn-md ds-btn-secondary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Save actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Save as draft</span></button>
+        </div>
+      </div>
+      <div class="ds-split-button" role="group" aria-label="Delete">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-danger ds-split-button-action">Delete</button>
+        <button type="button" class="ds-btn ds-btn-md ds-btn-danger ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Delete actions"><ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-split-button-menu" role="menu">
+          <button type="button" class="ds-select-item" role="menuitem"><span class="ds-select-item-label">Delete all versions</span></button>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin:var(--ds-space-2) 0 0;">
+      Same names as KEP UI's <code>SplitButton</code>: an <strong>action button</strong> (<code>ds-split-button-action</code>), a <strong>menu toggle button</strong> (<code>ds-split-button-menu-toggle</code>) and a <strong>menu</strong> (<code>ds-split-button-menu</code>) of menu items. Both buttons are regular <code>ds-btn</code> buttons with the same size and color. The action button and menu items are plain buttons: listen for their <code>click</code>. Keyboard: Enter/Space on the toggle, or ArrowDown/ArrowUp on either button, opens the menu; arrows, Home and End move; Escape closes. To disable, put <code>disabled</code> on both buttons. While the action is processing (<code>DS.setProcessing(actionBtn, true)</code>) the menu can't open. Primary is the Figma design; secondary and danger follow KEP's color option.
+    </p>
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;div class="ds-split-button" role="group" aria-label="Publish"&gt;
+  &lt;button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-action"&gt;Publish&lt;/button&gt;
+  &lt;button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-menu-toggle"
+          aria-haspopup="menu" aria-expanded="false" aria-label="More Publish actions"&gt;
+    &lt;ds-icon name="chevron-down" size="16"&gt;&lt;/ds-icon&gt;
+  &lt;/button&gt;
+  &lt;div class="ds-select-menu ds-split-button-menu" role="menu"&gt;
+    &lt;button type="button" class="ds-select-item" role="menuitem"&gt;
+      &lt;span class="ds-select-item-label"&gt;Schedule&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -748,8 +973,8 @@ DS.setProcessing(saveBtn, false);</pre>
     <div class="row">
       <span class="row-label">Large</span>
       <div class="ds-switch">
-        <button class="ds-switch-track ds-switch-lg ds-switch-off" role="switch" aria-checked="false">
-          <span class="ds-switch-handle"></span>
+        <button class="ds-switch-track ds-switch-lg" role="switch" aria-checked="false">
+          <span class="ds-switch-thumb"></span>
         </button>
         <div class="ds-switch-content">
           <span class="ds-switch-label">Notifications</span>
@@ -761,51 +986,84 @@ DS.setProcessing(saveBtn, false);</pre>
     <div class="row">
       <span class="row-label">Small</span>
       <div class="ds-switch">
-        <button class="ds-switch-track ds-switch-sm ds-switch-on" role="switch" aria-checked="true">
-          <span class="ds-switch-handle"></span>
+        <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="true">
+          <span class="ds-switch-thumb"></span>
         </button>
       </div>
       <div class="ds-switch">
-        <button class="ds-switch-track ds-switch-sm ds-switch-off" role="switch" aria-checked="false" disabled>
-          <span class="ds-switch-handle"></span>
+        <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="false" disabled>
+          <span class="ds-switch-thumb"></span>
         </button>
       </div>
     </div>
+
+    <div class="row">
+      <span class="row-label">States</span>
+      <button class="ds-switch-track ds-switch-lg" role="switch" aria-checked="false" aria-label="Example"><span class="ds-switch-thumb"></span></button>
+      <button class="ds-switch-track ds-switch-lg" role="switch" aria-checked="true" aria-label="Example"><span class="ds-switch-thumb"></span></button>
+      <button class="ds-switch-track ds-switch-lg" role="switch" aria-checked="false" aria-label="Example" disabled><span class="ds-switch-thumb"></span></button>
+      <button class="ds-switch-track ds-switch-lg" role="switch" aria-checked="true" aria-label="Example" disabled><span class="ds-switch-thumb"></span></button>
+      <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="false" aria-label="Example"><span class="ds-switch-thumb"></span></button>
+      <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="true" aria-label="Example"><span class="ds-switch-thumb"></span></button>
+      <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="false" aria-label="Example" disabled><span class="ds-switch-thumb"></span></button>
+      <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="true" aria-label="Example" disabled><span class="ds-switch-thumb"></span></button>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Translucent</span>
+      <div style="display:flex; gap:var(--ds-space-4); align-items:center; padding:var(--ds-space-4); border-radius:var(--ds-roundness-2); background:#333333;">
+        <button class="ds-switch-track ds-switch-lg ds-switch-translucent" role="switch" aria-checked="false" aria-label="Example"><span class="ds-switch-thumb"></span></button>
+        <button class="ds-switch-track ds-switch-lg ds-switch-translucent" role="switch" aria-checked="true" aria-label="Example"><span class="ds-switch-thumb"></span></button>
+        <button class="ds-switch-track ds-switch-lg ds-switch-translucent" role="switch" aria-checked="false" aria-label="Example" disabled><span class="ds-switch-thumb"></span></button>
+        <button class="ds-switch-track ds-switch-lg ds-switch-translucent" role="switch" aria-checked="true" aria-label="Example" disabled><span class="ds-switch-thumb"></span></button>
+        <button class="ds-switch-track ds-switch-sm ds-switch-translucent" role="switch" aria-checked="false" aria-label="Example"><span class="ds-switch-thumb"></span></button>
+        <button class="ds-switch-track ds-switch-sm ds-switch-translucent" role="switch" aria-checked="true" aria-label="Example"><span class="ds-switch-thumb"></span></button>
+        <button class="ds-switch-track ds-switch-sm ds-switch-translucent" role="switch" aria-checked="false" aria-label="Example" disabled><span class="ds-switch-thumb"></span></button>
+        <button class="ds-switch-track ds-switch-sm ds-switch-translucent" role="switch" aria-checked="true" aria-label="Example" disabled><span class="ds-switch-thumb"></span></button>
+      </div>
+    </div>
+
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin:var(--ds-space-2) 0 0;">
+      Matches the Figma Switch (Status, State, Size, Mode). States: off <code>tone-3</code>, on <code>primary</code>, disabled off <code>tone-4</code>, disabled on <code>tone-3</code> (solid, no fade). <strong>Translucent</strong> (<code>ds-switch-translucent</code>) is for switches over images, video or dark surfaces (shown above on dark grey): off black 40%, on primary, disabled off black 20% with a faded handle, disabled on white 40%. Parts use KEP UI's names: the <strong>track</strong> (<code>ds-switch-track</code>), the <strong>thumb</strong> (<code>ds-switch-thumb</code>; Figma calls it Handle) and <strong>checked</strong> (<code>aria-checked</code> on the track, no state class needed). Old markup with <code>ds-switch-handle</code> and <code>ds-switch-on</code> / <code>ds-switch-off</code> still works. KEP calls translucent <code>color="translucent"</code>.
+    </p>
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;button class="ds-switch-track ds-switch-lg ds-switch-translucent" role="switch" aria-checked="false" aria-label="Captions"&gt;
+  &lt;span class="ds-switch-thumb"&gt;&lt;/span&gt;
+&lt;/button&gt;</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
-       COMPONENT — FormField
+       COMPONENT — Composed Input
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title" id="formfield">FormField</h2>
+    <h2 class="section-title" id="composed-input">Composed Input</h2>
 
     <div class="form-demo">
-      <div class="ds-form-field">
+      <div class="ds-composed-input">
         <label class="ds-form-label">Full Name</label>
         <input class="ds-input ds-input-md" placeholder="Enter your name" />
       </div>
 
-      <div class="ds-form-field">
+      <div class="ds-composed-input">
         <label class="ds-form-label">
           Email
-          <span class="ds-form-counter">0/100</span>
+          <span class="ds-input-counter">0/100</span>
         </label>
-        <p class="ds-form-desc">We'll never share your email.</p>
+        <p class="ds-form-additional-info">We'll never share your email.</p>
         <input class="ds-input ds-input-md" placeholder="you@example.com" />
       </div>
 
-      <div class="ds-form-field">
+      <div class="ds-composed-input">
         <label class="ds-form-label">Password</label>
         <input class="ds-input ds-input-md ds-input-error" type="password" value="short" />
-        <p class="ds-form-error">Password must be at least 8 characters.</p>
+        <p class="ds-form-helper-text-error">Password must be at least 8 characters.</p>
       </div>
 
-      <div class="ds-form-field">
+      <div class="ds-composed-input">
         <label class="ds-form-label">Bio</label>
         <textarea class="ds-textarea" placeholder="Tell us about yourself..."></textarea>
       </div>
 
-      <div class="ds-form-field">
+      <div class="ds-composed-input">
         <label class="ds-form-label">Plan</label>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <label class="ds-radio">
@@ -1015,20 +1273,20 @@ DS.setProcessing(saveBtn, false);</pre>
         <div class="ds-select-menu">
           <div class="ds-select-item" style="cursor:default;">
             <span class="ds-select-item-label">Notifications</span>
-            <button class="ds-switch-track ds-switch-sm ds-switch-off" role="switch" aria-checked="false">
-              <span class="ds-switch-handle"></span>
+            <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="false">
+              <span class="ds-switch-thumb"></span>
             </button>
           </div>
           <div class="ds-select-item" style="cursor:default;">
             <span class="ds-select-item-label">Dark mode</span>
-            <button class="ds-switch-track ds-switch-sm ds-switch-on" role="switch" aria-checked="true">
-              <span class="ds-switch-handle"></span>
+            <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="true">
+              <span class="ds-switch-thumb"></span>
             </button>
           </div>
           <div class="ds-select-item" aria-disabled="true" style="cursor:default;">
             <span class="ds-select-item-label">Beta features</span>
-            <button class="ds-switch-track ds-switch-sm ds-switch-off" role="switch" aria-checked="false" disabled>
-              <span class="ds-switch-handle"></span>
+            <button class="ds-switch-track ds-switch-sm" role="switch" aria-checked="false" disabled>
+              <span class="ds-switch-thumb"></span>
             </button>
           </div>
         </div>
@@ -1336,24 +1594,24 @@ DS.setProcessing(saveBtn, false);</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
-       COMPONENT — Segmented Control
+       COMPONENT — Segmented Buttons
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title" id="segmented-control">Segmented Control</h2>
+    <h2 class="section-title" id="segmented-buttons">Segmented Buttons</h2>
 
     <!-- 3 items -->
     <div class="row" style="flex-direction:column; align-items:start;">
       <span class="row-label">3 Items</span>
-      <div class="ds-segmented" role="radiogroup" aria-label="View mode">
-        <button class="ds-segmented-item" role="radio" aria-checked="true">
+      <div class="ds-segmented-container" role="radiogroup" aria-label="View mode">
+        <button class="ds-segmented-button" role="radio" aria-checked="true">
           <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
           <span>Grid</span>
         </button>
-        <button class="ds-segmented-item" role="radio" aria-checked="false">
+        <button class="ds-segmented-button" role="radio" aria-checked="false">
           <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           <span>List</span>
         </button>
-        <button class="ds-segmented-item" role="radio" aria-checked="false">
+        <button class="ds-segmented-button" role="radio" aria-checked="false">
           <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.5"/></svg>
           <span>Board</span>
         </button>
@@ -1363,11 +1621,11 @@ DS.setProcessing(saveBtn, false);</pre>
     <!-- 2 items -->
     <div class="row" style="flex-direction:column; align-items:start;">
       <span class="row-label">2 Items</span>
-      <div class="ds-segmented" role="radiogroup" aria-label="Period">
-        <button class="ds-segmented-item" role="radio" aria-checked="true">
+      <div class="ds-segmented-container" role="radiogroup" aria-label="Period">
+        <button class="ds-segmented-button" role="radio" aria-checked="true">
           <span>Monthly</span>
         </button>
-        <button class="ds-segmented-item" role="radio" aria-checked="false">
+        <button class="ds-segmented-button" role="radio" aria-checked="false">
           <span>Yearly</span>
         </button>
       </div>
@@ -1376,11 +1634,11 @@ DS.setProcessing(saveBtn, false);</pre>
     <!-- Icon only -->
     <div class="row" style="flex-direction:column; align-items:start;">
       <span class="row-label">Icon Only</span>
-      <div class="ds-segmented" role="radiogroup" aria-label="Layout">
-        <button class="ds-segmented-item" role="radio" aria-checked="true" aria-label="Grid view">
+      <div class="ds-segmented-container" role="radiogroup" aria-label="Layout">
+        <button class="ds-segmented-button" role="radio" aria-checked="true" aria-label="Grid view">
           <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
         </button>
-        <button class="ds-segmented-item" role="radio" aria-checked="false" aria-label="List view">
+        <button class="ds-segmented-button" role="radio" aria-checked="false" aria-label="List view">
           <svg class="ds-segmented-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </button>
       </div>
@@ -1389,15 +1647,80 @@ DS.setProcessing(saveBtn, false);</pre>
     <!-- Disabled -->
     <div class="row" style="flex-direction:column; align-items:start;">
       <span class="row-label">Disabled</span>
-      <div class="ds-segmented" role="radiogroup" aria-label="Disabled example">
-        <button class="ds-segmented-item" role="radio" aria-checked="true" disabled>
+      <div class="ds-segmented-container" role="radiogroup" aria-label="Disabled example">
+        <button class="ds-segmented-button" role="radio" aria-checked="true" disabled>
           <span>Active</span>
         </button>
-        <button class="ds-segmented-item" role="radio" aria-checked="false" disabled>
+        <button class="ds-segmented-button" role="radio" aria-checked="false" disabled>
           <span>Inactive</span>
         </button>
       </div>
     </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Breadcrumbs
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="breadcrumbs">Breadcrumbs</h2>
+
+    <div class="row">
+      <span class="row-label">Default</span>
+      <nav class="ds-breadcrumbs" aria-label="Breadcrumbs">
+        <ol class="ds-breadcrumbs-ol">
+          <li class="ds-breadcrumbs-li"><a class="ds-breadcrumb-item" href="#breadcrumbs">My Media</a></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><a class="ds-breadcrumb-item" href="#breadcrumbs">Playlists</a></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><span class="ds-breadcrumb-item" aria-current="page">Onboarding</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <span class="row-label">States</span>
+      <nav class="ds-breadcrumbs" aria-label="Breadcrumb states">
+        <ol class="ds-breadcrumbs-ol">
+          <li class="ds-breadcrumbs-li"><a class="ds-breadcrumb-item" href="#breadcrumbs">Default (link)</a></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><button type="button" class="ds-breadcrumb-item">Button</button></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><span class="ds-breadcrumb-item">Text</span></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><a class="ds-breadcrumb-item" aria-disabled="true">Disabled</a></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><span class="ds-breadcrumb-item" aria-current="page">Active</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Truncated</span>
+      <nav class="ds-breadcrumbs" aria-label="Breadcrumbs" style="width:320px;">
+        <ol class="ds-breadcrumbs-ol">
+          <li class="ds-breadcrumbs-li"><a class="ds-breadcrumb-item" href="#breadcrumbs">Home</a></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><a class="ds-breadcrumb-item" href="#breadcrumbs">Categories</a></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><a class="ds-breadcrumb-item" href="#breadcrumbs">Learning</a></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><a class="ds-breadcrumb-item" href="#breadcrumbs">Compliance training</a></li>
+          <li class="ds-breadcrumbs-separator" aria-hidden="true"><ds-icon name="chevron-right" size="16"></ds-icon></li>
+          <li class="ds-breadcrumbs-li"><span class="ds-breadcrumb-item" aria-current="page">Security basics</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin:var(--ds-space-2) 0 0;">
+      Same names as KEP UI's <code>Breadcrumbs</code>: each <strong>breadcrumb item</strong> (<code>ds-breadcrumb-item</code>) sits in an <code>li</code>, with a <strong>separator</strong> <code>li</code> (16px <code>chevron-right</code>) between items. Use <code>&lt;a href&gt;</code> for a link, <code>&lt;button&gt;</code> for a click action, <code>&lt;span&gt;</code> for plain text (no hover). <strong>Active</strong> (the current page): <code>aria-current="page"</code>. <strong>Disabled</strong>: <code>aria-disabled="true"</code>. <strong>Truncated</strong>: when the trail is wider than the nav, <code>ds.js</code> keeps the first item and as many last items as fit, and collapses the rest into a <code>...</code> button ("Show more"); clicking it shows every item. Add <code>data-collapse="none"</code> to the nav to turn this off.
+    </p>
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;nav class="ds-breadcrumbs" aria-label="Breadcrumbs"&gt;
+  &lt;ol class="ds-breadcrumbs-ol"&gt;
+    &lt;li class="ds-breadcrumbs-li"&gt;&lt;a class="ds-breadcrumb-item" href="/media"&gt;My Media&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="ds-breadcrumbs-separator" aria-hidden="true"&gt;&lt;ds-icon name="chevron-right" size="16"&gt;&lt;/ds-icon&gt;&lt;/li&gt;
+    &lt;li class="ds-breadcrumbs-li"&gt;&lt;span class="ds-breadcrumb-item" aria-current="page"&gt;Onboarding&lt;/span&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -1561,7 +1884,7 @@ DS.setProcessing(saveBtn, false);</pre>
        USER PICTURE
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title" id="user-picture">User Picture</h2>
+    <h2 class="section-title" id="initials">Initials</h2>
     <p style="font-size:14px; color:var(--ds-tone-2); margin-bottom:20px;">
       Displays a user's profile image or their initials as a fallback. Always rendered as a square with rounded corners.
     </p>
@@ -1569,16 +1892,16 @@ DS.setProcessing(saveBtn, false);</pre>
     <!-- Sizes — with image -->
     <div class="row">
       <span class="row-label">With image</span>
-      <span class="ds-user-picture ds-user-picture-sm">
+      <span class="ds-initials ds-initials-sm">
         <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
       </span>
-      <span class="ds-user-picture ds-user-picture-md">
+      <span class="ds-initials ds-initials-md">
         <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
       </span>
-      <span class="ds-user-picture ds-user-picture-lg">
+      <span class="ds-initials ds-initials-lg">
         <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
       </span>
-      <span class="ds-user-picture ds-user-picture-xl">
+      <span class="ds-initials ds-initials-xl">
         <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
       </span>
     </div>
@@ -1586,25 +1909,25 @@ DS.setProcessing(saveBtn, false);</pre>
     <!-- Sizes — initials fallback -->
     <div class="row">
       <span class="row-label">Initials</span>
-      <span class="ds-user-picture ds-user-picture-sm">HC</span>
-      <span class="ds-user-picture ds-user-picture-md">HC</span>
-      <span class="ds-user-picture ds-user-picture-lg">HC</span>
-      <span class="ds-user-picture ds-user-picture-xl">HC</span>
+      <span class="ds-initials ds-initials-sm">HC</span>
+      <span class="ds-initials ds-initials-md">HC</span>
+      <span class="ds-initials ds-initials-lg">HC</span>
+      <span class="ds-initials ds-initials-xl">HC</span>
     </div>
 
     <!-- Round — with image -->
     <div class="row">
       <span class="row-label">Round image</span>
-      <span class="ds-user-picture ds-user-picture-sm ds-user-picture-round">
+      <span class="ds-initials ds-initials-sm ds-initials-round">
         <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
       </span>
-      <span class="ds-user-picture ds-user-picture-md ds-user-picture-round">
+      <span class="ds-initials ds-initials-md ds-initials-round">
         <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
       </span>
-      <span class="ds-user-picture ds-user-picture-lg ds-user-picture-round">
+      <span class="ds-initials ds-initials-lg ds-initials-round">
         <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
       </span>
-      <span class="ds-user-picture ds-user-picture-xl ds-user-picture-round">
+      <span class="ds-initials ds-initials-xl ds-initials-round">
         <img src="https://i.pravatar.cc/96?img=12" alt="John Doe" />
       </span>
     </div>
@@ -1612,10 +1935,10 @@ DS.setProcessing(saveBtn, false);</pre>
     <!-- Round — initials fallback -->
     <div class="row">
       <span class="row-label">Round initials</span>
-      <span class="ds-user-picture ds-user-picture-sm ds-user-picture-round">HC</span>
-      <span class="ds-user-picture ds-user-picture-md ds-user-picture-round">HC</span>
-      <span class="ds-user-picture ds-user-picture-lg ds-user-picture-round">HC</span>
-      <span class="ds-user-picture ds-user-picture-xl ds-user-picture-round">HC</span>
+      <span class="ds-initials ds-initials-sm ds-initials-round">HC</span>
+      <span class="ds-initials ds-initials-md ds-initials-round">HC</span>
+      <span class="ds-initials ds-initials-lg ds-initials-round">HC</span>
+      <span class="ds-initials ds-initials-xl ds-initials-round">HC</span>
     </div>
   </div>
 
@@ -1623,7 +1946,7 @@ DS.setProcessing(saveBtn, false);</pre>
        ACKNOWLEDGEMENT & HELP
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title" id="acknowledgement-help">Acknowledgement & Help</h2>
+    <h2 class="section-title" id="alert-tooltip">Alert &amp; Tooltip</h2>
 
 
     <!-- ── Inline — Dismissible ── -->
@@ -1631,34 +1954,34 @@ DS.setProcessing(saveBtn, false);</pre>
 
     <div class="row">
       <span class="row-label">Info</span>
-      <div class="ds-ack ds-ack-info">
-        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
-        <span class="ds-ack-text">This is an information message!</span>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-info">
+        <span class="ds-alert-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-alert-text">This is an information message!</span>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
     <div class="row">
       <span class="row-label">Error</span>
-      <div class="ds-ack ds-ack-error">
-        <span class="ds-ack-icon"><ds-icon name="warning-circle"></ds-icon></span>
-        <span class="ds-ack-text">This is an error message!</span>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-error">
+        <span class="ds-alert-icon"><ds-icon name="warning-circle"></ds-icon></span>
+        <span class="ds-alert-text">This is an error message!</span>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
     <div class="row">
       <span class="row-label">Success</span>
-      <div class="ds-ack ds-ack-success">
-        <span class="ds-ack-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" fill="transparent"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM16.6402 8.23178C16.2159 7.87821 15.5853 7.93554 15.2318 8.35982L10.932 13.517L9.70711 12.2929L9.6129 12.2097C9.22061 11.9047 8.65338 11.9324 8.29289 12.2929C7.90237 12.6834 7.90237 13.3166 8.29289 13.7071L10.2929 15.7071L10.3859 15.7894C10.8047 16.1163 11.4187 16.0597 11.7682 15.6402L16.7682 9.64018L16.8425 9.53883C17.1108 9.12054 17.0318 8.55815 16.6402 8.23178Z" fill="currentColor"/></svg></span>
-        <span class="ds-ack-text">This is a success message!</span>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-success">
+        <span class="ds-alert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" fill="transparent"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM16.6402 8.23178C16.2159 7.87821 15.5853 7.93554 15.2318 8.35982L10.932 13.517L9.70711 12.2929L9.6129 12.2097C9.22061 11.9047 8.65338 11.9324 8.29289 12.2929C7.90237 12.6834 7.90237 13.3166 8.29289 13.7071L10.2929 15.7071L10.3859 15.7894C10.8047 16.1163 11.4187 16.0597 11.7682 15.6402L16.7682 9.64018L16.8425 9.53883C17.1108 9.12054 17.0318 8.55815 16.6402 8.23178Z" fill="currentColor"/></svg></span>
+        <span class="ds-alert-text">This is a success message!</span>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
     <div class="row">
       <span class="row-label">Warning</span>
-      <div class="ds-ack ds-ack-warning">
-        <span class="ds-ack-icon"><ds-icon name="warning-triangle"></ds-icon></span>
-        <span class="ds-ack-text">This is a warning message!</span>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-warning">
+        <span class="ds-alert-icon"><ds-icon name="warning-triangle"></ds-icon></span>
+        <span class="ds-alert-text">This is a warning message!</span>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
 
@@ -1667,9 +1990,9 @@ DS.setProcessing(saveBtn, false);</pre>
 
     <div class="row">
       <span class="row-label">Info</span>
-      <div class="ds-ack ds-ack-info">
-        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
-        <span class="ds-ack-text">This is an information message!</span>
+      <div class="ds-alert ds-alert-info">
+        <span class="ds-alert-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-alert-text">This is an information message!</span>
       </div>
     </div>
 
@@ -1678,11 +2001,11 @@ DS.setProcessing(saveBtn, false);</pre>
 
     <div class="row">
       <span class="row-label">Info + Link</span>
-      <div class="ds-ack ds-ack-info">
-        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
-        <span class="ds-ack-text">This is an information message!</span>
-        <a class="ds-ack-link" href="#">Link</a>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-info">
+        <span class="ds-alert-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-alert-text">This is an information message!</span>
+        <a class="ds-alert-link" href="#">Link</a>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
 
@@ -1691,34 +2014,34 @@ DS.setProcessing(saveBtn, false);</pre>
 
     <div class="row">
       <span class="row-label">Info</span>
-      <div class="ds-ack ds-ack-floating ds-ack-info" style="cursor:pointer" data-ds-toast>
-        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
-        <span class="ds-ack-text">This is an information message!</span>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-floating ds-alert-info" style="cursor:pointer" data-ds-toast>
+        <span class="ds-alert-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-alert-text">This is an information message!</span>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
     <div class="row">
       <span class="row-label">Error</span>
-      <div class="ds-ack ds-ack-floating ds-ack-error" style="cursor:pointer" data-ds-toast>
-        <span class="ds-ack-icon"><ds-icon name="warning-circle"></ds-icon></span>
-        <span class="ds-ack-text">This is an error message!</span>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-floating ds-alert-error" style="cursor:pointer" data-ds-toast>
+        <span class="ds-alert-icon"><ds-icon name="warning-circle"></ds-icon></span>
+        <span class="ds-alert-text">This is an error message!</span>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
     <div class="row">
       <span class="row-label">Success</span>
-      <div class="ds-ack ds-ack-floating ds-ack-success" style="cursor:pointer" data-ds-toast>
-        <span class="ds-ack-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" fill="transparent"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM16.6402 8.23178C16.2159 7.87821 15.5853 7.93554 15.2318 8.35982L10.932 13.517L9.70711 12.2929L9.6129 12.2097C9.22061 11.9047 8.65338 11.9324 8.29289 12.2929C7.90237 12.6834 7.90237 13.3166 8.29289 13.7071L10.2929 15.7071L10.3859 15.7894C10.8047 16.1163 11.4187 16.0597 11.7682 15.6402L16.7682 9.64018L16.8425 9.53883C17.1108 9.12054 17.0318 8.55815 16.6402 8.23178Z" fill="currentColor"/></svg></span>
-        <span class="ds-ack-text">This is a success message!</span>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-floating ds-alert-success" style="cursor:pointer" data-ds-toast>
+        <span class="ds-alert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" fill="transparent"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM16.6402 8.23178C16.2159 7.87821 15.5853 7.93554 15.2318 8.35982L10.932 13.517L9.70711 12.2929L9.6129 12.2097C9.22061 11.9047 8.65338 11.9324 8.29289 12.2929C7.90237 12.6834 7.90237 13.3166 8.29289 13.7071L10.2929 15.7071L10.3859 15.7894C10.8047 16.1163 11.4187 16.0597 11.7682 15.6402L16.7682 9.64018L16.8425 9.53883C17.1108 9.12054 17.0318 8.55815 16.6402 8.23178Z" fill="currentColor"/></svg></span>
+        <span class="ds-alert-text">This is a success message!</span>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
     <div class="row">
       <span class="row-label">Warning</span>
-      <div class="ds-ack ds-ack-floating ds-ack-warning" style="cursor:pointer" data-ds-toast>
-        <span class="ds-ack-icon"><ds-icon name="warning-triangle"></ds-icon></span>
-        <span class="ds-ack-text">This is a warning message!</span>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-floating ds-alert-warning" style="cursor:pointer" data-ds-toast>
+        <span class="ds-alert-icon"><ds-icon name="warning-triangle"></ds-icon></span>
+        <span class="ds-alert-text">This is a warning message!</span>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
 
@@ -1727,90 +2050,90 @@ DS.setProcessing(saveBtn, false);</pre>
 
     <div class="row">
       <span class="row-label">Info + Link</span>
-      <div class="ds-ack ds-ack-floating ds-ack-info" style="cursor:pointer" data-ds-toast>
-        <span class="ds-ack-icon"><ds-icon name="info"></ds-icon></span>
-        <span class="ds-ack-text">This is an information message!</span>
-        <a class="ds-ack-link" href="#">Link</a>
-        <button class="ds-ack-dismiss"><ds-icon name="clear"></ds-icon></button>
+      <div class="ds-alert ds-alert-floating ds-alert-info" style="cursor:pointer" data-ds-toast>
+        <span class="ds-alert-icon"><ds-icon name="info"></ds-icon></span>
+        <span class="ds-alert-text">This is an information message!</span>
+        <a class="ds-alert-link" href="#">Link</a>
+        <button class="ds-alert-dismiss"><ds-icon name="clear"></ds-icon></button>
       </div>
     </div>
 
-    <!-- ── Hint ── -->
-    <h3 style="font-size:16px; font-weight:700; margin-bottom:12px;">Hint</h3>
+    <!-- ── Tooltip ── -->
+    <h3 style="font-size:16px; font-weight:700; margin-bottom:12px;">Tooltip</h3>
 
     <div class="row" style="gap:24px;">
       <span class="row-label">Directions</span>
       <!-- Top (arrow points down) -->
-      <div class="ds-hint ds-hint-top">
-        <div class="ds-hint-body">Hint</div>
-        <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
+      <div class="ds-tooltip ds-tooltip-top">
+        <div class="ds-tooltip-body">Tooltip</div>
+        <div class="ds-tooltip-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
       </div>
       <!-- Bottom (arrow points up) -->
-      <div class="ds-hint ds-hint-bottom">
-        <div class="ds-hint-body">Hint</div>
-        <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 9L5.4 2Q7 0 8.6 2L14 9Z" fill="currentColor"/></svg></div>
+      <div class="ds-tooltip ds-tooltip-bottom">
+        <div class="ds-tooltip-body">Tooltip</div>
+        <div class="ds-tooltip-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 9L5.4 2Q7 0 8.6 2L14 9Z" fill="currentColor"/></svg></div>
       </div>
       <!-- Left (arrow points left) -->
-      <div class="ds-hint ds-hint-left">
-        <div class="ds-hint-body">Hint</div>
-        <div class="ds-hint-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M9 0L2 5.4Q0 7 2 8.6L9 14Z" fill="currentColor"/></svg></div>
+      <div class="ds-tooltip ds-tooltip-left">
+        <div class="ds-tooltip-body">Tooltip</div>
+        <div class="ds-tooltip-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M9 0L2 5.4Q0 7 2 8.6L9 14Z" fill="currentColor"/></svg></div>
       </div>
       <!-- Right (arrow points right) -->
-      <div class="ds-hint ds-hint-right">
-        <div class="ds-hint-body">Hint</div>
-        <div class="ds-hint-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M0 0L7 5.4Q9 7 7 8.6L0 14Z" fill="currentColor"/></svg></div>
+      <div class="ds-tooltip ds-tooltip-right">
+        <div class="ds-tooltip-body">Tooltip</div>
+        <div class="ds-tooltip-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M0 0L7 5.4Q9 7 7 8.6L0 14Z" fill="currentColor"/></svg></div>
       </div>
     </div>
 
-    <!-- ── Hint Behavior ── -->
+    <!-- ── Tooltip behavior ── -->
     <h3 style="font-size:14px; font-weight:700; margin:24px 0 8px;">Behavior</h3>
-    <p style="font-family:var(--ds-font-family); font-size:14px; color:var(--ds-tone-2); margin-bottom:20px;">Hint are complementary info or label that appears while hovering UI elements. Hints support 4 directions.</p>
+    <p style="font-family:var(--ds-font-family); font-size:14px; color:var(--ds-tone-2); margin-bottom:20px;">A tooltip is complementary info or a label that appears while hovering a UI element. Tooltips support 4 directions.</p>
 
     <!-- 4 directions with + icon triggers -->
     <div style="display:flex; gap:24px; align-items:center; margin-bottom:16px;">
       <!-- Top -->
-      <div class="ds-hint-trigger">
+      <div class="ds-tooltip-trigger">
         <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ds-hint ds-hint-top">
-          <div class="ds-hint-body">Hint</div>
-          <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
+        <div class="ds-tooltip ds-tooltip-top">
+          <div class="ds-tooltip-body">Tooltip</div>
+          <div class="ds-tooltip-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
         </div>
       </div>
       <!-- Bottom -->
-      <div class="ds-hint-trigger">
+      <div class="ds-tooltip-trigger">
         <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ds-hint ds-hint-bottom">
-          <div class="ds-hint-body">Hint</div>
-          <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 9L5.4 2Q7 0 8.6 2L14 9Z" fill="currentColor"/></svg></div>
+        <div class="ds-tooltip ds-tooltip-bottom">
+          <div class="ds-tooltip-body">Tooltip</div>
+          <div class="ds-tooltip-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 9L5.4 2Q7 0 8.6 2L14 9Z" fill="currentColor"/></svg></div>
         </div>
       </div>
-      <!-- Right (arrow points left, hint appears right) -->
-      <div class="ds-hint-trigger">
+      <!-- Right (arrow points left, tooltip appears right) -->
+      <div class="ds-tooltip-trigger">
         <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ds-hint ds-hint-left" style="left:calc(100% + 4px); right:auto; top:50%; translate:0 -50%;">
-          <div class="ds-hint-body">Hint</div>
-          <div class="ds-hint-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M9 0L2 5.4Q0 7 2 8.6L9 14Z" fill="currentColor"/></svg></div>
+        <div class="ds-tooltip ds-tooltip-left" style="left:calc(100% + 4px); right:auto; top:50%; translate:0 -50%;">
+          <div class="ds-tooltip-body">Tooltip</div>
+          <div class="ds-tooltip-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M9 0L2 5.4Q0 7 2 8.6L9 14Z" fill="currentColor"/></svg></div>
         </div>
       </div>
-      <!-- Left (hint on left, arrow points right toward button) -->
-      <div class="ds-hint-trigger">
+      <!-- Left (tooltip on left, arrow points right toward button) -->
+      <div class="ds-tooltip-trigger">
         <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ds-hint ds-hint-right" style="right:calc(100% + 4px); left:auto; top:50%; translate:0 -50%;">
-          <div class="ds-hint-body">Hint</div>
-          <div class="ds-hint-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M0 0L7 5.4Q9 7 7 8.6L0 14Z" fill="currentColor"/></svg></div>
+        <div class="ds-tooltip ds-tooltip-right" style="right:calc(100% + 4px); left:auto; top:50%; translate:0 -50%;">
+          <div class="ds-tooltip-body">Tooltip</div>
+          <div class="ds-tooltip-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M0 0L7 5.4Q9 7 7 8.6L0 14Z" fill="currentColor"/></svg></div>
         </div>
       </div>
     </div>
 
-    <!-- ── Long text hint ── -->
+    <!-- ── Long text tooltip ── -->
     <h3 style="font-size:14px; font-weight:700; margin:24px 0 12px;">Long Text</h3>
 
     <div style="display:flex; gap:24px; align-items:center;">
-      <div class="ds-hint-trigger">
+      <div class="ds-tooltip-trigger">
         <span class="ds-text-truncate" style="font-family:var(--ds-font-family); font-size:14px; color:var(--ds-tone-2); cursor:default;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ...</span>
-        <div class="ds-hint ds-hint-top">
-          <div class="ds-hint-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-          <div class="ds-hint-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
+        <div class="ds-tooltip ds-tooltip-top">
+          <div class="ds-tooltip-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+          <div class="ds-tooltip-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div>
         </div>
       </div>
     </div>
@@ -1858,7 +2181,7 @@ DS.setProcessing(saveBtn, false);</pre>
         </div>
         <div class="ds-modal-body">
           <p>Give this document a new name.</p>
-          <div class="ds-form-field" style="margin:var(--ds-space-4) 0 0;">
+          <div class="ds-composed-input" style="margin:var(--ds-space-4) 0 0;">
             <label class="ds-form-label" for="demo-rename">Name</label>
             <input class="ds-input ds-input-md" id="demo-rename" placeholder="Enter a name" />
           </div>
@@ -1907,7 +2230,7 @@ DS.setProcessing(saveBtn, false);</pre>
             </div>
             <div style="display:flex; flex-direction:column; align-items:flex-start; gap:var(--ds-space-2);">
               <span class="ds-form-label" style="margin:0; line-height:var(--ds-line-height-16);">Reference images (optional)</span>
-              <p class="ds-form-desc" style="margin:0; line-height:var(--ds-line-height-16);">Add up to 3 images of a character, product, or brand asset to keep consistent in the generated video.</p>
+              <p class="ds-form-additional-info" style="margin:0; line-height:var(--ds-line-height-16);">Add up to 3 images of a character, product, or brand asset to keep consistent in the generated video.</p>
               <button class="upload-tile" aria-label="Upload an image"><ds-icon name="upload"></ds-icon></button>
             </div>
           </div>
@@ -1945,38 +2268,38 @@ DS.setProcessing(saveBtn, false);</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
-       COMPONENT — Spinner
+       COMPONENT — Loader
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title" id="spinner">Spinner</h2>
+    <h2 class="section-title" id="loader">Loader</h2>
     <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin-bottom:var(--ds-space-5);">
-      Shows that something is loading. A 20px ring whose quarter arc turns. Use the primary spinner on page surfaces, <code>ds-spinner-white</code> on dark or colored surfaces and <code>ds-spinner-black</code> on light images. Add <code>role="status"</code> and an <code>aria-label</code> so screen readers announce it.
+      Shows that something is loading. A 20px ring whose quarter arc turns. Use the primary loader on page surfaces, <code>ds-loader-white</code> on dark or colored surfaces and <code>ds-loader-black</code> on light images. Add <code>role="status"</code> and an <code>aria-label</code> so screen readers announce it.
     </p>
 
     <div class="row">
       <span class="row-label">Primary</span>
-      <span class="ds-spinner" role="status" aria-label="Loading"></span>
+      <span class="ds-loader" role="status" aria-label="Loading"></span>
     </div>
     <div class="row">
       <span class="row-label">White</span>
-      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-primary); border-radius:var(--ds-roundness-1);"><span class="ds-spinner ds-spinner-white" role="status" aria-label="Loading"></span></span>
-      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-b-70); border-radius:var(--ds-roundness-1);"><span class="ds-spinner ds-spinner-white" role="status" aria-label="Loading"></span></span>
+      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-primary); border-radius:var(--ds-roundness-1);"><span class="ds-loader ds-loader-white" role="status" aria-label="Loading"></span></span>
+      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-b-70); border-radius:var(--ds-roundness-1);"><span class="ds-loader ds-loader-white" role="status" aria-label="Loading"></span></span>
     </div>
     <div class="row">
       <span class="row-label">Black</span>
-      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-w-100); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-1);"><span class="ds-spinner ds-spinner-black" role="status" aria-label="Loading"></span></span>
+      <span style="display:inline-flex; padding:var(--ds-space-3); background:var(--ds-w-100); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-1);"><span class="ds-loader ds-loader-black" role="status" aria-label="Loading"></span></span>
     </div>
     <div class="row">
       <span class="row-label">With text</span>
-      <span style="display:inline-flex; align-items:center; gap:var(--ds-space-2); font-size:var(--ds-font-size-4); color:var(--ds-tone-2);"><span class="ds-spinner" aria-hidden="true"></span>Loading results…</span>
+      <span style="display:inline-flex; align-items:center; gap:var(--ds-space-2); font-size:var(--ds-font-size-4); color:var(--ds-tone-2);"><span class="ds-loader" aria-hidden="true"></span>Loading results…</span>
     </div>
 
-    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin-top:var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;span class="ds-spinner" role="status" aria-label="Loading"&gt;&lt;/span&gt;
-&lt;span class="ds-spinner ds-spinner-white" role="status" aria-label="Loading"&gt;&lt;/span&gt;  &lt;!-- on dark / colored surfaces --&gt;
-&lt;span class="ds-spinner ds-spinner-black" role="status" aria-label="Loading"&gt;&lt;/span&gt;  &lt;!-- on light images --&gt;
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin-top:var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;span class="ds-loader" role="status" aria-label="Loading"&gt;&lt;/span&gt;
+&lt;span class="ds-loader ds-loader-white" role="status" aria-label="Loading"&gt;&lt;/span&gt;  &lt;!-- on dark / colored surfaces --&gt;
+&lt;span class="ds-loader ds-loader-black" role="status" aria-label="Loading"&gt;&lt;/span&gt;  &lt;!-- on light images --&gt;
 
-&lt;!-- Next to text: hide the spinner from screen readers, the text says it --&gt;
-&lt;span class="ds-spinner" aria-hidden="true"&gt;&lt;/span&gt; Loading results…</pre>
+&lt;!-- Next to text: hide the loader from screen readers, the text says it --&gt;
+&lt;span class="ds-loader" aria-hidden="true"&gt;&lt;/span&gt; Loading results…</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -2237,7 +2560,7 @@ DS.setProcessing(saveBtn, false);</pre>
        Badges
        ═══════════════════════════════════════════ -->
   <div class="section">
-    <h2 class="section-title" id="badges">Badges</h2>
+    <h2 class="section-title" id="badges">Badges, Tags &amp; Chips</h2>
 
     <div class="row">
       <span class="row-label">Badge</span>
@@ -2268,6 +2591,90 @@ DS.setProcessing(saveBtn, false);</pre>
       <span class="ds-chip"><img class="ds-chip-picture" src="Images/Ava_Taylor-600w.png" alt="" /><span class="ds-chip-content">Label <span class="ds-chip-status">Blocked</span> <button class="ds-chip-close"><ds-icon name="close" size="16"></ds-icon></button></span></span>
       <span class="ds-chip ds-chip-disabled"><img class="ds-chip-picture" src="Images/Ava_Taylor-600w.png" alt="" /><span class="ds-chip-content">Label <span class="ds-chip-status">Blocked</span> <button class="ds-chip-close"><ds-icon name="close" size="16"></ds-icon></button></span></span>
     </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TERMINOLOGY INDEX (tables generated from tools/terminology.json)
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="terminology">Terminology Index</h2>
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin-bottom:var(--ds-space-4);">
+      One name per thing across the three places it lives: the <strong>Figma</strong> Platform DS (design), <strong>KEP UI</strong> (<code>@kaltura/ds-react-components</code>, what the dev team ships) and <strong>kaltura-ds</strong> (the classes on this page). kaltura-ds follows Figma for the look and KEP UI for the names, so use the KEP name when talking to developers. Old kaltura-ds class names are shown as "was" and still work. Updated with every component fix.
+    </p>
+<!-- BEGIN GENERATED: terminology -->
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin:var(--ds-space-6) 0 var(--ds-space-3);">Components</h3>
+    <table class="token-table">
+      <thead><tr><th>Component</th><th>Figma (Platform DS)</th><th>KEP UI (ds-react-components)</th><th>kaltura-ds</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#button" style="color:inherit;"><strong>Button</strong></a></td><td>Buttons &gt; Pill, Borderless</td><td>Button (variant=&quot;pill&quot; | &quot;borderless&quot;), IconButton</td><td><code>ds-btn</code> + <code>ds-btn-primary</code> | <code>-secondary</code> | <code>-danger</code>, <code>ds-btn-borderless</code>, <code>ds-btn-icon</code></td><td>Figma &quot;Pill&quot; = KEP variant=&quot;pill&quot; = the default filled button here. The grey button is &quot;secondary&quot; in KEP and here.</td></tr>
+        <tr><td><a href="#button" style="color:inherit;"><strong>Circular Button</strong></a></td><td>Buttons &gt; Circular</td><td>no exact match</td><td><code>ds-btn-circular</code></td><td>Dark translucent media-overlay button.</td></tr>
+        <tr><td><a href="#split-button" style="color:inherit;"><strong>Split Button</strong></a></td><td>Split Button</td><td>SplitButton (action button, menu toggle button, menu)</td><td><code>ds-split-button</code>, <code>ds-split-button-action</code>, <code>ds-split-button-menu-toggle</code>, <code>ds-split-button-menu</code></td><td></td></tr>
+        <tr><td><a href="#input" style="color:inherit;"><strong>Input</strong></a></td><td>Input Fields &gt; Text Single Line</td><td>BaseInput</td><td><code>ds-input</code></td><td></td></tr>
+        <tr><td><a href="#textarea" style="color:inherit;"><strong>Textarea</strong></a></td><td>Input Fields &gt; Textarea</td><td>BaseInput (multiline)</td><td><code>ds-textarea</code></td><td></td></tr>
+        <tr><td><a href="#composed-input" style="color:inherit;"><strong>Composed Input</strong></a></td><td>Form Inputs &gt; Form Input Template</td><td>ComposedInput (FormLabel, inputAdditionalInfo, FormHelperText, input counter)</td><td><code>ds-composed-input</code>, <code>ds-form-label</code>, <code>ds-form-additional-info</code>, <code>ds-form-helper-text-error</code>, <code>ds-input-counter</code><br><span style="color:var(--ds-tone-3);">was <code>ds-form-field</code>, <code>ds-form-desc</code>, <code>ds-form-error</code>, <code>ds-form-counter</code></span></td><td></td></tr>
+        <tr><td><a href="#checkbox" style="color:inherit;"><strong>Checkbox</strong></a></td><td>Checkers &gt; Checkbox</td><td>Checkbox</td><td><code>ds-checkbox</code></td><td></td></tr>
+        <tr><td><a href="#radio" style="color:inherit;"><strong>Radio</strong></a></td><td>Checkers &gt; Radio</td><td>Radio</td><td><code>ds-radio</code></td><td></td></tr>
+        <tr><td><a href="#switch" style="color:inherit;"><strong>Switch</strong></a></td><td>Checkers &gt; Switch (Status, State, Size, Mode)</td><td>Switch (checked, disabled, size; thumb, track)</td><td><code>ds-switch-track</code> (track), <code>ds-switch-thumb</code> (thumb), aria-checked (checked), <code>ds-switch-sm</code> | <code>-lg</code>, <code>ds-switch-translucent</code><br><span style="color:var(--ds-tone-3);">was <code>ds-switch-handle</code>, <code>ds-switch-on</code> / <code>ds-switch-off</code></span></td><td>Figma calls the thumb &quot;Handle&quot;. State lives in aria-checked; ds.js also sets the old on/off classes.</td></tr>
+        <tr><td><a href="#select" style="color:inherit;"><strong>Select</strong></a></td><td>Select Menu &gt; Select, Select borderless, Select Menu Item, Seperator</td><td>Select, SelectMenu, MenuItem</td><td><code>ds-select</code>, <code>ds-select-borderless</code>, <code>ds-select-menu</code>, <code>ds-select-item</code>, <code>ds-select-separator</code></td><td>KEP&#x27;s other library (bits) calls it Dropdown.</td></tr>
+        <tr><td><a href="#autocomplete" style="color:inherit;"><strong>Autocomplete</strong></a></td><td>Autocomplete</td><td>AutoComplete</td><td><code>ds-autocomplete</code></td><td></td></tr>
+        <tr><td><a href="#tabs" style="color:inherit;"><strong>Tabs</strong></a></td><td>Navigation &gt; Tabs, Tab Item</td><td>Tabs, Tab</td><td><code>ds-tabs</code>, <code>ds-tab</code></td><td></td></tr>
+        <tr><td><a href="#segmented-buttons" style="color:inherit;"><strong>Segmented Buttons</strong></a></td><td>Segmented control, Segmented control cells</td><td>SegmentedContainer, SegmentedButton</td><td><code>ds-segmented-container</code>, <code>ds-segmented-button</code><br><span style="color:var(--ds-tone-3);">was <code>ds-segmented</code>, <code>ds-segmented-item</code></span></td><td></td></tr>
+        <tr><td><a href="#breadcrumbs" style="color:inherit;"><strong>Breadcrumbs</strong></a></td><td>Navigation &gt; Breadcrumb, Breadcrumb Item</td><td>Breadcrumbs, BreadcrumbItem</td><td><code>ds-breadcrumbs</code>, <code>ds-breadcrumb-item</code>, <code>ds-breadcrumbs-separator</code>, <code>ds-breadcrumbs-truncated</code></td><td></td></tr>
+        <tr><td><a href="#data-table" style="color:inherit;"><strong>Data Table</strong></a></td><td>Data Table</td><td>Table, TableContainer, TableActionBar, TableSortLabel</td><td><code>ds-table</code>, <code>ds-table-action-bar</code>, <code>ds-table-sortable</code></td><td></td></tr>
+        <tr><td><a href="#data-table" style="color:inherit;"><strong>Pagination</strong></a></td><td>Pagination, Pagination Page</td><td>Pagination</td><td><code>ds-table-pagination</code>, <code>ds-table-page</code></td><td></td></tr>
+        <tr><td><a href="#data-table" style="color:inherit;"><strong>Status</strong></a></td><td>Status</td><td>Status (variant, color)</td><td><code>ds-table-status</code> + <code>-green</code> | <code>-orange</code> | <code>-red</code> | <code>-grey</code></td><td>Only the table dot-and-text version exists here.</td></tr>
+        <tr><td><a href="#initials" style="color:inherit;"><strong>Initials</strong></a></td><td>User Picture &gt; Picture</td><td>Initials</td><td><code>ds-initials</code> + <code>-sm</code> | <code>-md</code> | <code>-lg</code> | <code>-xl</code>, <code>ds-initials-round</code><br><span style="color:var(--ds-tone-3);">was <code>ds-user-picture</code></span></td><td>KEP bits calls it Avatar. Sizes differ: ds-initials-lg is 48px, KEP size=&quot;large&quot; is 96px.</td></tr>
+        <tr><td><a href="#alert-tooltip" style="color:inherit;"><strong>Alert</strong></a></td><td>Acknowledgement &amp; Help &gt; Acknowledgement</td><td>Alert (severity)</td><td><code>ds-alert</code> + <code>-info</code> | <code>-error</code> | <code>-success</code> | <code>-warning</code><br><span style="color:var(--ds-tone-3);">was <code>ds-ack</code></span></td><td></td></tr>
+        <tr><td><a href="#alert-tooltip" style="color:inherit;"><strong>Toast</strong></a></td><td>Acknowledgement (floating)</td><td>Toast, Snackbar</td><td><code>ds-alert-floating</code>, <code>DS.showToast()</code>; ds.js adds <code>ds-toast-active</code> to the showing toast<br><span style="color:var(--ds-tone-3);">was <code>ds-ack-floating</code></span></td><td></td></tr>
+        <tr><td><a href="#alert-tooltip" style="color:inherit;"><strong>Tooltip</strong></a></td><td>Acknowledgement &amp; Help &gt; Hint</td><td>Tooltip</td><td><code>ds-tooltip</code>, <code>ds-tooltip-trigger</code><br><span style="color:var(--ds-tone-3);">was <code>ds-hint</code></span></td><td></td></tr>
+        <tr><td><a href="#loader" style="color:inherit;"><strong>Loader</strong></a></td><td>Spinner</td><td>Loader</td><td><code>ds-loader</code> + <code>-white</code> | <code>-black</code><br><span style="color:var(--ds-tone-3);">was <code>ds-spinner</code></span></td><td>KEP bits calls it Spinner.</td></tr>
+        <tr><td><a href="#modal" style="color:inherit;"><strong>Modal</strong></a></td><td>(not on the Components page)</td><td>Modal, ModalTitle, ModalContent, ModalActions, ModalCloseButton</td><td><code>ds-modal</code>, <code>ds-modal-title</code>, <code>ds-modal-body</code>, <code>ds-modal-footer</code>, <code>ds-modal-close</code></td><td>KEP ModalContent = ds-modal-body, ModalActions = ds-modal-footer.</td></tr>
+        <tr><td><a href="#badges" style="color:inherit;"><strong>Badge</strong></a></td><td>Badges</td><td>Badge</td><td><code>ds-badge</code></td><td></td></tr>
+        <tr><td><a href="#badges" style="color:inherit;"><strong>Tag &amp; Chip</strong></a></td><td>Tags, Tag Delete Button, Chips</td><td>Tag</td><td><code>ds-tag</code>, <code>ds-chip</code></td><td></td></tr>
+        <tr><td><a href="#icons" style="color:inherit;"><strong>Icon</strong></a></td><td>Icons (16/..., 24/...)</td><td>@kaltura/ds-react-icons (ChevronDown16Icon)</td><td>&lt;<code>ds-icon</code> name=&quot;chevron-down&quot; size=&quot;16&quot;&gt;</td><td>Same icon set; file names are kebab-case here.</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin:var(--ds-space-6) 0 var(--ds-space-3);">Properties, states and tokens</h3>
+    <table class="token-table">
+      <thead><tr><th>Concept</th><th>Figma</th><th>KEP UI</th><th>kaltura-ds</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Disabled</strong></td><td>State=Disable</td><td>disabled</td><td>disabled attribute, or <code>aria-disabled=&quot;true&quot;</code></td><td></td></tr>
+        <tr><td><strong>On / checked</strong></td><td>Status=True</td><td>checked, selected</td><td><code>aria-checked=&quot;true&quot;</code> (switch, segmented), <code>aria-selected=&quot;true&quot;</code> (tabs)</td><td></td></tr>
+        <tr><td><strong>Current item</strong></td><td>State=Active (Breadcrumb Item)</td><td>active</td><td><code>aria-current=&quot;page&quot;</code></td><td></td></tr>
+        <tr><td><strong>Busy</strong></td><td>State=Processing</td><td>loading</td><td><code>ds-btn-processing</code> + <code>aria-busy=&quot;true&quot;</code>, <code>DS.setProcessing()</code></td><td></td></tr>
+        <tr><td><strong>Over media</strong></td><td>Mode=Translucent</td><td>color=&quot;translucent&quot;</td><td><code>ds-switch-translucent</code></td><td></td></tr>
+        <tr><td><strong>Hover, focus</strong></td><td>State=Hover, Focus</td><td>:hover, focusVisible</td><td>:hover, :focus-visible</td><td></td></tr>
+        <tr><td><strong>Sizes</strong></td><td>Small, Medium, Large, XL</td><td>small, medium, large</td><td><code>-sm</code>, <code>-md</code>, <code>-lg</code>, <code>-xl</code></td><td>Same words, not always the same pixels: compare px, not names.</td></tr>
+        <tr><td><strong>Color shades</strong></td><td>Darker, Brighter, Text Contrast</td><td>palette.x.dark, .light, .contrastText</td><td><code>--ds-x-darker</code>, <code>--ds-x-brighter</code>, <code>--ds-x-text-contrast</code></td><td></td></tr>
+        <tr><td><strong>Yellow-orange accent</strong></td><td>Secondary</td><td>palette.secondary</td><td><code>--ds-secondary</code></td><td>Not the grey secondary button. Old name --ds-accent still works.</td></tr>
+        <tr><td><strong>Messages</strong></td><td>Acknowledgment colors (Success, Danger, Warning)</td><td>palette.success, .danger, .warning; Alert severity</td><td><code>--ds-success</code>, <code>--ds-danger</code>, <code>--ds-warning</code></td><td></td></tr>
+        <tr><td><strong>Spacing</strong></td><td>px values</td><td>theme.spacing(n) = n x 8px</td><td><code>--ds-space-</code>N = N x 4px, so spacing(n) = <code>--ds-space-{2n}</code></td><td></td></tr>
+        <tr><td><strong>Corner radius</strong></td><td>Roundness 1, 2, 3</td><td>roundness1, roundness2, roundness3</td><td><code>--ds-roundness-1</code>, <code>-2</code>, <code>-3</code></td><td></td></tr>
+        <tr><td><strong>Font</strong></td><td>Lato (text styles, e.g. Body 2 Highlight)</td><td>defaultFontFamily: Lato, Helvetica Neue, Segoe UI, sans-serif; loaded from fonts.kaltura.com</td><td><code>--ds-font-family</code> (same stack), loaded from fonts.kaltura.com</td><td>Kaltura&#x27;s font proxy hides the user&#x27;s IP from Google (GDPR).</td></tr>
+        <tr><td><strong>Field border</strong></td><td>Tone 3; Hover Tone 2; Focus Primary; Error Danger; Disable Tone 4 (Text Single Line, Textarea; Checkbox and Radio rest on Tone 3)</td><td>tone4 resting, tone3 hover, primary.main focus</td><td><code>--ds-tone-3</code> resting, <code>--ds-tone-2</code> hover, <code>--ds-primary</code> focus (follows Figma)</td><td>KEP UI differs from Figma here: its resting border is one step lighter.</td></tr>
+        <tr><td><strong>Surfaces</strong></td><td>Neutrals: Background, Paper, Elevated, Protection</td><td>palette.surfaces.background, .paper, .elevated, .protection</td><td><code>--ds-background</code>, <code>--ds-paper</code>, <code>--ds-elevated</code>, <code>--ds-protection</code></td><td>Protection (#3D3D3D, both themes) is for text over media. KEP&#x27;s code calls it possibly added by mistake; Figma defines it.</td></tr>
+        <tr><td><strong>Translucent</strong></td><td>Translucent: B 10-100, W 10-100, Backdrop</td><td>palette.translucent, palette.backdrop</td><td><code>--ds-b-10</code> ... <code>--ds-b-100</code>, <code>--ds-w-10</code> ... <code>--ds-w-100</code>, <code>--ds-backdrop</code></td><td>Backdrop = #222222 at 60%, behind modals.</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-size:var(--ds-font-size-4); font-weight:var(--ds-font-weight-bold); margin:var(--ds-space-6) 0 var(--ds-space-3);">In Figma or KEP UI, not in kaltura-ds yet</h3>
+    <table class="token-table">
+      <thead><tr><th>Component</th><th>Figma</th><th>KEP UI</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Slider</strong></td><td>Slider</td><td>Slider</td></tr>
+        <tr><td><strong>Date and time</strong></td><td>Date and Time, Time Picker</td><td>DatePicker, TimePicker, ComposedDatePicker</td></tr>
+        <tr><td><strong>Card</strong></td><td>Cards</td><td>Card</td></tr>
+        <tr><td><strong>Color picker</strong></td><td>Color Picker</td><td>ColorPicker (bits)</td></tr>
+        <tr><td><strong>Tree view</strong></td><td>Tree View</td><td>@kaltura/ds-react-tree</td></tr>
+        <tr><td><strong>Sidebar, navigation</strong></td><td>Main Navigation, Sidebar, Sidebar Navigation</td><td>@kaltura/ds-react-layouts</td></tr>
+        <tr><td><strong>Upload</strong></td><td>Upload</td><td>no match</td></tr>
+        <tr><td><strong>Reactions</strong></td><td>Reactions</td><td>no match</td></tr>
+        <tr><td><strong>Toggle button</strong></td><td>no match</td><td>ToggleButton</td></tr>
+        <tr><td><strong>Popover, menu</strong></td><td>no match</td><td>Popover, Menu</td></tr>
+        <tr><td><strong>Link</strong></td><td>Custom Links</td><td>Link</td></tr>
+        <tr><td><strong>Typography</strong></td><td>text styles</td><td>Typography</td></tr>
+      </tbody>
+    </table>
+<!-- END GENERATED: terminology -->
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -2307,9 +2714,9 @@ DS.setProcessing(saveBtn, false);</pre>
 &lt;/label&gt;
 
 &lt;!-- Switch --&gt;
-&lt;button class="ds-switch-track ds-switch-lg ds-switch-off"
+&lt;button class="ds-switch-track ds-switch-lg"
         role="switch" aria-checked="false"&gt;
-  &lt;span class="ds-switch-handle"&gt;&lt;/span&gt;
+  &lt;span class="ds-switch-thumb"&gt;&lt;/span&gt;
 &lt;/button&gt;
 
 &lt;!-- Tabs --&gt;
@@ -2318,11 +2725,11 @@ DS.setProcessing(saveBtn, false);</pre>
   &lt;button class="ds-tab" role="tab" aria-selected="false"&gt;Tab 2&lt;/button&gt;
 &lt;/div&gt;
 
-&lt;!-- Segmented Control --&gt;
-&lt;div class="ds-segmented" role="radiogroup" aria-label="View"&gt;
-  &lt;button class="ds-segmented-item" role="radio" aria-checked="true"&gt;Label&lt;/button&gt;
-  &lt;button class="ds-segmented-item" role="radio" aria-checked="false"&gt;Label&lt;/button&gt;
-  &lt;button class="ds-segmented-item" role="radio" aria-checked="false"&gt;Label&lt;/button&gt;
+&lt;!-- Segmented buttons --&gt;
+&lt;div class="ds-segmented-container" role="radiogroup" aria-label="View"&gt;
+  &lt;button class="ds-segmented-button" role="radio" aria-checked="true"&gt;Label&lt;/button&gt;
+  &lt;button class="ds-segmented-button" role="radio" aria-checked="false"&gt;Label&lt;/button&gt;
+  &lt;button class="ds-segmented-button" role="radio" aria-checked="false"&gt;Label&lt;/button&gt;
 &lt;/div&gt;
 
 &lt;!-- Select (functional dropdown) --&gt;
@@ -2351,6 +2758,15 @@ DS.setProcessing(saveBtn, false);</pre>
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;!-- Breadcrumbs (aria-current="page" = active; middle items collapse to "..." when too wide) --&gt;
+&lt;nav class="ds-breadcrumbs" aria-label="Breadcrumbs"&gt;
+  &lt;ol class="ds-breadcrumbs-ol"&gt;
+    &lt;li class="ds-breadcrumbs-li"&gt;&lt;a class="ds-breadcrumb-item" href="/media"&gt;My Media&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="ds-breadcrumbs-separator" aria-hidden="true"&gt;&lt;ds-icon name="chevron-right" size="16"&gt;&lt;/ds-icon&gt;&lt;/li&gt;
+    &lt;li class="ds-breadcrumbs-li"&gt;&lt;span class="ds-breadcrumb-item" aria-current="page"&gt;Onboarding&lt;/span&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
 
 &lt;!-- Data Table --&gt;
 &lt;div class="ds-table"&gt;
@@ -2400,11 +2816,20 @@ DS.setProcessing(saveBtn, false);</pre>
 &lt;!-- Button processing state (or DS.setProcessing(btn, true|false)) --&gt;
 &lt;button class="ds-btn ds-btn-md ds-btn-primary ds-btn-processing" aria-busy="true"&gt;Save&lt;/button&gt;
 
-&lt;!-- Spinner (add ds-spinner-white on dark surfaces, ds-spinner-black on light images) --&gt;
-&lt;span class="ds-spinner" role="status" aria-label="Loading"&gt;&lt;/span&gt;
+&lt;!-- SplitButton: action button + menu toggle button + menu (see its section) --&gt;
+&lt;div class="ds-split-button" role="group" aria-label="Publish"&gt;
+  &lt;button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-action"&gt;Publish&lt;/button&gt;
+  &lt;button type="button" class="ds-btn ds-btn-md ds-btn-primary ds-split-button-menu-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="More Publish actions"&gt;&lt;ds-icon name="chevron-down" size="16"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+  &lt;div class="ds-select-menu ds-split-button-menu" role="menu"&gt;
+    &lt;button type="button" class="ds-select-item" role="menuitem"&gt;&lt;span class="ds-select-item-label"&gt;Schedule&lt;/span&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Loader (add ds-loader-white on dark surfaces, ds-loader-black on light images) --&gt;
+&lt;span class="ds-loader" role="status" aria-label="Loading"&gt;&lt;/span&gt;
 
 &lt;!-- Toast: click a floating ack, or from JS --&gt;
-&lt;div class="ds-ack ds-ack-floating ds-ack-info" data-ds-toast&gt;…&lt;/div&gt;
+&lt;div class="ds-alert ds-alert-floating ds-alert-info" data-ds-toast&gt;…&lt;/div&gt;
 &lt;script&gt; DS.showToast({ type: 'success', message: 'Saved' }); &lt;/script&gt;
 
 &lt;!-- Events (bubble): select, tabs, segmented, switch, pagination --&gt;
