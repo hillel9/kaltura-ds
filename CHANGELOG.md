@@ -5,6 +5,10 @@ Released folders under `releases/` are frozen and never edited. A change ships a
 
 ## Unreleased
 
+## v1.4 (2026-11-27)
+
+Nothing was removed or renamed: every class, token, event and function from v1.3 still works. A prototype could notice after upgrading: tooltips wait 0.1s on hover before showing, also show on keyboard focus, hide on Escape and flip to the other side when there is no room; on phones (below 600px) modals fill the screen; `ds-close` can now report `'escape'` and `'backdrop'` (content modals only).
+
 ### Added
 - **Slider** (`.ds-slider`), from the Figma Platform DS Slider, with KEP UI's part names (rail, track, thumb, value label, marks): continuous (value above the thumb, min/max below) and discrete (labeled steps, active one bold), hover/focus and disabled states. Built on a native range input; `ds.js` keeps the track, value label and active mark in step and fires `ds-change` on `.ds-slider`.
 - **Translucent checkbox and radio** (`.ds-checkbox-translucent`, `.ds-radio-translucent`) from Figma Mode=Translucent (KEP `color="translucent"`), for controls over images or video.

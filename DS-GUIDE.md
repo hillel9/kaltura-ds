@@ -3,7 +3,7 @@
 Read this before writing any UI in a prototype that has a `ds/` folder. It lists every component's exact markup, the JS API, all tokens and all icon names. Everything here is in `ds/styles.css`, `ds/ds.js`, `ds/ds-icons.js`.
 
 <!-- BEGIN GENERATED: version -->
-DS version: **1.3.0**
+DS version: **1.4.0**
 <!-- END GENERATED: version -->
 
 ## Rules

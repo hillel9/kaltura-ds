@@ -2127,7 +2127,7 @@
   /* ---------- public API ---------- */
 
   window.DS = {
-    version: '1.3.0',
+    version: '1.4.0',
     setTheme: setTheme,
     getTheme: getTheme,
     showToast: showToast,
