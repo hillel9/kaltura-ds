@@ -4,9 +4,9 @@
     {
       "name": "Button",
       "anchor": "button",
-      "figma": "Buttons > Pill, Borderless",
-      "kep": "Button (variant=\"pill\" | \"borderless\"), IconButton",
-      "ds": "ds-btn + ds-btn-primary | -secondary | -danger, ds-btn-borderless, ds-btn-icon",
+      "figma": "Buttons > Pill (Type Primary | Secondary | Danger | Translucent), Borderless",
+      "kep": "Button (variant=\"pill\" | \"borderless\", color primary | secondary | danger | translucent), IconButton",
+      "ds": "ds-btn + ds-btn-primary | -secondary | -danger | -translucent, ds-btn-borderless, ds-btn-icon",
       "notes": "Figma \"Pill\" = KEP variant=\"pill\" = the default filled button here. The grey button is \"secondary\" in KEP and here."
     },
     {
@@ -53,17 +53,17 @@
     {
       "name": "Checkbox",
       "anchor": "checkbox",
-      "figma": "Checkers > Checkbox",
-      "kep": "Checkbox",
-      "ds": "ds-checkbox",
+      "figma": "Checkers > Checkbox (Mode=Translucent)",
+      "kep": "Checkbox (color=\"translucent\"), CheckboxFormControl (labelPlacement)",
+      "ds": "ds-checkbox, ds-checkbox-translucent, ds-checkbox-label-placement-start | -top | -bottom",
       "notes": ""
     },
     {
       "name": "Radio",
       "anchor": "radio",
-      "figma": "Checkers > Radio",
-      "kep": "Radio",
-      "ds": "ds-radio",
+      "figma": "Checkers > Radio (Mode=Translucent)",
+      "kep": "Radio (color=\"translucent\"), RadioFormControlLabel (labelPlacement)",
+      "ds": "ds-radio, ds-radio-translucent, ds-radio-label-placement-start | -top | -bottom",
       "notes": ""
     },
     {
@@ -74,6 +74,14 @@
       "ds": "ds-switch-track (track), ds-switch-thumb (thumb), aria-checked (checked), ds-switch-sm | -lg, ds-switch-translucent",
       "notes": "Figma calls the thumb \"Handle\". State lives in aria-checked; ds.js also sets the old on/off classes.",
       "was": "ds-switch-handle, ds-switch-on / ds-switch-off"
+    },
+    {
+      "name": "Slider",
+      "anchor": "slider",
+      "figma": "Slider (Type Continuous | Discrete; State Default, Hover / Focus, Disabled)",
+      "kep": "Slider (rail, track, thumb, valueLabel, mark, markActive)",
+      "ds": "ds-slider + ds-slider-continuous | ds-slider-discrete, ds-slider-input, ds-slider-value-label, ds-slider-mark, ds-slider-mark-active",
+      "notes": "Built on a native range input. Figma calls the thumb \"Picker\" and the value label \"Label\"."
     },
     {
       "name": "Select",
@@ -87,9 +95,49 @@
       "name": "Autocomplete",
       "anchor": "autocomplete",
       "figma": "Autocomplete",
-      "kep": "AutoComplete",
-      "ds": "ds-autocomplete",
+      "kep": "AutoComplete (loading, hasError + errorMessage, freeSolo)",
+      "ds": "ds-autocomplete, ds-autocomplete-loading, ds-autocomplete-error, ds-autocomplete-free-solo",
       "notes": ""
+    },
+    {
+      "name": "Menu",
+      "anchor": "menu",
+      "figma": "Select Menu, Select Menu Item, Seperator",
+      "kep": "Menu, MenuItem (icon), NestedMenuItem, MenuDividerItem, MenuSectionTitle (leadItem)",
+      "ds": "ds-menu-wrapper, ds-menu, ds-menu-item, ds-menu-item-start-icon, ds-menu-item-icon, ds-nested-menu-item, ds-nested-menu, ds-menu-divider-item, ds-menu-section-title, ds-menu-section-title-lead",
+      "notes": "Same look as the select menu (ds-select-menu, ds-select-item). KEP MenuItem `icon` is the right icon; KEP bits calls it rightIcon and its leading icon `icon` (ds-menu-item-start-icon here). MenuDividerItem and MenuSectionTitle are in KEP bits."
+    },
+    {
+      "name": "Popover",
+      "anchor": "popover",
+      "figma": "no match",
+      "kep": "Popover",
+      "ds": "ds-popover-wrapper, ds-popover",
+      "notes": "Look from KEP: elevated surface, 16px padding, medium elevation (--ds-shadow-menu)."
+    },
+    {
+      "name": "Date Picker",
+      "anchor": "date-picker",
+      "figma": "no calendar design",
+      "kep": "DatePicker, ComposedDatePicker",
+      "ds": "ds-date-picker, ds-date-picker-field, ds-date-picker-open-button, ds-date-picker-input, ds-date-picker-popper, ds-date-picker-error",
+      "notes": "Calendar look from KEP (MUI DateCalendar). Composed = inside ds-composed-input."
+    },
+    {
+      "name": "Time Picker",
+      "anchor": "time-picker",
+      "figma": "Date and Time > Time Picker",
+      "kep": "TimePicker, ComposedTimePicker",
+      "ds": "ds-time-picker, ds-time-picker-field, ds-time-picker-open-button, ds-time-picker-input, ds-time-picker-popper, ds-time-picker-error",
+      "notes": "Figma shows a clock face; KEP (and here) use hour / minute / AM-PM lists."
+    },
+    {
+      "name": "Rich Text",
+      "anchor": "rich-text",
+      "figma": "no match",
+      "kep": "Richtext (@kaltura/ds-react-richtext: toolbar, richText, readOnly, error)",
+      "ds": "ds-rich-text, ds-rich-text-toolbar, ds-rich-text-action, ds-rich-text-editor, ds-rich-text-read-only, ds-rich-text-error",
+      "notes": "Bold, italic, underline, lists, alignment. KEP's image and link actions are not included."
     },
     {
       "name": "Tabs",
@@ -103,8 +151,8 @@
       "name": "Segmented Buttons",
       "anchor": "segmented-buttons",
       "figma": "Segmented control, Segmented control cells",
-      "kep": "SegmentedContainer, SegmentedButton",
-      "ds": "ds-segmented-container, ds-segmented-button",
+      "kep": "SegmentedContainer (fullWidth, disabled), SegmentedButton (tooltipText)",
+      "ds": "ds-segmented-container, ds-segmented-container-full-width, ds-segmented-button; aria-disabled=\"true\" on the container",
       "was": "ds-segmented, ds-segmented-item",
       "notes": ""
     },
@@ -119,26 +167,26 @@
     {
       "name": "Data Table",
       "anchor": "data-table",
-      "figma": "Data Table",
-      "kep": "Table, TableContainer, TableActionBar, TableSortLabel",
-      "ds": "ds-table, ds-table-action-bar, ds-table-sortable",
-      "notes": ""
+      "figma": "Data Table, Skeleton",
+      "kep": "Table, TableContainer, TableActionBar, TableSortLabel, LoadingContent (bits)",
+      "ds": "ds-table, ds-table-action-bar, ds-table-sortable, ds-table-skeleton",
+      "notes": "Skeleton rows: KEP default 3 rows of tone-5 bars."
     },
     {
       "name": "Pagination",
       "anchor": "data-table",
       "figma": "Pagination, Pagination Page",
-      "kep": "Pagination",
-      "ds": "ds-table-pagination, ds-table-page",
-      "notes": ""
+      "kep": "Pagination (variant text | outlined, shape rounded | circular, showFirstButton, showLastButton, siblingCount, boundaryCount)",
+      "ds": "ds-table-pagination, ds-table-page, ds-table-pagination-outlined, ds-table-pagination-circular",
+      "notes": "With data-count, ds.js renders the page buttons and ranges."
     },
     {
       "name": "Status",
-      "anchor": "data-table",
-      "figma": "Status",
-      "kep": "Status (variant, color)",
-      "ds": "ds-table-status + -green | -orange | -red | -grey",
-      "notes": "Only the table dot-and-text version exists here."
+      "anchor": "status",
+      "figma": "status (Tag=Success | Pending | Danger | Default, Icon)",
+      "kep": "Status (variant filled | borderless, color default | success | warning | error | primary)",
+      "ds": "ds-status, ds-status-borderless, ds-status-success, ds-status-warning, ds-status-error, ds-status-primary, ds-status-icon",
+      "notes": "Figma Pending = warning, Danger = error. The older ds-table-status (table dot and text) still works."
     },
     {
       "name": "Initials",
@@ -171,10 +219,10 @@
       "name": "Tooltip",
       "anchor": "alert-tooltip",
       "figma": "Acknowledgement & Help > Hint",
-      "kep": "Tooltip",
-      "ds": "ds-tooltip, ds-tooltip-trigger",
+      "kep": "Tooltip (placement, enter delay, shows on focus)",
+      "ds": "ds-tooltip, ds-tooltip-trigger, ds-tooltip-place-left, ds-tooltip-place-right",
       "was": "ds-hint",
-      "notes": ""
+      "notes": "ds.js flips it when there is no room. ds-tooltip-top|bottom|left|right name the arrow side."
     },
     {
       "name": "Loader",
@@ -189,9 +237,9 @@
       "name": "Modal",
       "anchor": "modal",
       "figma": "(not on the Components page)",
-      "kep": "Modal, ModalTitle, ModalContent, ModalActions, ModalCloseButton",
-      "ds": "ds-modal, ds-modal-title, ds-modal-body, ds-modal-footer, ds-modal-close",
-      "notes": "KEP ModalContent = ds-modal-body, ModalActions = ds-modal-footer."
+      "kep": "Modal (variant task | content), ModalTitle (onClose, closeButtonVariant), ModalContent, ModalActions, ModalCloseButton",
+      "ds": "ds-modal, ds-modal-variant-content, ds-modal-title, ds-modal-body, ds-modal-footer, ds-modal-close, ds-modal-close-pill, ds-modal-media",
+      "notes": "Task (the default) is static; content (ds-modal-variant-content) closes on Escape, backdrop click or the X, and scrolls as a whole. KEP ModalContent = ds-modal-body, ModalActions = ds-modal-footer."
     },
     {
       "name": "Badge",
@@ -210,6 +258,14 @@
       "notes": ""
     },
     {
+      "name": "Link",
+      "anchor": "link",
+      "figma": "Custom Links",
+      "kep": "Link (size, disabled, translucent)",
+      "ds": "ds-link, ds-link-sm, ds-link-lg, ds-link-translucent",
+      "notes": "Figma Custom Links are icon links without underline; KEP Link is underlined."
+    },
+    {
       "name": "Icon",
       "anchor": "icons",
       "figma": "Icons (16/..., 24/...)",
@@ -219,16 +275,6 @@
     }
   ],
   "missing": [
-    {
-      "name": "Slider",
-      "figma": "Slider",
-      "kep": "Slider"
-    },
-    {
-      "name": "Date and time",
-      "figma": "Date and Time, Time Picker",
-      "kep": "DatePicker, TimePicker, ComposedDatePicker"
-    },
     {
       "name": "Card",
       "figma": "Cards",
@@ -265,16 +311,6 @@
       "kep": "ToggleButton"
     },
     {
-      "name": "Popover, menu",
-      "figma": "no match",
-      "kep": "Popover, Menu"
-    },
-    {
-      "name": "Link",
-      "figma": "Custom Links",
-      "kep": "Link"
-    },
-    {
       "name": "Typography",
       "figma": "text styles",
       "kep": "Typography"
@@ -309,7 +345,7 @@
       "name": "Over media",
       "figma": "Mode=Translucent",
       "kep": "color=\"translucent\"",
-      "ds": "ds-switch-translucent"
+      "ds": "ds-switch-translucent, ds-checkbox-translucent, ds-radio-translucent"
     },
     {
       "name": "Hover, focus",

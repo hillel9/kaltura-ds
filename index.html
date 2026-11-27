@@ -162,9 +162,15 @@
       <a href="#checkbox">Checkbox</a>
       <a href="#radio">Radio</a>
       <a href="#switch">Switch</a>
+      <a href="#slider">Slider</a>
       <a href="#composed-input">Composed Input</a>
       <a href="#select">Select</a>
       <a href="#autocomplete">Autocomplete</a>
+      <a href="#menu">Menu</a>
+      <a href="#popover">Popover</a>
+      <a href="#date-picker">Date Picker</a>
+      <a href="#time-picker">Time Picker</a>
+      <a href="#rich-text">Rich Text</a>
       <a href="#tabs">Tabs</a>
       <a href="#segmented-buttons">Segmented Buttons</a>
       <a href="#breadcrumbs">Breadcrumbs</a>
@@ -175,6 +181,8 @@
       <a href="#loader">Loader</a>
       <a href="#icons">Icons</a>
       <a href="#badges">Badges, Tags &amp; Chips</a>
+      <a href="#status">Status</a>
+      <a href="#link">Link</a>
   </div>
   <div class="preview-nav-group">
     <a href="#terminology">Terminology Index</a>
@@ -673,6 +681,36 @@
       </button>
     </div>
 
+    <div class="row" style="align-items:flex-start;">
+      <span class="row-label">Translucent</span>
+      <div style="display:flex; flex-direction:column; gap:var(--ds-space-3); padding:var(--ds-space-4); border-radius:var(--ds-roundness-2); background:linear-gradient(var(--ds-b-40), var(--ds-b-40)), url('Images/Ava_Taylor-600w.png') center 30% / cover;">
+        <div style="display:flex; align-items:center; gap:var(--ds-space-3);">
+          <button class="ds-btn ds-btn-sm ds-btn-translucent">Small</button>
+          <button class="ds-btn ds-btn-md ds-btn-translucent">Medium</button>
+          <button class="ds-btn ds-btn-lg ds-btn-translucent"><ds-icon name="play"></ds-icon>Large</button>
+          <button class="ds-btn ds-btn-xl ds-btn-translucent">XL</button>
+        </div>
+        <div style="display:flex; align-items:center; gap:var(--ds-space-3);">
+          <button class="ds-btn ds-btn-sm ds-btn-translucent ds-btn-icon" aria-label="Add"><ds-icon name="plus" size="16"></ds-icon></button>
+          <button class="ds-btn ds-btn-md ds-btn-translucent ds-btn-icon" aria-label="Add"><ds-icon name="add"></ds-icon></button>
+          <button class="ds-btn ds-btn-lg ds-btn-translucent ds-btn-icon" aria-label="Add"><ds-icon name="add"></ds-icon></button>
+          <button class="ds-btn ds-btn-xl ds-btn-translucent ds-btn-icon" aria-label="Add"><ds-icon name="add"></ds-icon></button>
+          <button class="ds-btn ds-btn-md ds-btn-translucent ds-btn-processing" aria-busy="true">Save</button>
+          <button class="ds-btn ds-btn-md ds-btn-translucent ds-btn-icon ds-btn-processing" aria-busy="true" aria-label="Add"><ds-icon name="add"></ds-icon></button>
+          <button class="ds-btn ds-btn-md ds-btn-translucent" disabled>Disabled</button>
+        </div>
+        <div style="display:flex; align-items:center; gap:var(--ds-space-3);">
+          <button class="ds-btn ds-btn-sm ds-btn-translucent ds-btn-borderless">Small</button>
+          <button class="ds-btn ds-btn-md ds-btn-translucent ds-btn-borderless">Medium</button>
+          <button class="ds-btn ds-btn-lg ds-btn-translucent ds-btn-borderless"><ds-icon name="share"></ds-icon>Large</button>
+          <button class="ds-btn ds-btn-xl ds-btn-translucent ds-btn-borderless">XL</button>
+          <button class="ds-btn ds-btn-md ds-btn-translucent ds-btn-borderless ds-btn-icon" aria-label="Share"><ds-icon name="share"></ds-icon></button>
+          <button class="ds-btn ds-btn-md ds-btn-translucent ds-btn-borderless ds-btn-processing" aria-busy="true">Save</button>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin:0 0 var(--ds-space-4);"><strong>Translucent</strong> (<code>ds-btn-translucent</code>, Figma Pill Type=Translucent, KEP <code>color="translucent"</code>): for buttons over images or video. Black at 60% with white text in both themes; hover 70%, pressed and keyboard focus 40%. Works with every size, icon-only and processing. Add <code>ds-btn-borderless</code> for the borderless one (Figma Borderless Type=Translucent): no fill and white text, the same dark fill on hover and focus. <code>&lt;button class="ds-btn ds-btn-md ds-btn-translucent"&gt;Play&lt;/button&gt;</code></p>
+
     <div class="row">
       <span class="row-label">Processing</span>
       <button class="ds-btn ds-btn-md ds-btn-primary ds-btn-processing" aria-busy="true">Save</button>
@@ -927,6 +965,25 @@ DS.setProcessing(saveBtn, false);</pre>
         <span class="ds-checkbox-label">Disabled</span>
       </label>
     </div>
+
+    <div class="row">
+      <span class="row-label">Translucent</span>
+      <div style="display:flex; gap:var(--ds-space-5); align-items:center; flex-wrap:wrap; padding:var(--ds-space-4); border-radius:var(--ds-roundness-2); background:var(--ds-protection);">
+      <label class="ds-checkbox ds-checkbox-translucent"><input type="checkbox" class="ds-checkbox-input" /><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ds-checkbox-label">Off</span></label>
+      <label class="ds-checkbox ds-checkbox-translucent"><input type="checkbox" class="ds-checkbox-input" checked /><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ds-checkbox-label">On</span></label>
+      <label class="ds-checkbox ds-checkbox-translucent"><input type="checkbox" class="ds-checkbox-input" disabled /><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ds-checkbox-label">Disabled</span></label>
+      <label class="ds-checkbox ds-checkbox-translucent"><input type="checkbox" class="ds-checkbox-input" disabled checked /><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ds-checkbox-label">Disabled on</span></label>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Label placement</span>
+      <label class="ds-checkbox"><input type="checkbox" class="ds-checkbox-input" /><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ds-checkbox-label">End (default)</span></label>
+      <label class="ds-checkbox ds-checkbox-label-placement-start"><input type="checkbox" class="ds-checkbox-input" /><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ds-checkbox-label">Start</span></label>
+      <label class="ds-checkbox ds-checkbox-label-placement-top"><input type="checkbox" class="ds-checkbox-input" /><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ds-checkbox-label">Top</span></label>
+      <label class="ds-checkbox ds-checkbox-label-placement-bottom"><input type="checkbox" class="ds-checkbox-input" /><span class="ds-checkbox-indicator"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ds-checkbox-label">Bottom</span></label>
+    </div>
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin:var(--ds-space-2) 0 0;"><strong>Translucent</strong> (<code>ds-checkbox-translucent</code> / <code>ds-radio-translucent</code> on the label, KEP <code>color="translucent"</code>) is for controls over images or video, from the Figma Mode=Translucent states. <strong>Label placement</strong> follows KEP's <code>labelPlacement</code>: add <code>ds-checkbox-label-placement-start|top|bottom</code> (or <code>ds-radio-…</code>); end is the default.</p>
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -961,6 +1018,24 @@ DS.setProcessing(saveBtn, false);</pre>
         <span class="ds-radio-indicator"></span>
         <span class="ds-radio-label">Disabled</span>
       </label>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Translucent</span>
+      <div style="display:flex; gap:var(--ds-space-5); align-items:center; flex-wrap:wrap; padding:var(--ds-space-4); border-radius:var(--ds-roundness-2); background:var(--ds-protection);">
+      <label class="ds-radio ds-radio-translucent"><input type="radio" name="tr-r" class="ds-radio-input" /><span class="ds-radio-indicator"></span><span class="ds-radio-label">Off</span></label>
+      <label class="ds-radio ds-radio-translucent"><input type="radio" name="tr-r" class="ds-radio-input" checked /><span class="ds-radio-indicator"></span><span class="ds-radio-label">On</span></label>
+      <label class="ds-radio ds-radio-translucent"><input type="radio" name="tr-r2" class="ds-radio-input" disabled /><span class="ds-radio-indicator"></span><span class="ds-radio-label">Disabled</span></label>
+      <label class="ds-radio ds-radio-translucent"><input type="radio" name="tr-r3" class="ds-radio-input" disabled checked /><span class="ds-radio-indicator"></span><span class="ds-radio-label">Disabled on</span></label>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="row-label">Label placement</span>
+      <label class="ds-radio"><input type="radio" name="pl-r" class="ds-radio-input" checked /><span class="ds-radio-indicator"></span><span class="ds-radio-label">End (default)</span></label>
+      <label class="ds-radio ds-radio-label-placement-start"><input type="radio" name="pl-r" class="ds-radio-input" /><span class="ds-radio-indicator"></span><span class="ds-radio-label">Start</span></label>
+      <label class="ds-radio ds-radio-label-placement-top"><input type="radio" name="pl-r" class="ds-radio-input" /><span class="ds-radio-indicator"></span><span class="ds-radio-label">Top</span></label>
+      <label class="ds-radio ds-radio-label-placement-bottom"><input type="radio" name="pl-r" class="ds-radio-input" /><span class="ds-radio-indicator"></span><span class="ds-radio-label">Bottom</span></label>
     </div>
   </div>
 
@@ -1029,6 +1104,53 @@ DS.setProcessing(saveBtn, false);</pre>
     <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;button class="ds-switch-track ds-switch-lg ds-switch-translucent" role="switch" aria-checked="false" aria-label="Captions"&gt;
   &lt;span class="ds-switch-thumb"&gt;&lt;/span&gt;
 &lt;/button&gt;</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Slider
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="slider">Slider</h2>
+
+    <div class="row" style="flex-direction:column; align-items:stretch; gap:var(--ds-space-6); max-width:500px;">
+      <div class="ds-slider ds-slider-continuous" data-suffix="%">
+        <label class="ds-slider-title" for="sl-1">Volume</label>
+        <div class="ds-slider-control">
+          <output class="ds-slider-value-label" for="sl-1">25%</output>
+          <input class="ds-slider-input" type="range" id="sl-1" min="0" max="100" value="25">
+        </div>
+        <div class="ds-slider-marks"><span class="ds-slider-mark">0%</span><span class="ds-slider-mark">100%</span></div>
+      </div>
+
+      <div class="ds-slider ds-slider-discrete">
+        <label class="ds-slider-title" for="sl-2">Rating</label>
+        <div class="ds-slider-control">
+          <input class="ds-slider-input" type="range" id="sl-2" min="1" max="10" step="1" value="4">
+        </div>
+        <div class="ds-slider-marks"><span class="ds-slider-mark">1</span><span class="ds-slider-mark">2</span><span class="ds-slider-mark">3</span><span class="ds-slider-mark">4</span><span class="ds-slider-mark">5</span><span class="ds-slider-mark">6</span><span class="ds-slider-mark">7</span><span class="ds-slider-mark">8</span><span class="ds-slider-mark">9</span><span class="ds-slider-mark">10</span></div>
+      </div>
+
+      <div class="ds-slider ds-slider-continuous" data-suffix="%">
+        <label class="ds-slider-title" for="sl-3">Disabled</label>
+        <div class="ds-slider-control">
+          <output class="ds-slider-value-label" for="sl-3">50%</output>
+          <input class="ds-slider-input" type="range" id="sl-3" min="0" max="100" value="50" disabled>
+        </div>
+        <div class="ds-slider-marks"><span class="ds-slider-mark">0%</span><span class="ds-slider-mark">100%</span></div>
+      </div>
+    </div>
+
+    <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin:var(--ds-space-2) 0 0;">
+      From the Figma Platform DS Slider (<strong>Continuous</strong>: value above the thumb, min and max below; <strong>Discrete</strong>: every step labeled, the selected one bold), with KEP UI's part names: <strong>rail</strong> (grey line), <strong>track</strong> (filled part), <strong>thumb</strong>, <strong>value label</strong> (<code>ds-slider-value-label</code>), <strong>marks</strong> (<code>ds-slider-mark</code>, active = <code>ds-slider-mark-active</code>). It is a native <code>&lt;input type="range"&gt;</code>: arrows, Home, End and Page Up/Down work. <code>ds.js</code> keeps the track, value label and active mark in step and fires <code>ds-change</code> on <code>.ds-slider</code> when the user lets go. Optional <code>data-prefix</code> / <code>data-suffix</code> on <code>.ds-slider</code> format the value label (e.g. <code>data-suffix="%"</code>).
+    </p>
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;div class="ds-slider ds-slider-continuous" data-suffix="%"&gt;
+  &lt;label class="ds-slider-title" for="volume"&gt;Volume&lt;/label&gt;
+  &lt;div class="ds-slider-control"&gt;
+    &lt;output class="ds-slider-value-label" for="volume"&gt;25%&lt;/output&gt;
+    &lt;input class="ds-slider-input" type="range" id="volume" min="0" max="100" value="25"&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-slider-marks"&gt;&lt;span class="ds-slider-mark"&gt;0%&lt;/span&gt;&lt;span class="ds-slider-mark"&gt;100%&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -1498,6 +1620,66 @@ DS.setProcessing(saveBtn, false);</pre>
       </div>
     </div>
 
+    <div class="row" style="align-items:flex-start;">
+      <span class="row-label">Loading</span>
+      <div class="ds-autocomplete ds-autocomplete-loading" id="ac-loading-demo" style="width:240px">
+        <div class="ds-autocomplete-field">
+          <input class="ds-autocomplete-input" placeholder="Search people" aria-label="People (loading)">
+          <span class="ds-loader ds-autocomplete-loader" role="status" aria-label="Loading"></span>
+          <ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"></ds-icon>
+        </div>
+        <div class="ds-autocomplete-menu ds-select-menu">
+          <div class="ds-autocomplete-loading-text">Loading...</div>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Celine Garnier</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Dana Levi</span></button>
+        </div>
+      </div>
+      <button type="button" class="ds-btn ds-btn-sm ds-btn-secondary" onclick="document.getElementById('ac-loading-demo').classList.toggle('ds-autocomplete-loading')">Toggle loading</button>
+    </div>
+
+    <div class="row" style="align-items:flex-start;">
+      <span class="row-label">Error</span>
+      <div style="width:240px">
+        <div class="ds-autocomplete ds-autocomplete-error">
+          <div class="ds-autocomplete-field">
+            <input class="ds-autocomplete-input" placeholder="Choose a category" aria-label="Category" aria-invalid="true" aria-describedby="ac-err-msg">
+            <ds-icon class="ds-autocomplete-chevron" name="chevron-down" size="16"></ds-icon>
+          </div>
+          <div class="ds-autocomplete-menu ds-select-menu">
+            <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Education</span></button>
+            <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">Marketing</span></button>
+          </div>
+        </div>
+        <p class="ds-form-helper-text-error" id="ac-err-msg">Choose a category</p>
+      </div>
+    </div>
+
+    <div class="row" style="align-items:flex-start;">
+      <span class="row-label">Free solo</span>
+      <div class="ds-autocomplete ds-autocomplete-free-solo" style="width:240px">
+        <div class="ds-autocomplete-field">
+          <input class="ds-autocomplete-input" placeholder="Type any tag" aria-label="Tag">
+          <button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden><ds-icon name="close" size="16"></ds-icon></button>
+        </div>
+        <div class="ds-autocomplete-menu ds-select-menu">
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">training</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">town hall</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">tutorial</span></button>
+        </div>
+      </div>
+      <div class="ds-autocomplete ds-autocomplete-multiple ds-autocomplete-free-solo" style="width:320px">
+        <div class="ds-autocomplete-field">
+          <input class="ds-autocomplete-input" placeholder="Add tags, Enter to add" aria-label="Tags">
+          <button type="button" class="ds-autocomplete-clear" aria-label="Clear" tabindex="-1" hidden><ds-icon name="close" size="16"></ds-icon></button>
+        </div>
+        <div class="ds-autocomplete-menu ds-select-menu">
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">training</span></button>
+          <button type="button" class="ds-select-item" role="option" tabindex="-1"><span class="ds-select-item-label">town hall</span></button>
+        </div>
+      </div>
+    </div>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">KEP <code>loading</code>: add <code>ds-autocomplete-loading</code> (a <code>ds-loader ds-autocomplete-loader</code> replaces the chevron, the menu shows only <code>ds-autocomplete-loading-text</code>). KEP <code>hasError</code> + <code>errorMessage</code>: add <code>ds-autocomplete-error</code> and a <code>ds-form-helper-text-error</code> under it. KEP <code>freeSolo</code>: add <code>ds-autocomplete-free-solo</code>; Enter (or leaving the field) keeps the typed text as the value, and in a multiple one Enter turns it into a chip.</p>
+
     <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin-top:var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;div class="ds-autocomplete" style="width:300px"&gt;
   &lt;div class="ds-autocomplete-field"&gt;
     &lt;input class="ds-autocomplete-input" placeholder="Pick a fruit" aria-label="Fruit"&gt;
@@ -1538,6 +1720,285 @@ DS.setProcessing(saveBtn, false);</pre>
   });
 &lt;/script&gt;</pre>
   </div>
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Menu
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="menu">Menu</h2>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">An action menu that opens from a button (KEP UI <code>Menu</code>, <code>MenuItem</code>, <code>NestedMenuItem</code>, <code>MenuDividerItem</code>, <code>MenuSectionTitle</code>). Same look as the select menu (Figma "Select Menu", "Select Menu Item", "Seperator"). Items are plain buttons: listen for their <code>click</code>; the menu then closes. Keyboard: Enter, Space or ArrowDown on the button opens it; arrows, Home and End move; ArrowRight / Enter opens a sub-menu and ArrowLeft closes it; Escape closes. Hover also opens a sub-menu.</p>
+
+    <div class="row" style="align-items:flex-start; min-height:300px;">
+      <span class="row-label">Menu</span>
+      <div class="ds-menu-wrapper">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-secondary" aria-haspopup="menu" aria-expanded="false">Actions <ds-icon name="chevron-down" size="16"></ds-icon></button>
+        <div class="ds-select-menu ds-menu" role="menu" aria-label="Actions">
+          <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><ds-icon class="ds-menu-item-start-icon" name="edit" size="16"></ds-icon><span class="ds-select-item-label">Edit</span></button>
+          <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><ds-icon class="ds-menu-item-start-icon" name="download" size="16"></ds-icon><span class="ds-select-item-label">Download</span></button>
+          <div class="ds-nested-menu-item">
+            <button type="button" class="ds-select-item ds-menu-item" role="menuitem" aria-haspopup="menu" aria-expanded="false"><ds-icon class="ds-menu-item-start-icon" name="link" size="16"></ds-icon><span class="ds-select-item-label">Share</span><ds-icon class="ds-menu-item-icon" name="chevron-right" size="16"></ds-icon></button>
+            <div class="ds-select-menu ds-menu ds-nested-menu" role="menu" aria-label="Share">
+              <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><span class="ds-select-item-label">Copy link</span></button>
+              <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><span class="ds-select-item-label">Embed code</span></button>
+              <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><span class="ds-select-item-label">Email</span></button>
+            </div>
+          </div>
+          <hr class="ds-menu-divider-item">
+          <div class="ds-menu-section-title" role="presentation">Danger zone</div>
+          <button type="button" class="ds-select-item ds-menu-item" role="menuitem" aria-disabled="true"><span class="ds-select-item-label">Archive (disabled)</span></button>
+          <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><span class="ds-select-item-label">Delete</span><ds-icon class="ds-menu-item-icon" name="warning-triangle" size="16"></ds-icon></button>
+        </div>
+      </div>
+
+      <span class="row-label" style="margin-left:var(--ds-space-10);">Icon button</span>
+      <div class="ds-menu-wrapper">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless ds-btn-icon" aria-haspopup="menu" aria-expanded="false" aria-label="More actions"><ds-icon name="more-vertical" size="24"></ds-icon></button>
+        <div class="ds-select-menu ds-menu" role="menu" aria-label="More actions">
+          <div class="ds-menu-section-title ds-menu-section-title-lead" role="presentation">Sort by</div>
+          <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><span class="ds-select-item-label">Newest</span><ds-icon class="ds-menu-item-icon" name="check" size="16"></ds-icon></button>
+          <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><span class="ds-select-item-label">Oldest</span></button>
+          <button type="button" class="ds-select-item ds-menu-item" role="menuitem"><span class="ds-select-item-label">A very long item name that gets cut with an ellipsis</span></button>
+        </div>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;div class="ds-menu-wrapper"&gt;
+  &lt;button type="button" class="ds-btn ds-btn-md ds-btn-secondary" aria-haspopup="menu" aria-expanded="false"&gt;Actions&lt;/button&gt;
+  &lt;div class="ds-select-menu ds-menu" role="menu" aria-label="Actions"&gt;
+    &lt;!-- MenuItem: optional start icon, label, optional right icon (KEP `icon`) --&gt;
+    &lt;button type="button" class="ds-select-item ds-menu-item" role="menuitem"&gt;
+      &lt;ds-icon class="ds-menu-item-start-icon" name="edit" size="16"&gt;&lt;/ds-icon&gt;
+      &lt;span class="ds-select-item-label"&gt;Edit&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;!-- NestedMenuItem: the item + its sub-menu --&gt;
+    &lt;div class="ds-nested-menu-item"&gt;
+      &lt;button type="button" class="ds-select-item ds-menu-item" role="menuitem" aria-haspopup="menu" aria-expanded="false"&gt;
+        &lt;span class="ds-select-item-label"&gt;Share&lt;/span&gt;
+        &lt;ds-icon class="ds-menu-item-icon" name="chevron-right" size="16"&gt;&lt;/ds-icon&gt;
+      &lt;/button&gt;
+      &lt;div class="ds-select-menu ds-menu ds-nested-menu" role="menu" aria-label="Share"&gt;
+        &lt;button type="button" class="ds-select-item ds-menu-item" role="menuitem"&gt;&lt;span class="ds-select-item-label"&gt;Copy link&lt;/span&gt;&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;hr class="ds-menu-divider-item"&gt;                                         &lt;!-- MenuDividerItem --&gt;
+    &lt;div class="ds-menu-section-title" role="presentation"&gt;Danger zone&lt;/div&gt;  &lt;!-- MenuSectionTitle (+ -lead when first) --&gt;
+    &lt;button type="button" class="ds-select-item ds-menu-item" role="menuitem" aria-disabled="true"&gt;&lt;span class="ds-select-item-label"&gt;Archive&lt;/span&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Popover
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="popover">Popover</h2>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">A floating panel anchored to a button (KEP UI <code>Popover</code>): elevated surface, 16px padding, medium elevation. Opens below the button and flips above (or to the right edge) when there is no room. Click outside, Tab out or Escape closes it and focus returns to the button. Figma has no Popover component: the look is KEP's.</p>
+
+    <div class="row" style="align-items:flex-start; min-height:200px;">
+      <span class="row-label">Popover</span>
+      <div class="ds-popover-wrapper">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-primary" aria-haspopup="dialog" aria-expanded="false">Show details</button>
+        <div class="ds-popover" role="dialog" aria-label="Details" style="width:280px;">
+          <strong>Upload limits</strong>
+          <p style="margin:var(--ds-space-2) 0 var(--ds-space-3); color:var(--ds-tone-2);">Videos up to 4GB. Supported: MP4, MOV, WebM.</p>
+          <a class="ds-link ds-link-sm" href="#popover">Learn more</a>
+        </div>
+      </div>
+      <span class="row-label" style="margin-left:var(--ds-space-10);">From an icon</span>
+      <div class="ds-popover-wrapper">
+        <button type="button" class="ds-btn ds-btn-md ds-btn-secondary ds-btn-borderless ds-btn-icon" aria-haspopup="dialog" aria-expanded="false" aria-label="Help"><ds-icon name="help" size="24"></ds-icon></button>
+        <div class="ds-popover" role="dialog" aria-label="Help" style="width:240px;">Any content: text, a form, a list. The page decides what goes inside.</div>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;div class="ds-popover-wrapper"&gt;
+  &lt;button type="button" class="ds-btn ds-btn-md ds-btn-primary" aria-haspopup="dialog" aria-expanded="false"&gt;Show details&lt;/button&gt;
+  &lt;div class="ds-popover" role="dialog" aria-label="Details"&gt;…any content…&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Date Picker
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="date-picker">Date Picker</h2>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">A date field with a calendar (KEP UI <code>DatePicker</code>; with a label and helper text it is <code>ComposedDatePicker</code>). Type a date (MM/DD/YYYY) or click the calendar button. In the calendar: arrows move a day or a week, PageUp / PageDown a month, Enter picks, Escape closes. Fires <code>ds-change</code> with <code>{ value: 'YYYY-MM-DD', label: 'MM/DD/YYYY' }</code>. Figma has no calendar design, so the calendar follows KEP's code with DS tokens.</p>
+
+    <div class="row" style="align-items:flex-start; min-height:380px;">
+      <span class="row-label">Date picker</span>
+      <div class="ds-date-picker">
+        <div class="ds-date-picker-field">
+          <button type="button" class="ds-date-picker-open-button" aria-label="Choose date" aria-haspopup="dialog"><ds-icon name="calendar" size="24"></ds-icon></button>
+          <input class="ds-date-picker-input" placeholder="MM/DD/YYYY" aria-label="Publish date">
+        </div>
+        <div class="ds-date-picker-popper"></div>
+      </div>
+
+      <div class="ds-composed-input" style="margin-left:var(--ds-space-8);">
+        <label class="ds-form-label" for="dp-due">Due date</label>
+        <p class="ds-form-additional-info">November or December 2026</p>
+        <div class="ds-date-picker" data-min="2026-11-01" data-max="2026-12-31">
+          <div class="ds-date-picker-field">
+            <button type="button" class="ds-date-picker-open-button" aria-label="Choose due date" aria-haspopup="dialog"><ds-icon name="calendar" size="24"></ds-icon></button>
+            <input class="ds-date-picker-input" id="dp-due" placeholder="MM/DD/YYYY">
+          </div>
+          <div class="ds-date-picker-popper"></div>
+        </div>
+      </div>
+
+      <div class="ds-composed-input" style="margin-left:var(--ds-space-8);">
+        <label class="ds-form-label" for="dp-err">Start date</label>
+        <div class="ds-date-picker ds-date-picker-error">
+          <div class="ds-date-picker-field">
+            <button type="button" class="ds-date-picker-open-button" aria-label="Choose start date" aria-haspopup="dialog"><ds-icon name="calendar" size="24"></ds-icon></button>
+            <input class="ds-date-picker-input" id="dp-err" value="02/30/2026" aria-invalid="true" aria-describedby="dp-err-msg">
+          </div>
+          <div class="ds-date-picker-popper"></div>
+        </div>
+        <p class="ds-form-helper-text-error" id="dp-err-msg">Enter a valid date</p>
+      </div>
+
+      <div class="ds-composed-input" style="margin-left:var(--ds-space-8);">
+        <label class="ds-form-label" for="dp-dis">Disabled</label>
+        <div class="ds-date-picker">
+          <div class="ds-date-picker-field">
+            <button type="button" class="ds-date-picker-open-button" aria-label="Choose date" disabled><ds-icon name="calendar" size="24"></ds-icon></button>
+            <input class="ds-date-picker-input" id="dp-dis" value="11/27/2026" disabled>
+          </div>
+          <div class="ds-date-picker-popper"></div>
+        </div>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;!-- optional: data-min / data-max="YYYY-MM-DD"; ds-date-picker-full-width; ds-date-picker-error --&gt;
+&lt;div class="ds-date-picker"&gt;
+  &lt;div class="ds-date-picker-field"&gt;
+    &lt;button type="button" class="ds-date-picker-open-button" aria-label="Choose date" aria-haspopup="dialog"&gt;
+      &lt;ds-icon name="calendar" size="24"&gt;&lt;/ds-icon&gt;
+    &lt;/button&gt;
+    &lt;input class="ds-date-picker-input" placeholder="MM/DD/YYYY" aria-label="Publish date"&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-date-picker-popper"&gt;&lt;/div&gt;   &lt;!-- ds.js builds the calendar --&gt;
+&lt;/div&gt;
+
+&lt;!-- ComposedDatePicker = the same inside a ds-composed-input with ds-form-label / ds-form-helper-text-error --&gt;</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Time Picker
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="time-picker">Time Picker</h2>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">A time field (KEP UI <code>TimePicker</code>; with a label and helper text it is <code>ComposedTimePicker</code>), built from DS parts: an input, and a popover holding three lists of menu items (hours, minutes, AM/PM) and an OK button, like KEP on desktop. Type a time ("2:30 pm") or click the clock. In the lists: Up / Down pick, Left / Right switch list, Enter or OK closes, Escape closes. Fires <code>ds-change</code> with <code>{ value: 'HH:mm' (24h), label: 'hh:mm AM' }</code>. Figma's Time Picker shows an older clock-face design; this follows KEP's current lists.</p>
+
+    <div class="row" style="align-items:flex-start; min-height:320px;">
+      <span class="row-label">Time picker</span>
+      <div class="ds-time-picker">
+        <div class="ds-time-picker-field">
+          <button type="button" class="ds-time-picker-open-button" aria-label="Choose time" aria-haspopup="dialog"><ds-icon name="time-hollow" size="24"></ds-icon></button>
+          <input class="ds-time-picker-input" placeholder="hh:mm aa" aria-label="Start time">
+        </div>
+        <div class="ds-time-picker-popper"></div>
+      </div>
+
+      <div class="ds-composed-input" style="margin-left:var(--ds-space-8);">
+        <label class="ds-form-label" for="tp-24">24-hour, 15 min steps</label>
+        <div class="ds-time-picker" data-ampm="false" data-minutes-step="15">
+          <div class="ds-time-picker-field">
+            <button type="button" class="ds-time-picker-open-button" aria-label="Choose time" aria-haspopup="dialog"><ds-icon name="time-hollow" size="24"></ds-icon></button>
+            <input class="ds-time-picker-input" id="tp-24" value="14:30">
+          </div>
+          <div class="ds-time-picker-popper"></div>
+        </div>
+      </div>
+
+      <div class="ds-composed-input" style="margin-left:var(--ds-space-8);">
+        <label class="ds-form-label" for="tp-dis">Disabled</label>
+        <div class="ds-time-picker">
+          <div class="ds-time-picker-field">
+            <button type="button" class="ds-time-picker-open-button" aria-label="Choose time" disabled><ds-icon name="time-hollow" size="24"></ds-icon></button>
+            <input class="ds-time-picker-input" id="tp-dis" value="09:00 AM" disabled>
+          </div>
+          <div class="ds-time-picker-popper"></div>
+        </div>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;!-- optional: data-ampm="false" (24h), data-minutes-step="15" (default 5), ds-time-picker-full-width, ds-time-picker-error --&gt;
+&lt;div class="ds-time-picker"&gt;
+  &lt;div class="ds-time-picker-field"&gt;
+    &lt;button type="button" class="ds-time-picker-open-button" aria-label="Choose time" aria-haspopup="dialog"&gt;
+      &lt;ds-icon name="time-hollow" size="24"&gt;&lt;/ds-icon&gt;
+    &lt;/button&gt;
+    &lt;input class="ds-time-picker-input" placeholder="hh:mm aa" aria-label="Start time"&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-time-picker-popper"&gt;&lt;/div&gt;   &lt;!-- ds.js builds the lists --&gt;
+&lt;/div&gt;</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Rich Text
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="rich-text">Rich Text</h2>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">A small text editor (KEP UI <code>Richtext</code>, package <code>@kaltura/ds-react-richtext</code>): a toolbar of icon buttons over an editable area. Bold, italic, underline, numbered and bulleted lists, alignment. Buttons show which formatting is on at the caret. Ctrl/Cmd + B / I / U work in the text. Fires <code>ds-change</code> with <code>{ value: html, label: plain text }</code>. Figma has no design for it; the look is KEP's. KEP's image and link actions are not included.</p>
+
+    <div class="row" style="flex-direction:column; align-items:stretch; max-width:560px;">
+      <span class="row-label" style="width:auto; margin-bottom:var(--ds-space-2);">Default</span>
+      <div class="ds-rich-text">
+        <div class="ds-rich-text-toolbar" role="toolbar" aria-label="Formatting">
+          <button type="button" class="ds-rich-text-action" data-action="bold" aria-label="Bold" aria-pressed="false"><ds-icon name="bold" size="24"></ds-icon></button>
+          <button type="button" class="ds-rich-text-action" data-action="italic" aria-label="Italic" aria-pressed="false"><ds-icon name="italic" size="24"></ds-icon></button>
+          <button type="button" class="ds-rich-text-action" data-action="underline" aria-label="Underline" aria-pressed="false"><ds-icon name="underline" size="24"></ds-icon></button>
+          <span class="ds-rich-text-separator" aria-hidden="true"></span>
+          <button type="button" class="ds-rich-text-action" data-action="ordered-list" aria-label="Ordered list" aria-pressed="false"><ds-icon name="ordered-list" size="24"></ds-icon></button>
+          <button type="button" class="ds-rich-text-action" data-action="bullet-list" aria-label="Unordered list" aria-pressed="false"><ds-icon name="bullet-list" size="24"></ds-icon></button>
+          <span class="ds-rich-text-separator" aria-hidden="true"></span>
+          <button type="button" class="ds-rich-text-action" data-action="align-left" aria-label="Align left" aria-pressed="false"><ds-icon name="align-left" size="24"></ds-icon></button>
+          <button type="button" class="ds-rich-text-action" data-action="align-center" aria-label="Align center" aria-pressed="false"><ds-icon name="align-center" size="24"></ds-icon></button>
+          <button type="button" class="ds-rich-text-action" data-action="align-right" aria-label="Align right" aria-pressed="false"><ds-icon name="align-right" size="24"></ds-icon></button>
+        </div>
+        <div class="ds-rich-text-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Description" data-placeholder="Write a description..."></div>
+      </div>
+    </div>
+
+    <div class="row" style="align-items:flex-start; gap:var(--ds-space-6);">
+      <div style="flex:1; max-width:360px;">
+        <span class="row-label" style="width:auto; display:block; margin-bottom:var(--ds-space-2);">Error</span>
+        <div class="ds-rich-text ds-rich-text-error">
+          <div class="ds-rich-text-toolbar" role="toolbar" aria-label="Formatting">
+            <button type="button" class="ds-rich-text-action" data-action="bold" aria-label="Bold" aria-pressed="false"><ds-icon name="bold" size="24"></ds-icon></button>
+            <button type="button" class="ds-rich-text-action" data-action="italic" aria-label="Italic" aria-pressed="false"><ds-icon name="italic" size="24"></ds-icon></button>
+            <button type="button" class="ds-rich-text-action" data-action="underline" aria-label="Underline" aria-pressed="false"><ds-icon name="underline" size="24"></ds-icon></button>
+          </div>
+          <div class="ds-rich-text-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Summary" aria-invalid="true" aria-describedby="rt-err" data-placeholder="Summary"></div>
+        </div>
+        <p class="ds-form-helper-text-error" id="rt-err">A summary is required</p>
+      </div>
+      <div style="flex:1; max-width:360px;">
+        <span class="row-label" style="width:auto; display:block; margin-bottom:var(--ds-space-2);">Read only</span>
+        <div class="ds-rich-text ds-rich-text-read-only">
+          <div class="ds-rich-text-toolbar" role="toolbar" aria-label="Formatting">
+            <button type="button" class="ds-rich-text-action" data-action="bold" aria-label="Bold" aria-pressed="false"><ds-icon name="bold" size="24"></ds-icon></button>
+            <button type="button" class="ds-rich-text-action" data-action="italic" aria-label="Italic" aria-pressed="false"><ds-icon name="italic" size="24"></ds-icon></button>
+          </div>
+          <div class="ds-rich-text-editor" contenteditable="false" role="textbox" aria-readonly="true" aria-label="Notes"><b>Agenda</b><ul><li>Welcome</li><li>Q4 numbers</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;!-- data-action: bold | italic | underline | ordered-list | bullet-list | align-left | align-center | align-right --&gt;
+&lt;div class="ds-rich-text"&gt;
+  &lt;div class="ds-rich-text-toolbar" role="toolbar" aria-label="Formatting"&gt;
+    &lt;button type="button" class="ds-rich-text-action" data-action="bold" aria-label="Bold" aria-pressed="false"&gt;&lt;ds-icon name="bold" size="24"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+    &lt;span class="ds-rich-text-separator" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;button type="button" class="ds-rich-text-action" data-action="bullet-list" aria-label="Unordered list" aria-pressed="false"&gt;&lt;ds-icon name="bullet-list" size="24"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-rich-text-editor" contenteditable="true" role="textbox" aria-multiline="true"
+       aria-label="Description" data-placeholder="Write a description..."&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- error: add ds-rich-text-error + a ds-form-helper-text-error below; read only: ds-rich-text-read-only + contenteditable="false" --&gt;</pre>
+  </div>
+
   <!-- ═══════════════════════════════════════════
        COMPONENT — Tabs
        ═══════════════════════════════════════════ -->
@@ -1656,6 +2117,56 @@ DS.setProcessing(saveBtn, false);</pre>
         </button>
       </div>
     </div>
+    <!-- Full width -->
+    <div class="row" style="flex-direction:column; align-items:stretch; max-width:480px;">
+      <span class="row-label">Full width</span>
+      <div class="ds-segmented-container ds-segmented-container-full-width" role="radiogroup" aria-label="Audience">
+        <button class="ds-segmented-button" role="radio" aria-checked="true"><span>Everyone</span></button>
+        <button class="ds-segmented-button" role="radio" aria-checked="false"><span>Members</span></button>
+        <button class="ds-segmented-button" role="radio" aria-checked="false"><span>Only me</span></button>
+      </div>
+    </div>
+
+    <!-- Tooltips -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">Tooltips</span>
+      <div class="ds-segmented-container" role="radiogroup" aria-label="Alignment">
+        <span class="ds-tooltip-trigger">
+          <button class="ds-segmented-button" role="radio" aria-checked="true" aria-label="Align left"><ds-icon class="ds-segmented-icon" name="align-left" size="24"></ds-icon></button>
+          <div class="ds-tooltip ds-tooltip-top"><div class="ds-tooltip-body">Align left</div><div class="ds-tooltip-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div></div>
+        </span>
+        <span class="ds-tooltip-trigger">
+          <button class="ds-segmented-button" role="radio" aria-checked="false" aria-label="Align center"><ds-icon class="ds-segmented-icon" name="align-center" size="24"></ds-icon></button>
+          <div class="ds-tooltip ds-tooltip-top"><div class="ds-tooltip-body">Align center</div><div class="ds-tooltip-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div></div>
+        </span>
+        <span class="ds-tooltip-trigger">
+          <button class="ds-segmented-button" role="radio" aria-checked="false" aria-label="Align right"><ds-icon class="ds-segmented-icon" name="align-right" size="24"></ds-icon></button>
+          <div class="ds-tooltip ds-tooltip-top"><div class="ds-tooltip-body">Align right</div><div class="ds-tooltip-arrow"><svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M0 0L5.4 7Q7 9 8.6 7L14 0Z" fill="currentColor"/></svg></div></div>
+        </span>
+      </div>
+    </div>
+
+    <!-- Disabled container -->
+    <div class="row" style="flex-direction:column; align-items:start;">
+      <span class="row-label">Disabled group</span>
+      <div class="ds-segmented-container" role="radiogroup" aria-label="Quality" aria-disabled="true">
+        <button class="ds-segmented-button" role="radio" aria-checked="true" tabindex="-1"><span>Auto</span></button>
+        <button class="ds-segmented-button" role="radio" aria-checked="false" tabindex="-1"><span>HD</span></button>
+        <button class="ds-segmented-button" role="radio" aria-checked="false" tabindex="-1"><span>SD</span></button>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;!-- KEP SegmentedContainer fullWidth / disabled, SegmentedButton tooltipText --&gt;
+&lt;div class="ds-segmented-container ds-segmented-container-full-width" role="radiogroup" aria-label="Audience"&gt;
+  &lt;button class="ds-segmented-button" role="radio" aria-checked="true"&gt;&lt;span&gt;Everyone&lt;/span&gt;&lt;/button&gt;
+  &lt;!-- a button with a tooltip: wrap it in a ds-tooltip-trigger --&gt;
+  &lt;span class="ds-tooltip-trigger"&gt;
+    &lt;button class="ds-segmented-button" role="radio" aria-checked="false"&gt;&lt;span&gt;Members&lt;/span&gt;&lt;/button&gt;
+    &lt;div class="ds-tooltip ds-tooltip-top"&gt;&lt;div class="ds-tooltip-body"&gt;Signed-in users&lt;/div&gt;&lt;div class="ds-tooltip-arrow"&gt;…&lt;/div&gt;&lt;/div&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;!-- whole group disabled: aria-disabled="true" on the container (and tabindex="-1" on the buttons) --&gt;
+&lt;div class="ds-segmented-container" role="radiogroup" aria-label="Quality" aria-disabled="true"&gt;…&lt;/div&gt;</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -1865,6 +2376,44 @@ DS.setProcessing(saveBtn, false);</pre>
           <div class="ds-table-spinner"></div>
         </div>
       </div>
+    </div>
+
+    <!-- Skeleton loading (KEP LoadingContent, Figma "Skeleton") -->
+    <div class="row" style="flex-direction:column; align-items:stretch; margin-top:32px;">
+      <span class="row-label" style="width:auto; margin-bottom:12px;">Loading (skeleton rows)</span>
+      <div class="ds-table">
+        <div class="ds-table-skeleton" role="status" aria-label="Loading">
+          <div class="ds-table-skeleton-row"><span class="ds-table-skeleton-thumb"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span></div>
+          <div class="ds-table-skeleton-row"><span class="ds-table-skeleton-thumb"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span></div>
+          <div class="ds-table-skeleton-row"><span class="ds-table-skeleton-thumb"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span><span class="ds-table-skeleton-bar"></span></div>
+        </div>
+      </div>
+      <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;!-- KEP default is 3 rows; repeat the row for more. The thumbnail is optional. --&gt;
+&lt;div class="ds-table-skeleton" role="status" aria-label="Loading"&gt;
+  &lt;div class="ds-table-skeleton-row"&gt;
+    &lt;span class="ds-table-skeleton-thumb"&gt;&lt;/span&gt;
+    &lt;span class="ds-table-skeleton-bar"&gt;&lt;/span&gt;&lt;span class="ds-table-skeleton-bar"&gt;&lt;/span&gt;
+    &lt;span class="ds-table-skeleton-bar"&gt;&lt;/span&gt;&lt;span class="ds-table-skeleton-bar"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+    </div>
+
+    <!-- Pagination variants (KEP Pagination) -->
+    <div class="row" style="flex-direction:column; align-items:stretch; margin-top:32px; gap:var(--ds-space-3);">
+      <span class="row-label" style="width:auto;">Pagination variants (generated by ds.js from data-count)</span>
+      <div style="display:flex; align-items:center; gap:var(--ds-space-4);"><span class="row-label">Default</span><div class="ds-table-pagination ds-table-pagination-borderless" data-count="11" data-page="6"></div></div>
+      <div style="display:flex; align-items:center; gap:var(--ds-space-4);"><span class="row-label">Outlined</span><div class="ds-table-pagination ds-table-pagination-borderless ds-table-pagination-outlined" data-count="11" data-page="6"></div></div>
+      <div style="display:flex; align-items:center; gap:var(--ds-space-4);"><span class="row-label">Circular</span><div class="ds-table-pagination ds-table-pagination-borderless ds-table-pagination-circular" data-count="11" data-page="6"></div></div>
+      <div style="display:flex; align-items:center; gap:var(--ds-space-4);"><span class="row-label">Circular outlined</span><div class="ds-table-pagination ds-table-pagination-borderless ds-table-pagination-circular ds-table-pagination-outlined" data-count="11" data-page="6"></div></div>
+      <div style="display:flex; align-items:center; gap:var(--ds-space-4);"><span class="row-label">First / last buttons</span><div class="ds-table-pagination ds-table-pagination-borderless" data-count="10" data-page="1" data-show-first-button data-show-last-button></div></div>
+      <div style="display:flex; align-items:center; gap:var(--ds-space-4);"><span class="row-label">No prev / next</span><div class="ds-table-pagination ds-table-pagination-borderless" data-count="10" data-page="1" data-hide-prev-button data-hide-next-button></div></div>
+      <div style="display:flex; align-items:center; gap:var(--ds-space-4);"><span class="row-label">Siblings 0</span><div class="ds-table-pagination ds-table-pagination-borderless" data-count="11" data-page="6" data-sibling-count="0"></div></div>
+      <div style="display:flex; align-items:center; gap:var(--ds-space-4);"><span class="row-label">Boundary 2</span><div class="ds-table-pagination ds-table-pagination-borderless" data-count="11" data-page="6" data-boundary-count="2"></div></div>
+      <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;!-- ds.js renders the buttons; ds-change { value: page } on every page change --&gt;
+&lt;div class="ds-table-pagination ds-table-pagination-outlined ds-table-pagination-circular"
+     data-count="11" data-page="6" data-sibling-count="1" data-boundary-count="1"
+     data-show-first-button data-show-last-button&gt;&lt;/div&gt;
+&lt;!-- also: data-hide-prev-button, data-hide-next-button; ds-table-pagination-borderless drops the top border --&gt;</pre>
     </div>
 
     <!-- Error state -->
@@ -2087,7 +2636,7 @@ DS.setProcessing(saveBtn, false);</pre>
 
     <!-- ── Tooltip behavior ── -->
     <h3 style="font-size:14px; font-weight:700; margin:24px 0 8px;">Behavior</h3>
-    <p style="font-family:var(--ds-font-family); font-size:14px; color:var(--ds-tone-2); margin-bottom:20px;">A tooltip is complementary info or a label that appears while hovering a UI element. Tooltips support 4 directions.</p>
+    <p style="font-family:var(--ds-font-family); font-size:14px; color:var(--ds-tone-2); margin-bottom:20px;">A tooltip is complementary info or a label that appears while hovering a UI element (after a short delay) or while it has keyboard focus, like KEP UI <code>Tooltip</code>. Escape hides it. When there is no room on its side, ds.js flips it to the other side (top / bottom, and left / right for <code>ds-tooltip-place-left</code> / <code>-place-right</code>). The direction class names the arrow side; for a tooltip beside the trigger add the side it sits on: <code>ds-tooltip-right ds-tooltip-place-left</code> sits on the left with its arrow pointing right. Tab to the buttons below to see them on focus.</p>
 
     <!-- 4 directions with + icon triggers -->
     <div style="display:flex; gap:24px; align-items:center; margin-bottom:16px;">
@@ -2110,7 +2659,7 @@ DS.setProcessing(saveBtn, false);</pre>
       <!-- Right (arrow points left, tooltip appears right) -->
       <div class="ds-tooltip-trigger">
         <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ds-tooltip ds-tooltip-left" style="left:calc(100% + 4px); right:auto; top:50%; translate:0 -50%;">
+        <div class="ds-tooltip ds-tooltip-left ds-tooltip-place-right">
           <div class="ds-tooltip-body">Tooltip</div>
           <div class="ds-tooltip-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M9 0L2 5.4Q0 7 2 8.6L9 14Z" fill="currentColor"/></svg></div>
         </div>
@@ -2118,7 +2667,7 @@ DS.setProcessing(saveBtn, false);</pre>
       <!-- Left (tooltip on left, arrow points right toward button) -->
       <div class="ds-tooltip-trigger">
         <button class="ds-btn ds-btn-md ds-btn-secondary ds-btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ds-tooltip ds-tooltip-right" style="right:calc(100% + 4px); left:auto; top:50%; translate:0 -50%;">
+        <div class="ds-tooltip ds-tooltip-right ds-tooltip-place-left">
           <div class="ds-tooltip-body">Tooltip</div>
           <div class="ds-tooltip-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M0 0L7 5.4Q9 7 7 8.6L0 14Z" fill="currentColor"/></svg></div>
         </div>
@@ -2146,7 +2695,7 @@ DS.setProcessing(saveBtn, false);</pre>
   <div class="section">
     <h2 class="section-title" id="modal">Modal</h2>
     <p style="font-size:var(--ds-font-size-4); color:var(--ds-tone-2); margin-bottom:var(--ds-space-5);">
-      For forms and other user tasks. It is <strong>static</strong>: clicking outside it or pressing Escape does <em>not</em> close it, so people don't lose what they typed. It closes only with a Cancel button (any <code>data-ds-close</code> element) or <code>DS.closeModal()</code>. The title and footer stay in place; the body scrolls when the content is tall. Open with <code>DS.openModal('id')</code> or a <code>data-ds-open="id"</code> button. Focus is trapped while open and returns to the opener.
+      Two types, like KEP UI's <code>Modal</code> <code>variant</code>. <strong>Task</strong> (the default) is for forms and other user tasks. It is <strong>static</strong>: clicking outside it or pressing Escape does <em>not</em> close it, so people don't lose what they typed. It closes only with a Cancel button (any <code>data-ds-close</code> element) or <code>DS.closeModal()</code>. The title and footer stay in place; the body scrolls when the content is tall. <strong>Content</strong> (<code>ds-modal-variant-content</code>) is for showing content: text, images, video. It <strong>is dismissible</strong>: Escape, a click on the backdrop or the corner X close it, and the whole dialog scrolls with the window. Open either with <code>DS.openModal('id')</code> or a <code>data-ds-open="id"</code> button. Focus is trapped while open and returns to the opener. On phones (narrower than 600px, KEP's <code>sm</code> breakpoint) every modal fills the screen with square corners, like KEP; try it with a phone-sized window.
     </p>
 
     <div class="row">
@@ -2155,6 +2704,41 @@ DS.setProcessing(saveBtn, false);</pre>
       <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-md">Medium</button>
       <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-lg">Large (scrolling)</button>
       <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-xl">Extra large (form)</button>
+    </div>
+    <div class="row">
+      <span class="row-label">Content type</span>
+      <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-content">Content (long text)</button>
+      <button class="ds-btn ds-btn-md ds-btn-secondary" data-ds-open="demo-modal-image">Content with image</button>
+    </div>
+
+    <div class="ds-modal ds-modal-md ds-modal-variant-content" id="demo-modal-content" hidden>
+      <div class="ds-modal-backdrop"></div>
+      <div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-content-title">
+        <div class="ds-modal-header">
+          <h2 class="ds-modal-title" id="demo-modal-content-title">What's new in Kaltura</h2>
+          <button class="ds-modal-close" data-ds-close aria-label="Close"><ds-icon name="clear"></ds-icon></button>
+        </div>
+        <div class="ds-modal-body">
+          <p><strong>Escape, a click outside or the X close this modal.</strong> The whole dialog scrolls with the window instead of only its body.</p>
+          <p style="margin-top:var(--ds-space-4);">AI-generated chapters now appear on every video longer than ten minutes. Viewers can jump straight to the part they need, and editors can rename or merge chapters before publishing. Captions in 40 languages are created automatically, and the new transcript panel follows the video as it plays.</p>
+          <p style="margin-top:var(--ds-space-4);">Rooms support up to 500 interactive participants, with breakout rooms, polls and a shared whiteboard. Recordings are ready a few minutes after the session ends, with highlights picked for you.</p>
+          <p style="margin-top:var(--ds-space-4);">AI-generated chapters now appear on every video longer than ten minutes. Viewers can jump straight to the part they need, and editors can rename or merge chapters before publishing. Captions in 40 languages are created automatically, and the new transcript panel follows the video as it plays.</p>
+          <p style="margin-top:var(--ds-space-4);">Rooms support up to 500 interactive participants, with breakout rooms, polls and a shared whiteboard. Recordings are ready a few minutes after the session ends, with highlights picked for you.</p>
+          <p style="margin-top:var(--ds-space-4);">AI-generated chapters now appear on every video longer than ten minutes. Viewers can jump straight to the part they need, and editors can rename or merge chapters before publishing. Captions in 40 languages are created automatically, and the new transcript panel follows the video as it plays.</p>
+          <p style="margin-top:var(--ds-space-4);">Rooms support up to 500 interactive participants, with breakout rooms, polls and a shared whiteboard. Recordings are ready a few minutes after the session ends, with highlights picked for you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-modal ds-modal-md ds-modal-variant-content" id="demo-modal-image" hidden>
+      <div class="ds-modal-backdrop"></div>
+      <div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-label="Team photo">
+        <button class="ds-modal-close ds-modal-close-pill" data-ds-close aria-label="Close"><ds-icon name="clear"></ds-icon></button>
+        <img class="ds-modal-media" src="Images/Ava_Taylor-600w.png" alt="" style="height:260px; object-fit:cover; object-position:top;">
+        <div class="ds-modal-body">
+          <p>An image or video as the first child of the dialog runs edge to edge. Its close button is the round <code>ds-modal-close-pill</code>, which stays readable over media.</p>
+        </div>
+      </div>
     </div>
 
     <div class="ds-modal ds-modal-sm" id="demo-modal-sm" hidden>
@@ -2262,9 +2846,28 @@ DS.setProcessing(saveBtn, false);</pre>
 &lt;/div&gt;
 
 // JS:  DS.openModal('my-modal');  DS.closeModal();
-// Closing: only a [data-ds-close] element (Cancel) or DS.closeModal(). Backdrop click and Escape do nothing.
+// Closing (task modal): only a [data-ds-close] element (Cancel) or DS.closeModal(). Backdrop click and Escape do nothing.
 // Optional corner X: &lt;button class="ds-modal-close" data-ds-close aria-label="Close"&gt;&lt;ds-icon name="clear"&gt;&lt;/ds-icon&gt;&lt;/button&gt; inside .ds-modal-header
-// Event: document.addEventListener('ds-close', e =&gt; e.detail.reason)  // 'button' | 'api'</pre>
+// Event: document.addEventListener('ds-close', e =&gt; e.detail.reason)  // 'button' | 'api' | 'escape' | 'backdrop'
+
+&lt;!-- Content modal (KEP variant="content"): dismissible with Escape, backdrop click or the X; the whole dialog scrolls --&gt;
+&lt;div class="ds-modal ds-modal-md ds-modal-variant-content" id="whats-new" hidden&gt;
+  &lt;div class="ds-modal-backdrop"&gt;&lt;/div&gt;
+  &lt;div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="whats-new-title"&gt;
+    &lt;div class="ds-modal-header"&gt;
+      &lt;h2 class="ds-modal-title" id="whats-new-title"&gt;What's new&lt;/h2&gt;
+      &lt;button class="ds-modal-close" data-ds-close aria-label="Close"&gt;&lt;ds-icon name="clear"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="ds-modal-body"&gt;Text, images, video. A footer is optional.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- With media at the top: the X goes straight in the dialog, as a round pill over the image --&gt;
+&lt;div class="ds-modal-dialog" role="dialog" aria-modal="true" aria-label="Team photo"&gt;
+  &lt;button class="ds-modal-close ds-modal-close-pill" data-ds-close aria-label="Close"&gt;&lt;ds-icon name="clear"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+  &lt;img class="ds-modal-media" src="team.jpg" alt=""&gt;
+  &lt;div class="ds-modal-body"&gt;…&lt;/div&gt;
+&lt;/div&gt;</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
@@ -2594,6 +3197,80 @@ DS.setProcessing(saveBtn, false);</pre>
   </div>
 
   <!-- ═══════════════════════════════════════════
+       COMPONENT — Status
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="status">Status</h2>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">A small, non-clickable chip with a bullet or an icon (KEP UI <code>Status</code>, Figma "status"). Variant: filled (default) or borderless. Color: default, success, warning (Figma "Pending"), error (Figma "Danger"), primary. The older table status (<code>ds-table-status</code>, in Data Table) still works.</p>
+
+    <div class="row">
+      <span class="row-label">Filled</span>
+      <span class="ds-status"><span class="ds-status-icon"></span>Draft</span>
+      <span class="ds-status ds-status-success"><span class="ds-status-icon"></span>Published</span>
+      <span class="ds-status ds-status-warning"><span class="ds-status-icon"></span>Pending</span>
+      <span class="ds-status ds-status-error"><span class="ds-status-icon"></span>Failed</span>
+      <span class="ds-status ds-status-primary"><span class="ds-status-icon"></span>Live</span>
+    </div>
+    <div class="row">
+      <span class="row-label">With icon</span>
+      <span class="ds-status"><ds-icon name="tag" size="16"></ds-icon>Tagged</span>
+      <span class="ds-status ds-status-success"><ds-icon name="verified" size="16"></ds-icon>Verified</span>
+      <span class="ds-status ds-status-warning"><ds-icon name="general-spinner" size="16"></ds-icon>Processing</span>
+      <span class="ds-status ds-status-error"><ds-icon name="warning-triangle" size="16"></ds-icon>Error</span>
+      <span class="ds-status ds-status-primary"><ds-icon name="plus" size="16"></ds-icon>New</span>
+    </div>
+    <div class="row">
+      <span class="row-label">Borderless</span>
+      <span class="ds-status ds-status-borderless"><span class="ds-status-icon"></span>Draft</span>
+      <span class="ds-status ds-status-borderless ds-status-success"><span class="ds-status-icon"></span>Published</span>
+      <span class="ds-status ds-status-borderless ds-status-warning"><span class="ds-status-icon"></span>Pending</span>
+      <span class="ds-status ds-status-borderless ds-status-error"><span class="ds-status-icon"></span>Failed</span>
+      <span class="ds-status ds-status-borderless ds-status-primary"><span class="ds-status-icon"></span>Live</span>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;!-- color: (default) | ds-status-success | -warning | -error | -primary;  variant: (filled) | ds-status-borderless --&gt;
+&lt;span class="ds-status ds-status-success"&gt;&lt;span class="ds-status-icon"&gt;&lt;/span&gt;Published&lt;/span&gt;
+&lt;span class="ds-status ds-status-success"&gt;&lt;ds-icon name="verified" size="16"&gt;&lt;/ds-icon&gt;Verified&lt;/span&gt;</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMPONENT — Link
+       ═══════════════════════════════════════════ -->
+  <div class="section">
+    <h2 class="section-title" id="link">Link</h2>
+    <p style="margin:0 0 var(--ds-space-4); color:var(--ds-tone-2);">A text link (KEP UI <code>Link</code>): bold, tone-1, underlined; on hover and focus it turns tone-2 and loses the underline. Size inherits from the text around it, or <code>ds-link-sm</code> (14px) / <code>ds-link-lg</code> (16px). A link with a leading icon follows Figma "Custom Links" (no underline). For a disabled link drop the <code>href</code> and add <code>aria-disabled="true"</code>. Use <code>ds-link-translucent</code> on images or video.</p>
+
+    <div class="row">
+      <span class="row-label">Sizes</span>
+      <a class="ds-link ds-link-sm" href="#link">Small link</a>
+      <a class="ds-link ds-link-lg" href="#link">Large link</a>
+      <span style="font-size:var(--ds-font-size-3); color:var(--ds-tone-2);">Inherits: read the <a class="ds-link" href="#link">terms of use</a> first.</span>
+    </div>
+    <div class="row">
+      <span class="row-label">With icon</span>
+      <a class="ds-link ds-link-sm" href="#link"><ds-icon name="external-link" size="16"></ds-icon>Learn More</a>
+      <a class="ds-link ds-link-sm" href="#link"><ds-icon name="external-link" size="16"></ds-icon>Visit Wiki</a>
+    </div>
+    <div class="row">
+      <span class="row-label">Disabled</span>
+      <a class="ds-link ds-link-sm" aria-disabled="true">Disabled link</a>
+      <button type="button" class="ds-link ds-link-sm" disabled>Disabled button link</button>
+    </div>
+    <div class="row">
+      <span class="row-label">Translucent</span>
+      <div style="display:flex; gap:var(--ds-space-4); padding:var(--ds-space-3) var(--ds-space-4); background:var(--ds-protection); border-radius:var(--ds-roundness-1);">
+        <a class="ds-link ds-link-sm ds-link-translucent" href="#link">On media</a>
+        <a class="ds-link ds-link-sm ds-link-translucent" aria-disabled="true">Disabled</a>
+      </div>
+    </div>
+
+    <pre style="background:var(--ds-tone-8); border:1px solid var(--ds-tone-5); border-radius:var(--ds-roundness-2); padding:var(--ds-space-5); margin:var(--ds-space-4) 0 var(--ds-space-6); font-size:var(--ds-font-size-3); line-height:1.6; overflow-x:auto;">&lt;a class="ds-link ds-link-sm" href="/terms"&gt;Terms of use&lt;/a&gt;
+&lt;a class="ds-link ds-link-sm" href="/wiki"&gt;&lt;ds-icon name="external-link" size="16"&gt;&lt;/ds-icon&gt;Learn More&lt;/a&gt;
+&lt;a class="ds-link" aria-disabled="true"&gt;Not available&lt;/a&gt;
+&lt;button type="button" class="ds-link"&gt;Looks like a link, acts as a button&lt;/button&gt;</pre>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
        TERMINOLOGY INDEX (tables generated from tools/terminology.json)
        ═══════════════════════════════════════════ -->
   <div class="section">
@@ -2606,31 +3283,38 @@ DS.setProcessing(saveBtn, false);</pre>
     <table class="token-table">
       <thead><tr><th>Component</th><th>Figma (Platform DS)</th><th>KEP UI (ds-react-components)</th><th>kaltura-ds</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><a href="#button" style="color:inherit;"><strong>Button</strong></a></td><td>Buttons &gt; Pill, Borderless</td><td>Button (variant=&quot;pill&quot; | &quot;borderless&quot;), IconButton</td><td><code>ds-btn</code> + <code>ds-btn-primary</code> | <code>-secondary</code> | <code>-danger</code>, <code>ds-btn-borderless</code>, <code>ds-btn-icon</code></td><td>Figma &quot;Pill&quot; = KEP variant=&quot;pill&quot; = the default filled button here. The grey button is &quot;secondary&quot; in KEP and here.</td></tr>
+        <tr><td><a href="#button" style="color:inherit;"><strong>Button</strong></a></td><td>Buttons &gt; Pill (Type Primary | Secondary | Danger | Translucent), Borderless</td><td>Button (variant=&quot;pill&quot; | &quot;borderless&quot;, color primary | secondary | danger | translucent), IconButton</td><td><code>ds-btn</code> + <code>ds-btn-primary</code> | <code>-secondary</code> | <code>-danger</code> | -translucent, <code>ds-btn-borderless</code>, <code>ds-btn-icon</code></td><td>Figma &quot;Pill&quot; = KEP variant=&quot;pill&quot; = the default filled button here. The grey button is &quot;secondary&quot; in KEP and here.</td></tr>
         <tr><td><a href="#button" style="color:inherit;"><strong>Circular Button</strong></a></td><td>Buttons &gt; Circular</td><td>no exact match</td><td><code>ds-btn-circular</code></td><td>Dark translucent media-overlay button.</td></tr>
         <tr><td><a href="#split-button" style="color:inherit;"><strong>Split Button</strong></a></td><td>Split Button</td><td>SplitButton (action button, menu toggle button, menu)</td><td><code>ds-split-button</code>, <code>ds-split-button-action</code>, <code>ds-split-button-menu-toggle</code>, <code>ds-split-button-menu</code></td><td></td></tr>
         <tr><td><a href="#input" style="color:inherit;"><strong>Input</strong></a></td><td>Input Fields &gt; Text Single Line</td><td>BaseInput</td><td><code>ds-input</code></td><td></td></tr>
         <tr><td><a href="#textarea" style="color:inherit;"><strong>Textarea</strong></a></td><td>Input Fields &gt; Textarea</td><td>BaseInput (multiline)</td><td><code>ds-textarea</code></td><td></td></tr>
         <tr><td><a href="#composed-input" style="color:inherit;"><strong>Composed Input</strong></a></td><td>Form Inputs &gt; Form Input Template</td><td>ComposedInput (FormLabel, inputAdditionalInfo, FormHelperText, input counter)</td><td><code>ds-composed-input</code>, <code>ds-form-label</code>, <code>ds-form-additional-info</code>, <code>ds-form-helper-text-error</code>, <code>ds-input-counter</code><br><span style="color:var(--ds-tone-3);">was <code>ds-form-field</code>, <code>ds-form-desc</code>, <code>ds-form-error</code>, <code>ds-form-counter</code></span></td><td></td></tr>
-        <tr><td><a href="#checkbox" style="color:inherit;"><strong>Checkbox</strong></a></td><td>Checkers &gt; Checkbox</td><td>Checkbox</td><td><code>ds-checkbox</code></td><td></td></tr>
-        <tr><td><a href="#radio" style="color:inherit;"><strong>Radio</strong></a></td><td>Checkers &gt; Radio</td><td>Radio</td><td><code>ds-radio</code></td><td></td></tr>
+        <tr><td><a href="#checkbox" style="color:inherit;"><strong>Checkbox</strong></a></td><td>Checkers &gt; Checkbox (Mode=Translucent)</td><td>Checkbox (color=&quot;translucent&quot;), CheckboxFormControl (labelPlacement)</td><td><code>ds-checkbox</code>, <code>ds-checkbox-translucent</code>, <code>ds-checkbox-label-placement-start</code> | -top | -bottom</td><td></td></tr>
+        <tr><td><a href="#radio" style="color:inherit;"><strong>Radio</strong></a></td><td>Checkers &gt; Radio (Mode=Translucent)</td><td>Radio (color=&quot;translucent&quot;), RadioFormControlLabel (labelPlacement)</td><td><code>ds-radio</code>, <code>ds-radio-translucent</code>, <code>ds-radio-label-placement-start</code> | -top | -bottom</td><td></td></tr>
         <tr><td><a href="#switch" style="color:inherit;"><strong>Switch</strong></a></td><td>Checkers &gt; Switch (Status, State, Size, Mode)</td><td>Switch (checked, disabled, size; thumb, track)</td><td><code>ds-switch-track</code> (track), <code>ds-switch-thumb</code> (thumb), aria-checked (checked), <code>ds-switch-sm</code> | <code>-lg</code>, <code>ds-switch-translucent</code><br><span style="color:var(--ds-tone-3);">was <code>ds-switch-handle</code>, <code>ds-switch-on</code> / <code>ds-switch-off</code></span></td><td>Figma calls the thumb &quot;Handle&quot;. State lives in aria-checked; ds.js also sets the old on/off classes.</td></tr>
+        <tr><td><a href="#slider" style="color:inherit;"><strong>Slider</strong></a></td><td>Slider (Type Continuous | Discrete; State Default, Hover / Focus, Disabled)</td><td>Slider (rail, track, thumb, valueLabel, mark, markActive)</td><td><code>ds-slider</code> + <code>ds-slider-continuous</code> | <code>ds-slider-discrete</code>, <code>ds-slider-input</code>, <code>ds-slider-value-label</code>, <code>ds-slider-mark</code>, <code>ds-slider-mark-active</code></td><td>Built on a native range input. Figma calls the thumb &quot;Picker&quot; and the value label &quot;Label&quot;.</td></tr>
         <tr><td><a href="#select" style="color:inherit;"><strong>Select</strong></a></td><td>Select Menu &gt; Select, Select borderless, Select Menu Item, Seperator</td><td>Select, SelectMenu, MenuItem</td><td><code>ds-select</code>, <code>ds-select-borderless</code>, <code>ds-select-menu</code>, <code>ds-select-item</code>, <code>ds-select-separator</code></td><td>KEP&#x27;s other library (bits) calls it Dropdown.</td></tr>
-        <tr><td><a href="#autocomplete" style="color:inherit;"><strong>Autocomplete</strong></a></td><td>Autocomplete</td><td>AutoComplete</td><td><code>ds-autocomplete</code></td><td></td></tr>
+        <tr><td><a href="#autocomplete" style="color:inherit;"><strong>Autocomplete</strong></a></td><td>Autocomplete</td><td>AutoComplete (loading, hasError + errorMessage, freeSolo)</td><td><code>ds-autocomplete</code>, <code>ds-autocomplete-loading</code>, <code>ds-autocomplete-error</code>, <code>ds-autocomplete-free-solo</code></td><td></td></tr>
+        <tr><td><a href="#menu" style="color:inherit;"><strong>Menu</strong></a></td><td>Select Menu, Select Menu Item, Seperator</td><td>Menu, MenuItem (icon), NestedMenuItem, MenuDividerItem, MenuSectionTitle (leadItem)</td><td><code>ds-menu-wrapper</code>, <code>ds-menu</code>, <code>ds-menu-item</code>, <code>ds-menu-item-start-icon</code>, <code>ds-menu-item-icon</code>, <code>ds-nested-menu-item</code>, <code>ds-nested-menu</code>, <code>ds-menu-divider-item</code>, <code>ds-menu-section-title</code>, <code>ds-menu-section-title-lead</code></td><td>Same look as the select menu (ds-select-menu, ds-select-item). KEP MenuItem `icon` is the right icon; KEP bits calls it rightIcon and its leading icon `icon` (ds-menu-item-start-icon here). MenuDividerItem and MenuSectionTitle are in KEP bits.</td></tr>
+        <tr><td><a href="#popover" style="color:inherit;"><strong>Popover</strong></a></td><td>no match</td><td>Popover</td><td><code>ds-popover-wrapper</code>, <code>ds-popover</code></td><td>Look from KEP: elevated surface, 16px padding, medium elevation (--ds-shadow-menu).</td></tr>
+        <tr><td><a href="#date-picker" style="color:inherit;"><strong>Date Picker</strong></a></td><td>no calendar design</td><td>DatePicker, ComposedDatePicker</td><td><code>ds-date-picker</code>, <code>ds-date-picker-field</code>, <code>ds-date-picker-open-button</code>, <code>ds-date-picker-input</code>, <code>ds-date-picker-popper</code>, <code>ds-date-picker-error</code></td><td>Calendar look from KEP (MUI DateCalendar). Composed = inside ds-composed-input.</td></tr>
+        <tr><td><a href="#time-picker" style="color:inherit;"><strong>Time Picker</strong></a></td><td>Date and Time &gt; Time Picker</td><td>TimePicker, ComposedTimePicker</td><td><code>ds-time-picker</code>, <code>ds-time-picker-field</code>, <code>ds-time-picker-open-button</code>, <code>ds-time-picker-input</code>, <code>ds-time-picker-popper</code>, <code>ds-time-picker-error</code></td><td>Figma shows a clock face; KEP (and here) use hour / minute / AM-PM lists.</td></tr>
+        <tr><td><a href="#rich-text" style="color:inherit;"><strong>Rich Text</strong></a></td><td>no match</td><td>Richtext (@kaltura/ds-react-richtext: toolbar, richText, readOnly, error)</td><td><code>ds-rich-text</code>, <code>ds-rich-text-toolbar</code>, <code>ds-rich-text-action</code>, <code>ds-rich-text-editor</code>, <code>ds-rich-text-read-only</code>, <code>ds-rich-text-error</code></td><td>Bold, italic, underline, lists, alignment. KEP&#x27;s image and link actions are not included.</td></tr>
         <tr><td><a href="#tabs" style="color:inherit;"><strong>Tabs</strong></a></td><td>Navigation &gt; Tabs, Tab Item</td><td>Tabs, Tab</td><td><code>ds-tabs</code>, <code>ds-tab</code></td><td></td></tr>
-        <tr><td><a href="#segmented-buttons" style="color:inherit;"><strong>Segmented Buttons</strong></a></td><td>Segmented control, Segmented control cells</td><td>SegmentedContainer, SegmentedButton</td><td><code>ds-segmented-container</code>, <code>ds-segmented-button</code><br><span style="color:var(--ds-tone-3);">was <code>ds-segmented</code>, <code>ds-segmented-item</code></span></td><td></td></tr>
+        <tr><td><a href="#segmented-buttons" style="color:inherit;"><strong>Segmented Buttons</strong></a></td><td>Segmented control, Segmented control cells</td><td>SegmentedContainer (fullWidth, disabled), SegmentedButton (tooltipText)</td><td><code>ds-segmented-container</code>, <code>ds-segmented-container-full-width</code>, <code>ds-segmented-button</code>; <code>aria-disabled=&quot;true&quot;</code> on the container<br><span style="color:var(--ds-tone-3);">was <code>ds-segmented</code>, <code>ds-segmented-item</code></span></td><td></td></tr>
         <tr><td><a href="#breadcrumbs" style="color:inherit;"><strong>Breadcrumbs</strong></a></td><td>Navigation &gt; Breadcrumb, Breadcrumb Item</td><td>Breadcrumbs, BreadcrumbItem</td><td><code>ds-breadcrumbs</code>, <code>ds-breadcrumb-item</code>, <code>ds-breadcrumbs-separator</code>, <code>ds-breadcrumbs-truncated</code></td><td></td></tr>
-        <tr><td><a href="#data-table" style="color:inherit;"><strong>Data Table</strong></a></td><td>Data Table</td><td>Table, TableContainer, TableActionBar, TableSortLabel</td><td><code>ds-table</code>, <code>ds-table-action-bar</code>, <code>ds-table-sortable</code></td><td></td></tr>
-        <tr><td><a href="#data-table" style="color:inherit;"><strong>Pagination</strong></a></td><td>Pagination, Pagination Page</td><td>Pagination</td><td><code>ds-table-pagination</code>, <code>ds-table-page</code></td><td></td></tr>
-        <tr><td><a href="#data-table" style="color:inherit;"><strong>Status</strong></a></td><td>Status</td><td>Status (variant, color)</td><td><code>ds-table-status</code> + <code>-green</code> | <code>-orange</code> | <code>-red</code> | <code>-grey</code></td><td>Only the table dot-and-text version exists here.</td></tr>
+        <tr><td><a href="#data-table" style="color:inherit;"><strong>Data Table</strong></a></td><td>Data Table, Skeleton</td><td>Table, TableContainer, TableActionBar, TableSortLabel, LoadingContent (bits)</td><td><code>ds-table</code>, <code>ds-table-action-bar</code>, <code>ds-table-sortable</code>, <code>ds-table-skeleton</code></td><td>Skeleton rows: KEP default 3 rows of tone-5 bars.</td></tr>
+        <tr><td><a href="#data-table" style="color:inherit;"><strong>Pagination</strong></a></td><td>Pagination, Pagination Page</td><td>Pagination (variant text | outlined, shape rounded | circular, showFirstButton, showLastButton, siblingCount, boundaryCount)</td><td><code>ds-table-pagination</code>, <code>ds-table-page</code>, <code>ds-table-pagination-outlined</code>, <code>ds-table-pagination-circular</code></td><td>With data-count, ds.js renders the page buttons and ranges.</td></tr>
+        <tr><td><a href="#status" style="color:inherit;"><strong>Status</strong></a></td><td>status (Tag=Success | Pending | Danger | Default, Icon)</td><td>Status (variant filled | borderless, color default | success | warning | error | primary)</td><td><code>ds-status</code>, <code>ds-status-borderless</code>, <code>ds-status-success</code>, <code>ds-status-warning</code>, <code>ds-status-error</code>, <code>ds-status-primary</code>, <code>ds-status-icon</code></td><td>Figma Pending = warning, Danger = error. The older ds-table-status (table dot and text) still works.</td></tr>
         <tr><td><a href="#initials" style="color:inherit;"><strong>Initials</strong></a></td><td>User Picture &gt; Picture</td><td>Initials</td><td><code>ds-initials</code> + <code>-sm</code> | <code>-md</code> | <code>-lg</code> | <code>-xl</code>, <code>ds-initials-round</code><br><span style="color:var(--ds-tone-3);">was <code>ds-user-picture</code></span></td><td>KEP bits calls it Avatar. Sizes differ: ds-initials-lg is 48px, KEP size=&quot;large&quot; is 96px.</td></tr>
         <tr><td><a href="#alert-tooltip" style="color:inherit;"><strong>Alert</strong></a></td><td>Acknowledgement &amp; Help &gt; Acknowledgement</td><td>Alert (severity)</td><td><code>ds-alert</code> + <code>-info</code> | <code>-error</code> | <code>-success</code> | <code>-warning</code><br><span style="color:var(--ds-tone-3);">was <code>ds-ack</code></span></td><td></td></tr>
         <tr><td><a href="#alert-tooltip" style="color:inherit;"><strong>Toast</strong></a></td><td>Acknowledgement (floating)</td><td>Toast, Snackbar</td><td><code>ds-alert-floating</code>, <code>DS.showToast()</code>; ds.js adds <code>ds-toast-active</code> to the showing toast<br><span style="color:var(--ds-tone-3);">was <code>ds-ack-floating</code></span></td><td></td></tr>
-        <tr><td><a href="#alert-tooltip" style="color:inherit;"><strong>Tooltip</strong></a></td><td>Acknowledgement &amp; Help &gt; Hint</td><td>Tooltip</td><td><code>ds-tooltip</code>, <code>ds-tooltip-trigger</code><br><span style="color:var(--ds-tone-3);">was <code>ds-hint</code></span></td><td></td></tr>
+        <tr><td><a href="#alert-tooltip" style="color:inherit;"><strong>Tooltip</strong></a></td><td>Acknowledgement &amp; Help &gt; Hint</td><td>Tooltip (placement, enter delay, shows on focus)</td><td><code>ds-tooltip</code>, <code>ds-tooltip-trigger</code>, <code>ds-tooltip-place-left</code>, <code>ds-tooltip-place-right</code><br><span style="color:var(--ds-tone-3);">was <code>ds-hint</code></span></td><td>ds.js flips it when there is no room. ds-tooltip-top|bottom|left|right name the arrow side.</td></tr>
         <tr><td><a href="#loader" style="color:inherit;"><strong>Loader</strong></a></td><td>Spinner</td><td>Loader</td><td><code>ds-loader</code> + <code>-white</code> | <code>-black</code><br><span style="color:var(--ds-tone-3);">was <code>ds-spinner</code></span></td><td>KEP bits calls it Spinner.</td></tr>
-        <tr><td><a href="#modal" style="color:inherit;"><strong>Modal</strong></a></td><td>(not on the Components page)</td><td>Modal, ModalTitle, ModalContent, ModalActions, ModalCloseButton</td><td><code>ds-modal</code>, <code>ds-modal-title</code>, <code>ds-modal-body</code>, <code>ds-modal-footer</code>, <code>ds-modal-close</code></td><td>KEP ModalContent = ds-modal-body, ModalActions = ds-modal-footer.</td></tr>
+        <tr><td><a href="#modal" style="color:inherit;"><strong>Modal</strong></a></td><td>(not on the Components page)</td><td>Modal (variant task | content), ModalTitle (onClose, closeButtonVariant), ModalContent, ModalActions, ModalCloseButton</td><td><code>ds-modal</code>, <code>ds-modal-variant-content</code>, <code>ds-modal-title</code>, <code>ds-modal-body</code>, <code>ds-modal-footer</code>, <code>ds-modal-close</code>, <code>ds-modal-close-pill</code>, <code>ds-modal-media</code></td><td>Task (the default) is static; content (ds-modal-variant-content) closes on Escape, backdrop click or the X, and scrolls as a whole. KEP ModalContent = ds-modal-body, ModalActions = ds-modal-footer.</td></tr>
         <tr><td><a href="#badges" style="color:inherit;"><strong>Badge</strong></a></td><td>Badges</td><td>Badge</td><td><code>ds-badge</code></td><td></td></tr>
         <tr><td><a href="#badges" style="color:inherit;"><strong>Tag &amp; Chip</strong></a></td><td>Tags, Tag Delete Button, Chips</td><td>Tag</td><td><code>ds-tag</code>, <code>ds-chip</code></td><td></td></tr>
+        <tr><td><a href="#link" style="color:inherit;"><strong>Link</strong></a></td><td>Custom Links</td><td>Link (size, disabled, translucent)</td><td><code>ds-link</code>, <code>ds-link-sm</code>, <code>ds-link-lg</code>, <code>ds-link-translucent</code></td><td>Figma Custom Links are icon links without underline; KEP Link is underlined.</td></tr>
         <tr><td><a href="#icons" style="color:inherit;"><strong>Icon</strong></a></td><td>Icons (16/..., 24/...)</td><td>@kaltura/ds-react-icons (ChevronDown16Icon)</td><td>&lt;<code>ds-icon</code> name=&quot;chevron-down&quot; size=&quot;16&quot;&gt;</td><td>Same icon set; file names are kebab-case here.</td></tr>
       </tbody>
     </table>
@@ -2642,7 +3326,7 @@ DS.setProcessing(saveBtn, false);</pre>
         <tr><td><strong>On / checked</strong></td><td>Status=True</td><td>checked, selected</td><td><code>aria-checked=&quot;true&quot;</code> (switch, segmented), <code>aria-selected=&quot;true&quot;</code> (tabs)</td><td></td></tr>
         <tr><td><strong>Current item</strong></td><td>State=Active (Breadcrumb Item)</td><td>active</td><td><code>aria-current=&quot;page&quot;</code></td><td></td></tr>
         <tr><td><strong>Busy</strong></td><td>State=Processing</td><td>loading</td><td><code>ds-btn-processing</code> + <code>aria-busy=&quot;true&quot;</code>, <code>DS.setProcessing()</code></td><td></td></tr>
-        <tr><td><strong>Over media</strong></td><td>Mode=Translucent</td><td>color=&quot;translucent&quot;</td><td><code>ds-switch-translucent</code></td><td></td></tr>
+        <tr><td><strong>Over media</strong></td><td>Mode=Translucent</td><td>color=&quot;translucent&quot;</td><td><code>ds-switch-translucent</code>, <code>ds-checkbox-translucent</code>, <code>ds-radio-translucent</code></td><td></td></tr>
         <tr><td><strong>Hover, focus</strong></td><td>State=Hover, Focus</td><td>:hover, focusVisible</td><td>:hover, :focus-visible</td><td></td></tr>
         <tr><td><strong>Sizes</strong></td><td>Small, Medium, Large, XL</td><td>small, medium, large</td><td><code>-sm</code>, <code>-md</code>, <code>-lg</code>, <code>-xl</code></td><td>Same words, not always the same pixels: compare px, not names.</td></tr>
         <tr><td><strong>Color shades</strong></td><td>Darker, Brighter, Text Contrast</td><td>palette.x.dark, .light, .contrastText</td><td><code>--ds-x-darker</code>, <code>--ds-x-brighter</code>, <code>--ds-x-text-contrast</code></td><td></td></tr>
@@ -2660,8 +3344,6 @@ DS.setProcessing(saveBtn, false);</pre>
     <table class="token-table">
       <thead><tr><th>Component</th><th>Figma</th><th>KEP UI</th></tr></thead>
       <tbody>
-        <tr><td><strong>Slider</strong></td><td>Slider</td><td>Slider</td></tr>
-        <tr><td><strong>Date and time</strong></td><td>Date and Time, Time Picker</td><td>DatePicker, TimePicker, ComposedDatePicker</td></tr>
         <tr><td><strong>Card</strong></td><td>Cards</td><td>Card</td></tr>
         <tr><td><strong>Color picker</strong></td><td>Color Picker</td><td>ColorPicker (bits)</td></tr>
         <tr><td><strong>Tree view</strong></td><td>Tree View</td><td>@kaltura/ds-react-tree</td></tr>
@@ -2669,8 +3351,6 @@ DS.setProcessing(saveBtn, false);</pre>
         <tr><td><strong>Upload</strong></td><td>Upload</td><td>no match</td></tr>
         <tr><td><strong>Reactions</strong></td><td>Reactions</td><td>no match</td></tr>
         <tr><td><strong>Toggle button</strong></td><td>no match</td><td>ToggleButton</td></tr>
-        <tr><td><strong>Popover, menu</strong></td><td>no match</td><td>Popover, Menu</td></tr>
-        <tr><td><strong>Link</strong></td><td>Custom Links</td><td>Link</td></tr>
         <tr><td><strong>Typography</strong></td><td>text styles</td><td>Typography</td></tr>
       </tbody>
     </table>
@@ -2690,6 +3370,7 @@ DS.setProcessing(saveBtn, false);</pre>
 &lt;!-- 2. Use ds- prefixed classes --&gt;
 &lt;button class="ds-btn ds-btn-md ds-btn-primary"&gt;Save&lt;/button&gt;
 &lt;button class="ds-btn ds-btn-md ds-btn-danger ds-btn-borderless"&gt;Delete&lt;/button&gt;
+&lt;button class="ds-btn ds-btn-md ds-btn-translucent"&gt;Play&lt;/button&gt;   &lt;!-- over images or video --&gt;
 
 &lt;input class="ds-input ds-input-md" placeholder="Email"&gt;
 &lt;textarea class="ds-textarea" placeholder="Message..."&gt;&lt;/textarea&gt;
@@ -2759,6 +3440,13 @@ DS.setProcessing(saveBtn, false);</pre>
   &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;!-- Slider (native range input; add ds-slider-discrete and one ds-slider-mark per step for a stepped one) --&gt;
+&lt;div class="ds-slider ds-slider-continuous"&gt;
+  &lt;label class="ds-slider-title" for="volume"&gt;Volume&lt;/label&gt;
+  &lt;div class="ds-slider-control"&gt;&lt;output class="ds-slider-value-label" for="volume"&gt;25&lt;/output&gt;&lt;input class="ds-slider-input" type="range" id="volume" min="0" max="100" value="25"&gt;&lt;/div&gt;
+  &lt;div class="ds-slider-marks"&gt;&lt;span class="ds-slider-mark"&gt;0&lt;/span&gt;&lt;span class="ds-slider-mark"&gt;100&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
 &lt;!-- Breadcrumbs (aria-current="page" = active; middle items collapse to "..." when too wide) --&gt;
 &lt;nav class="ds-breadcrumbs" aria-label="Breadcrumbs"&gt;
   &lt;ol class="ds-breadcrumbs-ol"&gt;
@@ -2810,7 +3498,7 @@ DS.setProcessing(saveBtn, false);</pre>
 &lt;!-- Icons (name = file name in Icons/, size 16 or 24) --&gt;
 &lt;ds-icon name="settings" size="16"&gt;&lt;/ds-icon&gt;
 
-&lt;!-- Modal: see the Modal section for the full markup --&gt;
+&lt;!-- Modal: see the Modal section for the full markup (add ds-modal-variant-content for a dismissible content modal) --&gt;
 &lt;button class="ds-btn ds-btn-md ds-btn-primary" data-ds-open="my-modal"&gt;Open&lt;/button&gt;
 
 &lt;!-- Button processing state (or DS.setProcessing(btn, true|false)) --&gt;
@@ -2825,6 +3513,49 @@ DS.setProcessing(saveBtn, false);</pre>
   &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;!-- Menu: button + menu of items (see its section for nested menus, divider, section title) --&gt;
+&lt;div class="ds-menu-wrapper"&gt;
+  &lt;button type="button" class="ds-btn ds-btn-md ds-btn-secondary" aria-haspopup="menu" aria-expanded="false"&gt;Actions&lt;/button&gt;
+  &lt;div class="ds-select-menu ds-menu" role="menu" aria-label="Actions"&gt;
+    &lt;button type="button" class="ds-select-item ds-menu-item" role="menuitem"&gt;&lt;span class="ds-select-item-label"&gt;Edit&lt;/span&gt;&lt;/button&gt;
+    &lt;hr class="ds-menu-divider-item"&gt;
+    &lt;button type="button" class="ds-select-item ds-menu-item" role="menuitem"&gt;&lt;span class="ds-select-item-label"&gt;Delete&lt;/span&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Popover --&gt;
+&lt;div class="ds-popover-wrapper"&gt;
+  &lt;button type="button" class="ds-btn ds-btn-md ds-btn-primary" aria-haspopup="dialog" aria-expanded="false"&gt;Details&lt;/button&gt;
+  &lt;div class="ds-popover" role="dialog" aria-label="Details"&gt;…&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Date picker (time picker: same with ds-time-picker-*, icon time-hollow) --&gt;
+&lt;div class="ds-date-picker"&gt;
+  &lt;div class="ds-date-picker-field"&gt;
+    &lt;button type="button" class="ds-date-picker-open-button" aria-label="Choose date" aria-haspopup="dialog"&gt;&lt;ds-icon name="calendar" size="24"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+    &lt;input class="ds-date-picker-input" placeholder="MM/DD/YYYY" aria-label="Date"&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-date-picker-popper"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Status chip and link --&gt;
+&lt;span class="ds-status ds-status-success"&gt;&lt;span class="ds-status-icon"&gt;&lt;/span&gt;Published&lt;/span&gt;
+&lt;a class="ds-link ds-link-sm" href="/terms"&gt;Terms of use&lt;/a&gt;
+
+&lt;!-- Table loading: skeleton rows; generated pagination --&gt;
+&lt;div class="ds-table-skeleton" role="status" aria-label="Loading"&gt;
+  &lt;div class="ds-table-skeleton-row"&gt;&lt;span class="ds-table-skeleton-thumb"&gt;&lt;/span&gt;&lt;span class="ds-table-skeleton-bar"&gt;&lt;/span&gt;&lt;span class="ds-table-skeleton-bar"&gt;&lt;/span&gt;&lt;span class="ds-table-skeleton-bar"&gt;&lt;/span&gt;&lt;span class="ds-table-skeleton-bar"&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="ds-table-pagination ds-table-pagination-outlined" data-count="11" data-page="1"&gt;&lt;/div&gt;
+
+&lt;!-- Rich text: see its section for the full toolbar --&gt;
+&lt;div class="ds-rich-text"&gt;
+  &lt;div class="ds-rich-text-toolbar" role="toolbar" aria-label="Formatting"&gt;
+    &lt;button type="button" class="ds-rich-text-action" data-action="bold" aria-label="Bold" aria-pressed="false"&gt;&lt;ds-icon name="bold" size="24"&gt;&lt;/ds-icon&gt;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="ds-rich-text-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Description" data-placeholder="Write..."&gt;&lt;/div&gt;
+&lt;/div&gt;
+
 &lt;!-- Loader (add ds-loader-white on dark surfaces, ds-loader-black on light images) --&gt;
 &lt;span class="ds-loader" role="status" aria-label="Loading"&gt;&lt;/span&gt;
 
@@ -2832,7 +3563,7 @@ DS.setProcessing(saveBtn, false);</pre>
 &lt;div class="ds-alert ds-alert-floating ds-alert-info" data-ds-toast&gt;…&lt;/div&gt;
 &lt;script&gt; DS.showToast({ type: 'success', message: 'Saved' }); &lt;/script&gt;
 
-&lt;!-- Events (bubble): select, tabs, segmented, switch, pagination --&gt;
+&lt;!-- Events (bubble): select, autocomplete, tabs, segmented, switch, slider, pagination, date / time picker, rich text --&gt;
 &lt;script&gt;
   document.addEventListener('ds-change', e =&gt; console.log(e.target, e.detail.value, e.detail.label));
 &lt;/script&gt;
